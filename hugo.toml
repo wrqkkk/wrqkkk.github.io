@@ -1,4 +1,86 @@
 baseURL = "https://wrqkkk.github.io/"
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+languageCode = "zh-cn"
+title = "wrqkkk's Notes"
 theme = "PaperMod"
+
+[pagination]
+  pagerSize = 10
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# 让 Markdown 更像“写笔记”
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+
+# 站点输出：HTML + RSS + 搜索索引 JSON（PaperMod search 会用到）
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  env = "production"
+  description = "Notes on math / stats / ML"
+  defaultTheme = "auto"     # auto / light / dark
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  ShowToc = true
+  TocOpen = true
+
+  # PaperMod 常用功能
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+
+  # 首页模式：个人主页风格（你也可以换成纯列表）
+  [params.profileMode]
+    enabled = true
+    title = "wrqkkk"
+    subtitle = "Math / Stats / ML notes"
+    imageUrl = ""
+    imageTitle = ""
+    imageWidth = 120
+    imageHeight = 120
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/wrqkkk"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+# 顶部菜单
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  name = "Search"
+  url = "/search/"
+  weight = 20
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 30
+
+[[menu.main]]
+  name = "Categories"
+  url = "/categories/"
+  weight = 40
