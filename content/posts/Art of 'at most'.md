@@ -1,3 +1,4 @@
++++ date = '2026-01-25T12:00:00+08:00' draft = false title = 'The art of 'at most'' +++
 # The art of 'at most'
 
 As we all know, to calculate 'exactly' is notoriously difficult. Why? For example, when we write an assignment on paper, a minimum word‑count line is often printed so that readers does not need to count every word to know whether the requirement is met; a single glance tells them whether the text reaches at least that line and gives an approximate conclusion that it passes.
