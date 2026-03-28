@@ -1,0 +1,49 @@
+{{- $context := . -}}
+{{- if .IsHome -}}
+  {{- $context = .Site -}}
+{{- end -}}
+{{- $pages := slice -}}
+{{- if or .IsHome .IsSection -}}
+  {{- $pages = $context.RegularPages -}}
+{{- else -}}
+  {{- $pages = $context.Pages -}}
+{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+  {{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- $title := .Title -}}
+{{- if eq .Kind "term" -}}
+  {{- $title = printf "%s on %s" .Title .Site.Title -}}
+{{- end -}}
+{{- $description := .Description -}}
+{{- if not $description -}}
+  {{- if eq .Kind "home" -}}
+    {{- $description = printf "Recent content on %s" .Site.Title -}}
+  {{- else -}}
+    {{- $description = printf "Recent content in %s on %s" .Title .Site.Title -}}
+  {{- end -}}
+{{- end -}}
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ $title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ $description }}</description>
+    <generator>Hugo</generator>
+    <language>{{ or .Site.Language.LanguageCode .Site.Language.Lang }}</language>
+    {{ with $pages }}
+    <lastBuildDate>{{ (index . 0).Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>
+    {{ end }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+    {{ range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Summary }}</description>
+    </item>
+    {{ end }}
+  </channel>
+</rss>
