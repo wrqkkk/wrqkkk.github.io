@@ -1,1 +1,49 @@
-&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>wrqkkk's Notes</title><link>https://wrqkkk.github.io/</link><description>Recent content on wrqkkk's Notes</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 25 Jan 2026 12:00:00 +0800</lastBuildDate><atom:link href="https://wrqkkk.github.io/" rel="self" type="application/rss+xml"/><item><title>The art of 'at most'</title><link>https://wrqkkk.github.io/posts/art-of-at-most/</link><pubDate>Sun, 25 Jan 2026 12:00:00 +0800</pubDate><guid>https://wrqkkk.github.io/posts/art-of-at-most/</guid><description><h1 id="the-art-of-at-most">The art of &lsquo;at most&rsquo;</h1><p>As we all know, to calculate &rsquo;exactly&rsquo; is notoriously difficult. Why? For example, when we write an assignment on paper, a minimum word‑count line is often printed so that readers do not need to count every word to know whether the requirement is met; a single glance tells them whether the text reaches at least that line and gives an approximate conclusion that it passes.</p></description></item><item><title>Hello</title><link>https://wrqkkk.github.io/posts/hello/</link><pubDate>Mon, 19 Jan 2026 15:01:23 +0800</pubDate><guid>https://wrqkkk.github.io/posts/hello/</guid><description><p>看见的人运气+666，御寒+999</p></description></item><item><title/><link>https://wrqkkk.github.io/posts/joel-mokyr-summary/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wrqkkk.github.io/posts/joel-mokyr-summary/</guid><description><h1 id="joel-mokyr-讲座大纲">Joel Mokyr 讲座大纲</h1><h2 id="主旨">主旨</h2><p>这场讲座并非只是泛泛空谈“思想自由很重要”、“创新驱动发展”等等，而是掷地有声地通过梳理历史上“思想市场”的发展：一个社会是否能形成高质量的 market for ideas，决定了它能不能持续生产、筛选、信任并应用 useful knowledge，进而影响文化演化、技术创新与长期经济增长。</p><h2 id="主线大纲">主线大纲</h2><h3 id="1-从定义开始什么是-market-for-ideas">1. 从定义开始：什么是 market for ideas</h3><p>讲座先把“思想市场”讲清楚：这里的交易不是物品交换，而是新观念进入公共空间、通过说服被他人接受。微观上是 transaction，宏观上是 dialogue；思想市场本质上是一个社会持续进行的说服、竞争与影响力分配过程。</p><h3 id="2-为什么重要它不仅塑造文化也塑造增长">2. 为什么重要：它不仅塑造文化，也塑造增长</h3><p>Mokyr 强调，思想市场之所以关键，不只是因为它影响人们如何理解正义、真理、自由等重大问题，更因为它会影响一个社会如何看待知识、实验、创新与异端。换句话说，文化中的观念结构最终会进入经济机制，决定 useful knowledge 能否稳定积累。</p><h3 id="3-近代欧洲的关键转向从权威走向-novelty-与-progress">3. 近代欧洲的关键转向：从权威走向 novelty 与 progress</h3><p>讲座随后追踪近代欧洲思想市场的历史变化：竞争焦点逐渐从经典权威、经院式论证，转向更开放、更经验化、对 novelty 更友好的知识秩序。这里最重要的不是“欧洲人忽然更聪明了”，而是关于知识应当如何生产、如何判断、如何合法化的标准变了。</p><h4 id="31-方法论的竞争从-authority-centered-reasoning-到-empirical-inquiry">3.1 方法论的竞争：从 authority-centered reasoning 到 empirical inquiry</h4><p>Mokyr 在这一段强调，真正发生竞争的，不只是结论，而是知识方法本身。原文抓手很清楚：旧的一边更接近 text-and-authority-centered reasoning，新的方向则是 more open, empirical, and novelty-friendly inquiry。也就是说，经院式传统并非毫无价值，但它更强调文本、权威、逻辑协调与体系防御；而近代欧洲越来越给观察、实验、经验检验以及新问题的提出留下空间。</p><h4 id="32-新观念如何进入公共领域successful-cultural-entrepreneurs">3.2 新观念如何进入公共领域：successful cultural entrepreneurs</h4><p>这一转向不是自动发生的。Mokyr 特别点出一些 rebels，并把他们称作 successful cultural entrepreneurs。这个说法很关键，因为他不是把 Paracelsus、Copernicus、Galileo、Spinoza 只当成“伟大思想家”，而是当成把新观念推进 public realm 的行动者：他们提出新解释、挑战旧权威、承担风险、争取说服，并最终改变什么可以被讨论、什么可以被接受。</p><h4 id="33-进步如何获得正当性pascal-与-perrault">3.3 “进步”如何获得正当性：Pascal 与 Perrault</h4><p>这一部分最贴近原文的主线，是 progress 的合法化。关于 Pascal，Mokyr 直接抓的是这句：Pascal offered one of the earliest explicit formulations of cumulative intellectual progress。重点不在于 Pascal 只是某个科学家，而在于他把知识理解为跨代累积的过程：后人不是重复前人，而是可以站在前人基础上继续推进。</p></description></item><item><title>Search</title><link>https://wrqkkk.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wrqkkk.github.io/search/</guid><description>search</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>wrqkkk&#39;s Notes</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on wrqkkk&#39;s Notes</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 29 Mar 2026 02:01:23 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Joel Mokyr 讲座大纲</title>
+      <link>http://localhost:1313/posts/joel-mokyr-summary/</link>
+      <pubDate>Sun, 29 Mar 2026 02:01:23 +0800</pubDate>
+      <guid>http://localhost:1313/posts/joel-mokyr-summary/</guid>
+      <description>&lt;h1 id=&#34;joel-mokyr-讲座大纲&#34;&gt;Joel Mokyr 讲座大纲&lt;/h1&gt;
+&lt;h2 id=&#34;主旨&#34;&gt;主旨&lt;/h2&gt;
+&lt;p&gt;这场讲座并非只是泛泛空谈“思想自由很重要”、“创新驱动发展”等口号，而是通过梳理历史上“思想市场”的发展来告诉我们：一个社会是否能形成高质量的 market for ideas，决定了它能不能持续生产、筛选、信任并应用 useful knowledge，进而影响文化演化、技术创新与长期经济增长。&lt;/p&gt;
+&lt;h2 id=&#34;主线大纲&#34;&gt;主线大纲&lt;/h2&gt;
+&lt;h3 id=&#34;1-从定义开始什么是-market-for-ideas&#34;&gt;1. 从定义开始：什么是 market for ideas&lt;/h3&gt;
+&lt;p&gt;讲座先把“思想市场”讲清楚：这里的交易不是物品交换，而是新观念进入公共空间、通过说服被他人接受。微观上是 transaction，宏观上是 dialogue；思想市场本质上是一个社会持续进行的说服、竞争与影响力分配过程。&lt;/p&gt;
+&lt;h3 id=&#34;2-为什么重要它不仅塑造文化也塑造增长&#34;&gt;2. 为什么重要：它不仅塑造文化，也塑造增长&lt;/h3&gt;
+&lt;p&gt;Mokyr 强调，思想市场之所以关键，不只是因为它影响人们如何理解正义、真理、自由等重大问题，更因为它会影响一个社会如何看待知识、实验、创新与异端。换句话说，文化中的观念结构最终会进入经济机制，决定 useful knowledge 能否稳定积累。&lt;/p&gt;
+&lt;h3 id=&#34;3-近代欧洲的关键转向从权威走向-novelty-与-progress&#34;&gt;3. 近代欧洲的关键转向：从权威走向 novelty 与 progress&lt;/h3&gt;
+&lt;p&gt;讲座随后追踪近代欧洲思想市场的历史变化：竞争焦点逐渐从经典权威、经院式论证，转向更开放、更经验化、对 novelty 更友好的知识秩序。这里最重要的不是“欧洲人忽然更聪明了”，而是关于知识应当如何生产、如何判断、如何合法化的标准变了。&lt;/p&gt;
+&lt;h4 id=&#34;31-方法论的竞争从-authority-centered-reasoning-到-empirical-inquiry&#34;&gt;3.1 方法论的竞争：从 authority-centered reasoning 到 empirical inquiry&lt;/h4&gt;
+&lt;p&gt;Mokyr 在这一段强调，真正发生竞争的，不只是结论，而是知识方法本身。原文抓手很清楚：旧的一边更接近 text-and-authority-centered reasoning，新的方向则是 more open, empirical, and novelty-friendly inquiry。也就是说，经院式传统并非毫无价值，但它更强调文本、权威、逻辑协调与体系防御；而近代欧洲越来越给观察、实验、经验检验以及新问题的提出留下空间。&lt;/p&gt;
+&lt;h4 id=&#34;32-新观念如何进入公共领域successful-cultural-entrepreneurs&#34;&gt;3.2 新观念如何进入公共领域：successful cultural entrepreneurs&lt;/h4&gt;
+&lt;p&gt;这一转向不是自动发生的。Mokyr 特别点出一些 rebels，并把他们称作 successful cultural entrepreneurs。这个说法很关键，因为他不是把 Paracelsus、Copernicus、Galileo、Spinoza 只当成“伟大思想家”，而是当成把新观念推进 public realm 的行动者：他们提出新解释、挑战旧权威、承担风险、争取说服，并最终改变什么可以被讨论、什么可以被接受。&lt;/p&gt;
+&lt;h4 id=&#34;33-进步如何获得正当性pascal-与-perrault&#34;&gt;3.3 “进步”如何获得正当性：Pascal 与 Perrault&lt;/h4&gt;
+&lt;p&gt;这一部分最贴近原文的主线，是 progress 的合法化。关于 Pascal，Mokyr 直接抓的是这句：Pascal offered one of the earliest explicit formulations of cumulative intellectual progress。重点不在于 Pascal 只是某个科学家，而在于他把知识理解为跨代累积的过程：后人不是重复前人，而是可以站在前人基础上继续推进。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The art of &#39;at most&#39;</title>
+      <link>http://localhost:1313/posts/art-of-at-most/</link>
+      <pubDate>Sun, 25 Jan 2026 12:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/art-of-at-most/</guid>
+      <description>&lt;h1 id=&#34;the-art-of-at-most&#34;&gt;The art of &amp;lsquo;at most&amp;rsquo;&lt;/h1&gt;
+&lt;p&gt;As we all know, to calculate &amp;rsquo;exactly&amp;rsquo; is notoriously difficult. Why? For example, when we write an assignment on paper, a minimum word‑count line is often printed so that readers do not need to count every word to know whether the requirement is met; a single glance tells them whether the text reaches at least that line and gives an approximate conclusion that it passes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello</title>
+      <link>http://localhost:1313/posts/hello/</link>
+      <pubDate>Mon, 19 Jan 2026 15:01:23 +0800</pubDate>
+      <guid>http://localhost:1313/posts/hello/</guid>
+      <description>&lt;p&gt;看见的人运气+666，御寒+999&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
