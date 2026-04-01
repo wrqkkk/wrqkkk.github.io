@@ -42,7 +42,13 @@ In abstract sense,
 - Consciously focus on building 'skills' like an LLM to follow.
 
 In concrete sense,
-- Make a better use of the time spent waiting for agent working.
-- Save attention to the most important tasks.
+- 
 
 
+
+
+## Review my AI using experience and explore.
+
+Every day new concepts coming out. Since "Attention is all you need" came out, arXiv has been filled with articles named "xxx is all you need".
+
+For AI, what it really needs still remains a question. For us, what we need is quite clear: we need a new set of skills to re-prioritize our tasks.
