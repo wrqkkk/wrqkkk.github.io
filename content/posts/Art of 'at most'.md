@@ -12,3 +12,6 @@ As we all know, to calculate 'exactly' is notoriously difficult. Why? For exampl
 This is the essence of an “at most / at least” condition: it is **visible**, **monotone**, and **easy to verify**. You only need to check whether something crosses a threshold.
 
 By contrast, checking **exactly** how many words there are requires a precise count. Precision destroys the convenience of monotonicity. It turns a simple inequality into a sharp equality, and sharp equalities are always harder to work with.
+
+
+( Coming soon... ) 

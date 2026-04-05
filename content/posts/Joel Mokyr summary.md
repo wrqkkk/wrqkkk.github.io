@@ -2,12 +2,16 @@
 date = '2026-03-29T02:01:23+08:00'
 draft = false
 title = 'Joel Mokyr 讲座大纲'
+isCJKLanguage = true
 +++
 
 
 
 
 # Joel Mokyr 讲座大纲
+
+
+ai简单整理。
 
 ## 主旨
 

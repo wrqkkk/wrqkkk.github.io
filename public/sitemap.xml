@@ -1,1 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://wrqkkk.github.io/posts/</loc><lastmod>2026-01-25T12:00:00+08:00</lastmod></url><url><loc>https://wrqkkk.github.io/posts/art-of-at-most/</loc><lastmod>2026-01-25T12:00:00+08:00</lastmod></url><url><loc>https://wrqkkk.github.io/</loc><lastmod>2026-01-25T12:00:00+08:00</lastmod></url><url><loc>https://wrqkkk.github.io/posts/hello/</loc><lastmod>2026-01-19T15:01:23+08:00</lastmod></url><url><loc>https://wrqkkk.github.io/posts/joel-mokyr-summary/</loc></url><url><loc>https://wrqkkk.github.io/categories/</loc></url><url><loc>https://wrqkkk.github.io/search/</loc></url><url><loc>https://wrqkkk.github.io/tags/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-04-05T21:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-04-05T21:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/%E6%88%91%E4%B8%8D%E8%AE%B8%E5%8F%AF/</loc>
+    <lastmod>2026-04-05T21:20:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/what-to-do-when-waiting-for-agents/</loc>
+    <lastmod>2026-03-30T23:26:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/joel-mokyr-summary/</loc>
+    <lastmod>2026-03-29T02:01:23+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/art-of-at-most/</loc>
+    <lastmod>2026-01-25T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/hello/</loc>
+    <lastmod>2026-01-19T15:01:23+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/search/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+  </url>
+</urlset>
