@@ -39,7 +39,7 @@ In abstract sense,
 - Save my attention to the most important tasks.
 - Eat and sleep wisely to get more energy.
 - Exercise regularly to maintain my health both physically and mentally.
-- Consciously focus on building 'skills' like an LLM to follow.
+- Consciously focus on building a 'skills.md' in my mind to follow like an LLM.
 
 In concrete sense,
 - 
@@ -51,4 +51,4 @@ In concrete sense,
 
 Every day new concepts coming out. Since "Attention is all you need" came out, arXiv has been filled with articles named "xxx is all you need".
 
-For AI, what it really needs still remains a question. For us, what we need is quite clear: we need a new set of skills to re-prioritize our tasks.
+For AI, what it really needs still remains a question. For us, what we need is quite clear: we need a new set of skills to learn how to select information, to re-prioritize our tasks, hence to understand who we human are, where we're at and where to go.
