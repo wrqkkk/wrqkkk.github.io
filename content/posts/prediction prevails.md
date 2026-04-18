@@ -3,6 +3,7 @@ date = '2026-04-18T16:40:00+08:00'
 draft = false
 title = 'prediction prevails'
 isCJKLanguage = true
+math = true
 +++
 
 
@@ -20,7 +21,7 @@ This is part of why I keep returning to Pearl’s **ladder of causation**. The f
 
 And the more I think about it, the more I suspect that most of what we proudly call “causal” in real applications never fully escapes the first rung.
 
-At the level of association, we are asking about **(P(Y \mid X))**. When we observe (X), what tends to happen to (Y)? This is the domain of pattern recognition. It is where modern machine learning is strongest. Classification, ranking, recommendation, risk scoring, diagnosis, forecasting—so much of our actual success lives here. We have become extraordinarily good at finding conditional structure in data and turning it into something operational.
+At the level of association, we are asking about **$P(Y \mid X)$**. When we observe $X$, what tends to happen to $Y$? This is the domain of pattern recognition. It is where modern machine learning is strongest. Classification, ranking, recommendation, risk scoring, diagnosis, forecasting—so much of our actual success lives here. We have become extraordinarily good at finding conditional structure in data and turning it into something operational.
 
 That ability is powerful enough to create a dangerous illusion. Once a system performs well, it is tempting to feel that we have understood something deep. But often we have only learned that certain patterns travel together reliably. We may have compressed a complicated slice of reality into a useful predictive surface without uncovering the mechanism underneath.
 
@@ -28,9 +29,9 @@ Medicine makes this especially vivid. There are diseases for which mechanism is 
 
 Machine learning inherits this condition and industrializes it. What used to live inside expert intuition now becomes externalized into parameters, training objectives, and optimization dynamics. We no longer need the pattern recognizer to be human. But making the recognizer nonhuman does not automatically make it causal.
 
-The real shift begins when we move from observation to **intervention**. This is where Pearl’s notation becomes more than notation. The difference between **(P(Y \mid X=x))** and **(P(Y \mid do(X=x)))** looks small on the page, but it marks an enormous conceptual divide. The first asks what happens when (X=x) is observed in the world as it naturally unfolds. The second asks what happens when we actively set (X) to (x), overriding the ordinary process by which (X) comes to be.
+The real shift begins when we move from observation to **intervention**. This is where Pearl’s notation becomes more than notation. The difference between **$P(Y \mid X=x)$** and **$P(Y \mid do(X=x))$** looks small on the page, but it marks an enormous conceptual divide. The first asks what happens when $X=x$ is observed in the world as it naturally unfolds. The second asks what happens when we actively set $X$ to $x$, overriding the ordinary process by which $X$ comes to be.
 
-This difference matters because observed variables are usually entangled with the rest of the system. They are influenced by upstream causes. They may themselves be consequences. Once we intervene, that changes. In Pearl’s graphical language, intervention severs the incoming arrows into (X). The variable stops behaving like a child of the system and becomes, for the purposes of analysis, an externally imposed parent.
+This difference matters because observed variables are usually entangled with the rest of the system. They are influenced by upstream causes. They may themselves be consequences. Once we intervene, that changes. In Pearl’s graphical language, intervention severs the incoming arrows into $X$. The variable stops behaving like a child of the system and becomes, for the purposes of analysis, an externally imposed parent.
 
 I still find that idea startlingly beautiful. It is such a clean mathematical move, and yet it captures something profound. A variable can change its role entirely depending on whether we are merely watching it or actively manipulating it. Under observation, it may be just another node in a tangled web of dependence. Under intervention, it becomes a point where we reach into the machinery and hold one gear fixed to see what the rest of the system does.
 
