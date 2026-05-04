@@ -29,7 +29,11 @@ Medicine makes this especially vivid. There are diseases for which mechanism is 
 
 Machine learning inherits this condition and industrializes it. What used to live inside expert intuition now becomes externalized into parameters, training objectives, and optimization dynamics. We no longer need the pattern recognizer to be human. But making the recognizer nonhuman does not automatically make it causal.
 
-The real shift begins when we move from observation to **intervention**. This is where Pearl’s notation becomes more than notation. The difference between $P(Y \mid X=x)$ and $P(Y \mid do(X=x))$ looks small on the page, but it marks an enormous conceptual divide. The first asks what happens when $X=x$ is observed in the world as it naturally unfolds. The second asks what happens when we actively set $X$ to $x$, overriding the ordinary process by which $X$ comes to be.
+The real shift begins when we move from observation to **intervention**. This is where Pearl’s notation becomes more than notation. The difference between 
+$$P(Y \mid X=x)$$ 
+and 
+$$P(Y \mid do(X=x))$$ 
+looks small on the page, but it marks an enormous conceptual divide. The first asks what happens when $X=x$ is observed in the world as it naturally unfolds. The second asks what happens when we actively set $X$ to $x$, overriding the ordinary process by which $X$ comes to be.
 
 This difference matters because observed variables are usually entangled with the rest of the system. They are influenced by upstream causes. They may themselves be consequences. Once we intervene, that changes. In Pearl’s graphical language, intervention severs the incoming arrows into $X$. The variable stops behaving like a child of the system and becomes, for the purposes of analysis, an externally imposed parent.
 
