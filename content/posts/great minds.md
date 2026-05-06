@@ -37,12 +37,10 @@ Goodhart's Law 最有代表性的描述：
 （Coming Soon）
 
 附作者所画示意图：
-
-
-![alt text](cartoon-conversation.png)
-![alt text](cartoon-early.png)
-![alt text](cartoon-mid.png)
-![alt text](cartoon-late.png)
+![alt text](../../assets/imgs/cartoon-conversation.png)
+![alt text](../../assets/imgs/cartoon-early.png)
+![alt text](../../assets/imgs/cartoon-mid.png)
+![alt text](../../assets/imgs/cartoon-late.png)
 相关概念：
 - Campbell's law（任何定量社会指标被用于社会决策越多，它就越容易受到腐败压力的影响）
 - McNamara fallacy（不要忽略定性指标）
