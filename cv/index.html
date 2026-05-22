@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Academic CV of Ruoqi Wang" />
+  <title>Ruoqi Wang · CV</title>
+  <style>
+    :root {
+      --text: #1f2933;
+      --muted: #5f6c7b;
+      --line: #d8dee6;
+      --accent: #1f4e79;
+      --bg: #ffffff;
+      --soft: #f7f9fc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31, 78, 121, 0.25);
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .page {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 26px;
+      margin-bottom: 34px;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 0 0 10px;
+      font-weight: 750;
+    }
+
+    .contact {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .contact span {
+      margin: 0 0.35rem;
+      color: #9aa4b2;
+    }
+
+    section {
+      margin: 34px 0;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      margin: 0 0 18px;
+    }
+
+    .entry {
+      margin: 0 0 24px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .entry-date {
+      color: var(--muted);
+      white-space: nowrap;
+      font-size: 0.95rem;
+    }
+
+    .entry-subtitle {
+      color: var(--muted);
+      margin: 0 0 4px;
+    }
+
+    .entry p {
+      margin: 8px 0 0;
+    }
+
+    .compact p {
+      margin: 4px 0;
+    }
+
+    .interests {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 18px 20px;
+      border-radius: 10px;
+      margin: 0;
+    }
+
+    .skills p {
+      margin: 6px 0;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 46px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 28px, 980px);
+        padding-top: 34px;
+      }
+
+      .entry-head {
+        display: block;
+      }
+
+      .entry-date {
+        display: block;
+        margin-top: 2px;
+      }
+
+      .contact span {
+        display: none;
+      }
+
+      .contact a,
+      .contact .email {
+        display: inline-block;
+        margin-right: 12px;
+        margin-bottom: 4px;
+      }
+    }
+
+    @media print {
+      body {
+        font-size: 11.5pt;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      a {
+        color: inherit;
+        border-bottom: none;
+      }
+
+      section {
+        margin: 22px 0;
+      }
+
+      .interests {
+        background: transparent;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Ruoqi Wang</h1>
+      <div class="contact">
+        <span class="email">wrqkkk@outlook.com</span>
+        <span>·</span>
+        <a href="https://wrqkkk.github.io/">GitHub Pages</a>
+        <span>·</span>
+        <a href="https://github.com/wrqkkk">GitHub</a>
+      </div>
+    </header>
+
+    <section aria-labelledby="research-interests">
+      <h2 id="research-interests">Research Interests</h2>
+      <p class="interests">Statistical machine learning, neural networks, Bayesian network modeling, causal inference, data assimilation, and biomedical/environmental data analysis.</p>
+    </section>
+
+    <section aria-labelledby="education">
+      <h2 id="education">Education</h2>
+      <div class="entry compact">
+        <div class="entry-head">
+          <div class="entry-title">Shanghai University of Finance and Economics, Shanghai, China</div>
+          <div class="entry-date">September 2022 – June 2027</div>
+        </div>
+        <p class="entry-subtitle">School of Mathematics</p>
+        <p><strong>B.S. in Applied Mathematics</strong>, expected June 2027</p>
+        <p>GPA: 3.2 / 4.0 · Class Rank: Top 30%</p>
+      </div>
+
+      <div class="entry compact">
+        <div class="entry-head">
+          <div class="entry-title">University of California, Berkeley, Berkeley, CA, USA</div>
+          <div class="entry-date">September 2025 – December 2025</div>
+        </div>
+        <p><strong>Visiting Student</strong></p>
+        <p>Selected coursework: STAT 154, Modern Statistical Prediction and Machine Learning, taught by Ryan Giordano.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="manuscripts">
+      <h2 id="manuscripts">Manuscripts</h2>
+      <div class="entry">
+        <div class="entry-title">Investigation of Stratified Flows in the Two-Dimensional Boussinesq Equations Using a Conditional Gaussian Nonlinear Filter</div>
+        <p class="note">Manuscript completed. Data assimilation / geophysical fluid dynamics.</p>
+      </div>
+      <div class="entry">
+        <div class="entry-title">A Constrained Bayesian Network for Stable Structure Learning in Multi-Window Environmental Health Data: Methodological Evaluation and Application to Child Sleep Disorder</div>
+        <p class="note">First-author manuscript in preparation for submission to a JCR Q2 journal. Bayesian network / medical statistics.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="research-experience">
+      <h2 id="research-experience">Research Experience</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Research Assistant, Data Assimilation for the Two-Dimensional Boussinesq Equations</div>
+          <div class="entry-date">January 2025 – October 2025</div>
+        </div>
+        <p class="entry-subtitle">School of Mathematics, Shanghai University of Finance and Economics · Advisor: Yeyu Zhang</p>
+        <p>Contributed to a research project on data assimilation for the two-dimensional Boussinesq equations. The project investigates how <strong>conditional Gaussian nonlinear filtering</strong> can recover unobserved flow variables under different observation settings and flow regimes. The manuscript has been completed.</p>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Research Assistant, Bayesian Network and Medical Statistics Project</div>
+          <div class="entry-date">August 2025 – June 2026 expected</div>
+        </div>
+        <p class="entry-subtitle">Shanghai University of Finance and Economics; Shanghai Normal University · Advisors: Yeyu Zhang and Hao Pan</p>
+        <p>Serving as the <strong>first author</strong> on a Bayesian network-based statistical learning project for biomedical and environmental health data, in collaboration with researchers from mathematics, maternal and child health, and urban planning. The project focuses on <strong>interpretable structure learning</strong>, <strong>domain-informed constraints</strong>, and <strong>stability analysis</strong> for complex observational data. The manuscript is in preparation and is planned for submission to a JCR Q2 journal.</p>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Research Assistant, Transformer and Neural Network Project</div>
+          <div class="entry-date">May 2026 – Present</div>
+        </div>
+        <p class="entry-subtitle">Shanghai University of Finance and Economics; Shanghai Normal University; University of Utah · Advisors: Yeyu Zhang, Hao Pan, and Changhong Mou</p>
+        <p>Serving as the <strong>first author</strong> on an ongoing research project related to transformer-based and neural network models. Conducting literature review, developing the research direction, and presenting weekly progress to the research group. The project is currently being advanced at an early exploratory stage.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="industry-experience">
+      <h2 id="industry-experience">Industry Experience</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Deep Learning Intern, Computer Vision and Model Deployment</div>
+          <div class="entry-date">January 2026 – April 2026</div>
+        </div>
+        <p class="entry-subtitle">WinMore Digit</p>
+        <p>Worked on computer vision-related deep learning projects, with emphasis on <strong>experimental implementation</strong>, <strong>object detection</strong>, and <strong>local model deployment</strong>. Independently completed two projects involving model training, experiment execution, performance evaluation, and deployment of small models in local Linux environments. Gained hands-on experience with vision model workflows, vLLM-related tools, Linux-based development, and end-to-end experimental pipelines.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="technical-skills">
+      <h2 id="technical-skills">Technical Skills</h2>
+      <div class="skills">
+        <p><strong>Programming:</strong> Python, R, LaTeX, Git</p>
+        <p><strong>Statistical Modeling:</strong> regression modeling, Bayesian networks, mixed-effects models, survey-weighted analysis, spatial statistics</p>
+        <p><strong>Machine Learning:</strong> statistical learning, deep learning, computer vision, object detection, autoencoders, variational autoencoders, transformer-based models</p>
+        <p><strong>Tools:</strong> PyTorch, Transformer, vLLM, Linux, GitHub Pages, Claude Code, Codex, Trae</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="standardized-tests">
+      <h2 id="standardized-tests">Standardized Tests</h2>
+      <p><strong>GRE:</strong> 330<br />
+      <strong>IELTS:</strong> 7.5, expired</p>
+    </section>
+
+    <footer>
+      Last updated: May 2026
+    </footer>
+  </main>
+</body>
+</html>
