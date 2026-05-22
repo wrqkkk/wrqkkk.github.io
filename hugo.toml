@@ -82,6 +82,11 @@ buildExpired = false
   weight = 20
 
 [[menu.main]]
+  name = "CV"
+  url = "/cv/"
+  weight = 25
+
+[[menu.main]]
   name = "Tags"
   url = "/tags/"
   weight = 30
