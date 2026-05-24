@@ -2136,7 +2136,7 @@ $$
 其中 $\psi_j=0$ for $j>q$。因此
 
 $$
-\sum_{j=0}^{\infty}\psi_j^2=\\sum_{j=0}^{q}\psi_j^2<\infty.
+\sum_{j=0}^{\infty}\psi_j^2=\sum_{j=0}^{q}\psi_j^2<\infty.
 $$
 
 这说明 MA(q) 是 general linear process 的有限阶特例。由于它只含有限多个 white noise 项，所以一般很容易讨论其 stationarity 和 autocovariance function。
@@ -2899,7 +2899,7 @@ $$
 再将模型与 $Y_{t-1}$ 取 covariance，得到
 
 $$
-\gamma_1=\phi_1\gamma_0+\\phi_2\gamma_1.
+\gamma_1=\phi_1\gamma_0+\phi_2\gamma_1.
 $$
 
 于是
@@ -3477,7 +3477,7 @@ $$
 
 $$
 E(Y_tY_{t-k})
-=\phi_1E(Y_{t-1}Y_{t-k})+\\cdots+
+=\phi_1E(Y_{t-1}Y_{t-k})+\cdots+
 \phi_pE(Y_{t-p}Y_{t-k})+E(e_tY_{t-k}).
 $$
 
@@ -4355,8 +4355,8 @@ $$
 
 $$
 \varphi_{S_n}(t)
-=\left
-aE\left[\exp\left(it\frac{X-
+=\left[
+E\left[\exp\left(it\frac{X-
 \mu}{\sqrt n}\right)\right]
 \right]^n.
 $$
