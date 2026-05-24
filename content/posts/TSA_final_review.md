@@ -1,7 +1,7 @@
 +++
 date = '2026-05-18T13:00:00+09:00'
 draft = false
-title = '微分的前世今生'
+title = 'TSA final review notes'
 isCJKLanguage = true
 math = true
 +++
