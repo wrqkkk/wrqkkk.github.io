@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>graphical models——new perspective on linear regression | wrqkkk&#39;s Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="概率图模型学习小记：从线性回归到贝叶斯图结构
+当我们看到线性回归，脑子里首先出现的是：
+$$
+Y_i=\alpha&#43;\beta x_i&#43;\epsilon_i
+$$然后就是损失函数、OLS、残差、标准误、置信区间和 $p$-value。但在概率图模型的表达里，线性回归突然变成了一个由节点和箭头组成的生成系统。这个转变让我意识到，线性回归不只是“拟合一条线”，它其实是在描述数据如何由一组未知量和随机机制生成出来。">
+<meta name="author" content="">
+<link rel="canonical" href="https://wrqkkk.github.io/posts/graphical_linear_regression/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a29c24210eb31d9ce56f669c66a35c9c51b17376b7764e336a49af7dec914cf0.css" integrity="sha256-opwkIQ6zHZzlb2acZqNcnFGxc3a3dk4zakmvfeyRTPA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wrqkkk.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wrqkkk.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wrqkkk.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wrqkkk.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wrqkkk.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://wrqkkk.github.io/posts/graphical_linear_regression/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true}
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+<meta property="og:url" content="https://wrqkkk.github.io/posts/graphical_linear_regression/">
+  <meta property="og:site_name" content="wrqkkk&#39;s Notes">
+  <meta property="og:title" content="graphical models——new perspective on linear regression">
+  <meta property="og:description" content="概率图模型学习小记：从线性回归到贝叶斯图结构 当我们看到线性回归，脑子里首先出现的是：
+$$ Y_i=\alpha&#43;\beta x_i&#43;\epsilon_i $$然后就是损失函数、OLS、残差、标准误、置信区间和 $p$-value。但在概率图模型的表达里，线性回归突然变成了一个由节点和箭头组成的生成系统。这个转变让我意识到，线性回归不只是“拟合一条线”，它其实是在描述数据如何由一组未知量和随机机制生成出来。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-05-06T13:00:00+09:00">
+    <meta property="article:modified_time" content="2026-05-06T13:00:00+09:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="graphical models——new perspective on linear regression">
+<meta name="twitter:description" content="概率图模型学习小记：从线性回归到贝叶斯图结构
+当我们看到线性回归，脑子里首先出现的是：
+$$
+Y_i=\alpha&#43;\beta x_i&#43;\epsilon_i
+$$然后就是损失函数、OLS、残差、标准误、置信区间和 $p$-value。但在概率图模型的表达里，线性回归突然变成了一个由节点和箭头组成的生成系统。这个转变让我意识到，线性回归不只是“拟合一条线”，它其实是在描述数据如何由一组未知量和随机机制生成出来。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wrqkkk.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "graphical models——new perspective on linear regression",
+      "item": "https://wrqkkk.github.io/posts/graphical_linear_regression/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "graphical models——new perspective on linear regression",
+  "name": "graphical models——new perspective on linear regression",
+  "description": "概率图模型学习小记：从线性回归到贝叶斯图结构 当我们看到线性回归，脑子里首先出现的是：\n$$ Y_i=\\alpha+\\beta x_i+\\epsilon_i $$然后就是损失函数、OLS、残差、标准误、置信区间和 $p$-value。但在概率图模型的表达里，线性回归突然变成了一个由节点和箭头组成的生成系统。这个转变让我意识到，线性回归不只是“拟合一条线”，它其实是在描述数据如何由一组未知量和随机机制生成出来。\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "概率图模型学习小记：从线性回归到贝叶斯图结构 当我们看到线性回归，脑子里首先出现的是：\n$$ Y_i=\\alpha+\\beta x_i+\\epsilon_i $$然后就是损失函数、OLS、残差、标准误、置信区间和 $p$-value。但在概率图模型的表达里，线性回归突然变成了一个由节点和箭头组成的生成系统。这个转变让我意识到，线性回归不只是“拟合一条线”，它其实是在描述数据如何由一组未知量和随机机制生成出来。\n1. 核心模型框架：从公式到生成结构 1.1 普通线性回归的熟悉写法 最常见的线性回归写法是：\n$$ Y_i=\\alpha+\\beta x_i+\\epsilon_i,\\qquad \\epsilon_i\\sim N(0,\\sigma^2) $$这里的 $\\alpha$ 是 intercept，也就是截距；$\\beta$ 是 slope，也就是斜率；$\\epsilon_i$ 是误差项，表示观测值没有被线性结构解释的剩余波动。\n如果换成概率语言，同一个模型可以写成：\n$$ Y_i\\mid \\alpha,\\beta,\\sigma^2 \\sim N(\\alpha+\\beta x_i,\\sigma^2) $$这一步看似只是换了一种写法，但它改变了理解方向。第一种写法更像是在说“观测值等于一条线加一个误差”。第二种写法更像是在说“给定参数以后，观测值是从一个条件正态分布中生成出来的”。\n1.2 线性模型的两层结构 把上面的式子进一步拆开，可以得到：\n$$ \\mu_i=\\alpha+\\beta x_i $$$$ Y_i\\mid \\mu_i,\\sigma^2\\sim N(\\mu_i,\\sigma^2) $$这两行分别对应两个层次。\n第一层是系统结构。$\\mu_i$ 是模型给出的条件均值，它由截距、斜率和协变量 $x_i$ 决定。\n第二层是随机观测结构。真实观测值 $Y_i$ 不一定等于 $\\mu_i$，而是在 $\\mu_i$ 附近发生随机波动。\n这和时间序列里\n$$ Y_t=\\mu_t+X_t $$的思想有相通之处。$\\mu_t$ 表示确定性趋势，$X_t$ 表示随机波动。在线性回归的概率图结构里，$\\mu_i$ 表示系统规律，$Y_i$ 表示在这个规律周围生成出来的观测值。\n线性回归不只是一条线，而是一种数据生成假设。\n2. 概率图结构：节点、箭头与条件依赖 2.1 图里的节点代表什么？ 在线性回归的 Bayesian graphical model 中，常见节点包括：\n$$ \\alpha,\\quad \\beta,\\quad \\tau,\\quad \\mu_i,\\quad Y_i $$其中 $\\tau$ 是 precision，即精度。它和方差的关系是：\n$$ \\tau=\\frac{1}{\\sigma^2} $$所以 $\\tau$ 越大，表示 $\\sigma^2$ 越小，观测值围绕均值 $\\mu_i$ 越集中；$\\tau$ 越小，表示误差方差越大，观测点越分散。\n2.2 箭头表达条件依赖 在图结构中，$\\alpha_0$ 和 $\\beta$ 指向 $\\mu_i$，因为：\n$$ \\mu_i=\\alpha_0+\\beta(x_i-\\bar{x}) $$其中，$\\alpha_0$ 是中心化后的截距，当 $x_i=\\bar x$，可以得到均值 $\\mu_i=\\alpha_0$，相较 $\\alpha$ 具有实际意义。\n这说明 $\\mu_i$ 由中心化后的截距、斜率和中心化后的协变量决定。\n紧接着，$\\mu_i$ 和 $\\tau$ 指向 $Y_i$，因为：\n$$ Y_i\\mid \\mu_i,\\tau\\sim N(\\mu_i,\\tau^{-1}) $$这说明观测值 $Y_i$ 的条件分布由条件均值 $\\mu_i$ 和误差精度 $\\tau$ 决定。\n因此，图中的箭头不是装饰，而是在表达 conditional dependence。谁指向谁，谁就参与决定谁的条件分布。\n2.3 联合分布的因子分解 图结构背后真正对应的是一个联合概率分布。线性回归可以写成：\n$$ p(\\alpha,\\beta,\\tau,Y_1,\\ldots,Y_n) p(\\alpha)p(\\beta)p(\\tau)\\prod_{i=1}^n p(Y_i\\mid \\alpha,\\beta,\\tau) $$\n这个式子非常关键。它说明复杂的联合分布可以拆成若干个局部条件分布。概率图模型做的事情，就是把这种拆分方式用图画出来。\n概率图模型的核心在于是用图表达联合分布如何因子分解。\n3. Plate notation：重复观测如何被表达？ 在图模型中，$\\mu_i$ 和 $Y_i$ 通常会被放在一个框里，框上写着 $i=1,\\ldots,n$。这个框叫 plate notation。\n它的含义是：框里的结构会对每一个观测重复一次。\n也就是说，每个样本都有自己的：\n$$ \\mu_i,\\quad Y_i $$但所有样本共享同一组全局参数：\n$$ \\alpha,\\quad \\beta,\\quad \\tau $$因此，给定共同参数以后，不同观测之间是条件独立的：\n$$ Y_i\\perp Y_j\\mid \\alpha,\\beta,\\tau,\\qquad i\\neq j $$这句话的意思是，第 $i$ 个观测和第 $j$ 个观测的共同性主要来自它们共享同一组参数。一旦这些参数被给定，两个观测之间就没有额外的直接依赖。\n这让我第一次比较清楚地看到，独立性不是一句孤立的假设，而是由图结构编码出来的条件关系。\n4. 参数作为随机变量：最关键的理解转变 4.1 频率学派的参数观 在频率学派中，$\\alpha,\\beta,\\sigma^2$ 通常被看成未知但固定的常数。它们在真实世界中有一个确定值，只是我们不知道，所以需要用样本去估计。\n因此，频率学派通常报告：\n$$ \\hat{\\beta},\\quad SE(\\hat{\\beta}),\\quad CI,\\quad p\\text{-value} $$这里的重点是估计一个固定参数，并研究估计量在重复抽样下的性质。\n4.2 贝叶斯的参数观 贝叶斯观点更直接地承认研究者的知识状态：既然我们不知道 $\\alpha,\\beta,\\tau$，那么我们对它们的认识就是不确定的；既然不确定，就可以用概率分布表达。\n因此可以写：\n$$ \\alpha\\sim N(0,10^6) $$$$ \\beta\\sim N(0,10^6) $$$$ \\tau\\sim Gamma(0.001,0.001) $$这里的重点不是说真实世界里的斜率每天随机变化，而是说：在看到数据之前，研究者对斜率的认识是不确定的，这种不确定性可以用先验分布表示。\n这种不确定性叫 epistemic uncertainty，即认识论不确定性。它来自知识不足，而不是来自现实对象本身的随机跳动。\n4.3 两类不确定性 贝叶斯线性回归中至少有两类不确定性。\n第一类是观测层面的随机性，也就是 $Y_i$ 围绕 $\\mu_i$ 波动。这对应误差项 $\\epsilon_i$，属于数据生成过程中的随机波动。\n第二类是参数层面的不确定性，也就是我们不知道 $\\alpha,\\beta,\\tau$ 的真实值。这对应先验分布和后验分布，属于认识论层面的不确定性。\n把这两层都放进模型以后，推断才变得完整。\n5. 先验、似然、后验：贝叶斯学习机制 贝叶斯推断的核心公式是：\n$$ p(\\theta\\mid Y)=\\frac{p(Y\\mid \\theta)p(\\theta)}{p(Y)} $$其中 $\\theta$ 可以代表 $\\alpha,\\beta,\\tau$。这个式子常常被写成：\n$$ \\textbf{posterior}\\propto \\textbf{likelihood}\\times \\textbf{prior} $$也就是：\n$$ \\textbf{后验认识}\\propto \\textbf{数据证据}\\times \\textbf{先验认识} $$这里的 prior 表示看数据之前对参数的认识；likelihood 表示给定参数时观察到当前数据的可能性；posterior 表示看完数据以后更新得到的认识。\n这一步把“学习”这件事数学化了。数据不是直接给出真理，而是在模型结构和先验认识的基础上更新我们对未知量的判断。\n所以，贝叶斯模型并不是主观乱猜。相反，它要求我们把先验假设明确写出来，并允许我们进一步做 sensitivity analysis，检查不同先验对结果的影响。\n6. Centering：从 OLS 几何到贝叶斯后验几何 在 linear regression 的图模型代码里，均值常常写成：\n$$ \\mu_i=\\alpha_0+\\beta(x_i-\\bar{x}) $$而不是：\n$$ \\mu_i=\\alpha+\\beta x_i $$这里的 $x_i-\\bar{x}$ 是 centering，也就是中心化。\n6.1 频率学派中的作用 在 OLS 的几何视角里，中心化可以让常数项和协变量方向更接近正交。对于设计矩阵来说，它会减少截距和斜率之间的耦合，使 $X^TX$ 的结构更容易处理。\n也就是说，中心化有助于实现参数解耦。\n6.2 贝叶斯计算中的作用 在贝叶斯模型中，中心化还有另一个意义：它可以降低 $\\alpha$ 和 $\\beta$ 在后验分布中的相关性。\n如果不中心化，斜率稍微变大时，截距可能需要相应变小，才能让拟合线仍然穿过数据云的中心。这会导致后验分布呈现狭长的相关结构，MCMC 采样时移动比较慢，混合也会变差。\n中心化以后，$\\alpha$ 的解释变成“当 $x$ 处于平均水平时 $Y$ 的均值”。这通常更自然，也能改善后验几何形状。\n所以，中心化在频率学派里改善信息矩阵，在贝叶斯里改善后验几何结构。\n7. 从投影视角到概率视角：同一个线性模型的两张地图 在 OLS 的几何视角里，我们把观测向量 $Y$ 投影到由特征基底张成的子空间中。拟合值 $\\hat{Y}$ 是投影，残差 $e=Y-\\hat{Y}$ 垂直于模型子空间。\n这个视角强调：\n$$ Y\\longrightarrow \\hat{Y} $$也就是从观测数据出发，寻找最优拟合。\n而概率图模型强调：\n$$ \\alpha,\\beta,\\tau\\longrightarrow \\mu_i\\longrightarrow Y_i $$也就是从参数和随机机制出发，描述观测数据如何生成。\n这两个视角并不冲突。它们只是看同一个线性模型的两个侧面。\nOLS 的几何视角回答的是：为什么这个估计量是最优投影。\n概率图模型回答的是：数据如何由参数、均值结构和随机误差共同生成。\n于是，线性回归有了两张地图。一张是几何地图，关键词是 projection, basis, orthogonality, residual。另一张是概率地图，关键词是 prior, likelihood, posterior, conditional independence。\n8. BUGS/JAGS/NIMBLE 为什么能自动计算？ 概率图模型不只是帮助理解，它也直接服务于计算。\n贝叶斯模型真正想得到的是：\n$$ p(\\alpha,\\beta,\\tau\\mid Y) $$根据贝叶斯公式，它正比于：\n$$ p(\\alpha)p(\\beta)p(\\tau)\\prod_{i=1}^n p(Y_i\\mid \\alpha,\\beta,\\tau) $$当模型很简单时，后验分布可能有解析形式。但当模型加入随机效应、空间效应、缺失机制、多结局结构以后，解析求解会变得非常困难。\nMCMC 的作用就是从后验分布中抽样。BUGS、JAGS、NIMBLE 这类系统之所以能工作，是因为概率图模型把联合分布拆成了局部条件分布。系统可以根据图结构找到每个节点的局部依赖关系，然后逐步更新未知量。\n比如更新 $\\beta$ 时，系统主要需要知道 $\\beta$ 的先验，以及所有通过 $\\mu_i$ 与 $\\beta$ 相连的观测值 $Y_i$。这就是图结构带来的模块化计算。\n所以，概率图模型把统计模型变成了计算机可以操作的对象。\n9. 扩展一：从线性回归到层级模型 把参数看成随机变量的思想，在层级模型中会变得更有力量。\n假设我们研究不同地区 PM2.5 对某个健康结局的影响。每个地区都可以有自己的斜率：\n$$ \\beta_j $$其中 $j$ 表示地区。\n如果每个地区单独估计，就是 no pooling。这种方法允许地区差异，但小样本地区会很不稳定。\n如果所有地区共用一个斜率，就是 complete pooling。这种方法很稳定，但会抹掉真实的地区异质性。\n贝叶斯层级模型可以写成：\n$$ \\beta_j\\sim N(\\beta_0,\\sigma_\\beta^2) $$这表示每个地区有自己的效应，但这些效应来自一个共同的总体分布。这就是 partial pooling。\npartial pooling 的好处是：数据多的地区更多依赖自身信息，数据少的地区会向总体平均效应适度收缩。它既保留异质性，又避免小样本估计过度波动。\n这对环境流行病学很重要，因为现实数据中不同地区、不同暴露水平、不同 cluster 的样本量往往并不均衡。\n10. 扩展二：迁移到 PM2.5 与健康结局研究 如果研究 PM2.5 与疾病发生，可以写一个 Bayesian logistic regression：\n$$ Y_i\\sim Bernoulli(p_i) $$$$ \\log\\frac{p_i}{1-p_i} \\alpha+\\beta PM_{2.5,i}+\\gamma^\\top Z_i $$\n其中 $Y_i$ 表示是否患病，$Z_i$ 表示年龄、性别、教育、城乡、收入等协变量。\n频率学派通常报告：\n$$ \\hat{\\beta},\\quad SE,\\quad CI,\\quad p\\text{-value} $$贝叶斯模型则给出：\n$$ p(\\beta\\mid Y,PM_{2.5},Z) $$于是我们可以直接问：\n$$ P(\\beta\u003e0\\mid data) $$如果使用 odds ratio：\n$$ OR=\\exp(\\beta) $$也可以问：\n$$ P(OR\u003e1\\mid data) $$这比单纯判断 $p\u003c0.05$ 更贴近公共卫生问题。因为我们真正关心的是：在当前数据和模型假设下，PM2.5 使疾病风险升高的后验概率有多大，效应大小大概落在哪里，不确定性有多宽。\n更进一步，我们还可以问：\n$$ P(OR\u003e1.05\\mid data) $$$$ P(OR\u003e1.10\\mid data) $$这类问题更接近实际决策，因为公共卫生中常常关心效应是否超过某个有意义的阈值。\n11. 扩展三：迁移到空间模型、CAR、BYM 与 SCM 空间疾病模型也可以被看成概率图模型的扩展版本。\n一个区域疾病模型可以写成：\n$$ Y_i\\sim Poisson(E_i\\lambda_i) $$$$ \\log\\lambda_i=\\alpha+\\beta x_i+u_i+v_i $$这里 $E_i$ 是期望病例数，$\\lambda_i$ 是相对风险，$x_i$ 是 PM2.5 或其他暴露，$u_i$ 是空间结构随机效应，$v_i$ 是非结构随机效应。\n在图模型中，$\\alpha,\\beta,u_i,v_i$ 会指向 $\\lambda_i$，$\\lambda_i$ 和 $E_i$ 再指向 $Y_i$。这和线性回归的结构完全同源：\n$$ \\textbf{parameters and latent effects} \\longrightarrow \\textbf{mean or risk parameter} \\longrightarrow \\textbf{observed data} $$CAR 模型的关键在于，空间随机效应 $u_i$ 之间并不是彼此独立的。它通常通过邻接关系定义：\n$$ u_i\\mid u_{-i}\\sim N\\left( \\frac{\\sum_{j\\sim i}u_j}{n_i}, \\frac{1}{n_i\\tau_u} \\right) $$这里 $j\\sim i$ 表示地区 $j$ 是地区 $i$ 的邻居，$n_i$ 是地区 $i$ 的邻居数量。这个式子的意思是，一个地区的空间效应会受到邻近地区空间效应的影响。\n所以，空间模型里的“借邻居信息”，在图结构里就是通过随机效应节点之间的依赖关系表达出来的。\n这说明 linear regression 不是一个孤立例子，而是理解 CAR、BYM、SCM 的最小模板。\n12. 扩展四：迁移到 CLARA 暴露画像和效应异质性 在 CLARA 暴露画像分析中，我们可能关心不同 exposure profile 下，PM2.5 对健康结局的效应是否不同。\n频率学派可以写成交互项模型：\n$$ Y_i=\\alpha+\\beta PM_i+\\sum_k\\delta_k I(cluster_i=k) +\\sum_k\\eta_k PM_iI(cluster_i=k)+\\epsilon_i $$其中 $\\eta_k$ 表示不同 cluster 中 PM2.5 效应的差异。\n贝叶斯层级模型可以更自然地写成：\n$$ \\beta_k\\sim N(\\beta_0,\\sigma_\\beta^2) $$$$ Y_i\\sim N(\\alpha_{cluster_i}+\\beta_{cluster_i}PM_i,\\sigma^2) $$这里每个 cluster 都有自己的暴露效应 $\\beta_k$，但这些 $\\beta_k$ 来自同一个总体分布。\n这样做的好处是，某个 cluster 样本量少时，它的效应估计不会完全被小样本噪声支配，而会向总体效应适度收缩。与此同时，如果某个 cluster 的数据非常充分，它仍然可以表现出与总体不同的效应。\n这就把 CLARA 从“先聚类、再分组回归”的流程，推进到一个更完整的层级推断框架。\n暴露画像不只是描述性标签，也可以成为效应异质性的层级来源。\n13. 和机器学习的连接：从 feature engineering 到 probabilistic programming 机器学习通常写成：\n$$ \\hat{y}=f_\\theta(x) $$它关心的是如何通过参数 $\\theta$ 把输入 $x$ 映射到预测值 $\\hat{y}$。\n概率图模型会进一步写成：\n$$ Y\\mid \\theta,x\\sim p(Y\\mid f_\\theta(x)) $$也就是说，它不仅给出预测值，还给出预测值周围的不确定性。\n贝叶斯模型再进一步，把 $\\theta$ 也看成随机变量：\n$$ \\theta\\sim p(\\theta) $$$$ \\theta\\mid data\\sim p(\\theta\\mid data) $$于是，模型不仅表达观测噪声，也表达参数不确定性。\n这对医学和环境健康研究尤其重要。因为这些研究不只关心预测结果，还关心效应方向、效应大小、不确定性范围和科学解释。概率图模型给机器学习补上的，正是这种结构化的不确定性表达。\n14. 小结：如何理解 graphical linear regression？ 过去我们更多地把线性回归理解为一个估计公式：\n$$ Y_i=\\alpha+\\beta x_i+\\epsilon_i $$现在在贝叶斯视角下，我们可以思考这样一个概率生成系统：\n$$ \\alpha,\\beta,\\tau \\longrightarrow \\mu_i \\longrightarrow Y_i $$其中，$\\alpha,\\beta,\\tau$ 是未知参数，$\\mu_i$ 是由线性结构决定的条件均值，$Y_i$ 是围绕 $\\mu_i$ 生成的观测值。\n所以，graphical models 里的 linear regression 不是普通回归的重复，而是一个入口。它展示了概率图模型的基本语法：\n节点表示变量，箭头表示条件依赖，plate 表示重复观测，先验表示参数不确定性，似然表示数据生成机制，后验表示数据对未知量的更新。\n15. 最终理解 如果说 OLS 的几何视角让我们看到线性回归的投影本质，那么 graphical model 的概率视角则揭示了线性回归的生成本质。\n前者强调：\n$$ \\textbf{projection, basis, orthogonality, residual} $$后者强调：\n$$ \\textbf{prior, likelihood, posterior, conditional independence} $$这两个视角合在一起，让线性回归不再只是一个孤立公式，而是连接线性代数、概率论、统计推断和计算方法的一座桥。\n这也解释了为什么继续学习 Bayesian network、NIMBLE、空间模型、层级模型和环境健康效应异质性时，linear regression 仍然是最重要的起点。复杂模型看起来形式不同，但底层逻辑是相同的：把复杂系统拆成局部条件关系，再通过联合概率分布把这些局部关系重新连接起来。\n",
+  "wordCount" : "5447",
+  "inLanguage": "en",
+  "datePublished": "2026-05-06T13:00:00+09:00",
+  "dateModified": "2026-05-06T13:00:00+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wrqkkk.github.io/posts/graphical_linear_regression/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "wrqkkk's Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wrqkkk.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wrqkkk.github.io/" accesskey="h" title="wrqkkk&#39;s Notes (Alt + H)">wrqkkk&#39;s Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wrqkkk.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wrqkkk.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wrqkkk.github.io/cv/" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wrqkkk.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wrqkkk.github.io/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://wrqkkk.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://wrqkkk.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      graphical models——new perspective on linear regression
+    </h1>
+    <div class="post-meta"><span title='2026-05-06 13:00:00 +0900 +0900'>May 6, 2026</span>&nbsp;·&nbsp;<span>11 min</span>&nbsp;·&nbsp;<span>5447 words</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%a6%82%e7%8e%87%e5%9b%be%e6%a8%a1%e5%9e%8b%e5%ad%a6%e4%b9%a0%e5%b0%8f%e8%ae%b0%e4%bb%8e%e7%ba%bf%e6%80%a7%e5%9b%9e%e5%bd%92%e5%88%b0%e8%b4%9d%e5%8f%b6%e6%96%af%e5%9b%be%e7%bb%93%e6%9e%84" aria-label="概率图模型学习小记：从线性回归到贝叶斯图结构">概率图模型学习小记：从线性回归到贝叶斯图结构</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%a0%b8%e5%bf%83%e6%a8%a1%e5%9e%8b%e6%a1%86%e6%9e%b6%e4%bb%8e%e5%85%ac%e5%bc%8f%e5%88%b0%e7%94%9f%e6%88%90%e7%bb%93%e6%9e%84" aria-label="1. 核心模型框架：从公式到生成结构">1. 核心模型框架：从公式到生成结构</a><ul>
+                        
+                <li>
+                    <a href="#11-%e6%99%ae%e9%80%9a%e7%ba%bf%e6%80%a7%e5%9b%9e%e5%bd%92%e7%9a%84%e7%86%9f%e6%82%89%e5%86%99%e6%b3%95" aria-label="1.1 普通线性回归的熟悉写法">1.1 普通线性回归的熟悉写法</a></li>
+                <li>
+                    <a href="#12-%e7%ba%bf%e6%80%a7%e6%a8%a1%e5%9e%8b%e7%9a%84%e4%b8%a4%e5%b1%82%e7%bb%93%e6%9e%84" aria-label="1.2 线性模型的两层结构">1.2 线性模型的两层结构</a></li></ul>
+                </li>
+                <li>
+                    <a href="#2-%e6%a6%82%e7%8e%87%e5%9b%be%e7%bb%93%e6%9e%84%e8%8a%82%e7%82%b9%e7%ae%ad%e5%a4%b4%e4%b8%8e%e6%9d%a1%e4%bb%b6%e4%be%9d%e8%b5%96" aria-label="2. 概率图结构：节点、箭头与条件依赖">2. 概率图结构：节点、箭头与条件依赖</a><ul>
+                        
+                <li>
+                    <a href="#21-%e5%9b%be%e9%87%8c%e7%9a%84%e8%8a%82%e7%82%b9%e4%bb%a3%e8%a1%a8%e4%bb%80%e4%b9%88" aria-label="2.1 图里的节点代表什么？">2.1 图里的节点代表什么？</a></li>
+                <li>
+                    <a href="#22-%e7%ae%ad%e5%a4%b4%e8%a1%a8%e8%be%be%e6%9d%a1%e4%bb%b6%e4%be%9d%e8%b5%96" aria-label="2.2 箭头表达条件依赖">2.2 箭头表达条件依赖</a></li>
+                <li>
+                    <a href="#23-%e8%81%94%e5%90%88%e5%88%86%e5%b8%83%e7%9a%84%e5%9b%a0%e5%ad%90%e5%88%86%e8%a7%a3" aria-label="2.3 联合分布的因子分解">2.3 联合分布的因子分解</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-plate-notation%e9%87%8d%e5%a4%8d%e8%a7%82%e6%b5%8b%e5%a6%82%e4%bd%95%e8%a2%ab%e8%a1%a8%e8%be%be" aria-label="3. Plate notation：重复观测如何被表达？">3. Plate notation：重复观测如何被表达？</a></li>
+                <li>
+                    <a href="#4-%e5%8f%82%e6%95%b0%e4%bd%9c%e4%b8%ba%e9%9a%8f%e6%9c%ba%e5%8f%98%e9%87%8f%e6%9c%80%e5%85%b3%e9%94%ae%e7%9a%84%e7%90%86%e8%a7%a3%e8%bd%ac%e5%8f%98" aria-label="4. 参数作为随机变量：最关键的理解转变">4. 参数作为随机变量：最关键的理解转变</a><ul>
+                        
+                <li>
+                    <a href="#41-%e9%a2%91%e7%8e%87%e5%ad%a6%e6%b4%be%e7%9a%84%e5%8f%82%e6%95%b0%e8%a7%82" aria-label="4.1 频率学派的参数观">4.1 频率学派的参数观</a></li>
+                <li>
+                    <a href="#42-%e8%b4%9d%e5%8f%b6%e6%96%af%e7%9a%84%e5%8f%82%e6%95%b0%e8%a7%82" aria-label="4.2 贝叶斯的参数观">4.2 贝叶斯的参数观</a></li>
+                <li>
+                    <a href="#43-%e4%b8%a4%e7%b1%bb%e4%b8%8d%e7%a1%ae%e5%ae%9a%e6%80%a7" aria-label="4.3 两类不确定性">4.3 两类不确定性</a></li></ul>
+                </li>
+                <li>
+                    <a href="#5-%e5%85%88%e9%aa%8c%e4%bc%bc%e7%84%b6%e5%90%8e%e9%aa%8c%e8%b4%9d%e5%8f%b6%e6%96%af%e5%ad%a6%e4%b9%a0%e6%9c%ba%e5%88%b6" aria-label="5. 先验、似然、后验：贝叶斯学习机制">5. 先验、似然、后验：贝叶斯学习机制</a></li>
+                <li>
+                    <a href="#6-centering%e4%bb%8e-ols-%e5%87%a0%e4%bd%95%e5%88%b0%e8%b4%9d%e5%8f%b6%e6%96%af%e5%90%8e%e9%aa%8c%e5%87%a0%e4%bd%95" aria-label="6. Centering：从 OLS 几何到贝叶斯后验几何">6. Centering：从 OLS 几何到贝叶斯后验几何</a><ul>
+                        
+                <li>
+                    <a href="#61-%e9%a2%91%e7%8e%87%e5%ad%a6%e6%b4%be%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8" aria-label="6.1 频率学派中的作用">6.1 频率学派中的作用</a></li>
+                <li>
+                    <a href="#62-%e8%b4%9d%e5%8f%b6%e6%96%af%e8%ae%a1%e7%ae%97%e4%b8%ad%e7%9a%84%e4%bd%9c%e7%94%a8" aria-label="6.2 贝叶斯计算中的作用">6.2 贝叶斯计算中的作用</a></li></ul>
+                </li>
+                <li>
+                    <a href="#7-%e4%bb%8e%e6%8a%95%e5%bd%b1%e8%a7%86%e8%a7%92%e5%88%b0%e6%a6%82%e7%8e%87%e8%a7%86%e8%a7%92%e5%90%8c%e4%b8%80%e4%b8%aa%e7%ba%bf%e6%80%a7%e6%a8%a1%e5%9e%8b%e7%9a%84%e4%b8%a4%e5%bc%a0%e5%9c%b0%e5%9b%be" aria-label="7. 从投影视角到概率视角：同一个线性模型的两张地图">7. 从投影视角到概率视角：同一个线性模型的两张地图</a></li>
+                <li>
+                    <a href="#8-bugsjagsnimble-%e4%b8%ba%e4%bb%80%e4%b9%88%e8%83%bd%e8%87%aa%e5%8a%a8%e8%ae%a1%e7%ae%97" aria-label="8. BUGS/JAGS/NIMBLE 为什么能自动计算？">8. BUGS/JAGS/NIMBLE 为什么能自动计算？</a></li>
+                <li>
+                    <a href="#9-%e6%89%a9%e5%b1%95%e4%b8%80%e4%bb%8e%e7%ba%bf%e6%80%a7%e5%9b%9e%e5%bd%92%e5%88%b0%e5%b1%82%e7%ba%a7%e6%a8%a1%e5%9e%8b" aria-label="9. 扩展一：从线性回归到层级模型">9. 扩展一：从线性回归到层级模型</a></li>
+                <li>
+                    <a href="#10-%e6%89%a9%e5%b1%95%e4%ba%8c%e8%bf%81%e7%a7%bb%e5%88%b0-pm25-%e4%b8%8e%e5%81%a5%e5%ba%b7%e7%bb%93%e5%b1%80%e7%a0%94%e7%a9%b6" aria-label="10. 扩展二：迁移到 PM2.5 与健康结局研究">10. 扩展二：迁移到 PM2.5 与健康结局研究</a></li>
+                <li>
+                    <a href="#11-%e6%89%a9%e5%b1%95%e4%b8%89%e8%bf%81%e7%a7%bb%e5%88%b0%e7%a9%ba%e9%97%b4%e6%a8%a1%e5%9e%8bcarbym-%e4%b8%8e-scm" aria-label="11. 扩展三：迁移到空间模型、CAR、BYM 与 SCM">11. 扩展三：迁移到空间模型、CAR、BYM 与 SCM</a></li>
+                <li>
+                    <a href="#12-%e6%89%a9%e5%b1%95%e5%9b%9b%e8%bf%81%e7%a7%bb%e5%88%b0-clara-%e6%9a%b4%e9%9c%b2%e7%94%bb%e5%83%8f%e5%92%8c%e6%95%88%e5%ba%94%e5%bc%82%e8%b4%a8%e6%80%a7" aria-label="12. 扩展四：迁移到 CLARA 暴露画像和效应异质性">12. 扩展四：迁移到 CLARA 暴露画像和效应异质性</a></li>
+                <li>
+                    <a href="#13-%e5%92%8c%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9a%84%e8%bf%9e%e6%8e%a5%e4%bb%8e-feature-engineering-%e5%88%b0-probabilistic-programming" aria-label="13. 和机器学习的连接：从 feature engineering 到 probabilistic programming">13. 和机器学习的连接：从 feature engineering 到 probabilistic programming</a></li>
+                <li>
+                    <a href="#14-%e5%b0%8f%e7%bb%93%e5%a6%82%e4%bd%95%e7%90%86%e8%a7%a3-graphical-linear-regression" aria-label="14. 小结：如何理解 graphical linear regression？">14. 小结：如何理解 graphical linear regression？</a></li>
+                <li>
+                    <a href="#15-%e6%9c%80%e7%bb%88%e7%90%86%e8%a7%a3" aria-label="15. 最终理解">15. 最终理解</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="概率图模型学习小记从线性回归到贝叶斯图结构">概率图模型学习小记：从线性回归到贝叶斯图结构<a hidden class="anchor" aria-hidden="true" href="#概率图模型学习小记从线性回归到贝叶斯图结构">#</a></h1>
+<p>当我们看到线性回归，脑子里首先出现的是：</p>
+$$
+Y_i=\alpha+\beta x_i+\epsilon_i
+$$<p>然后就是损失函数、OLS、残差、标准误、置信区间和 $p$-value。但在概率图模型的表达里，线性回归突然变成了一个由节点和箭头组成的生成系统。这个转变让我意识到，<strong>线性回归不只是“拟合一条线”，它其实是在描述数据如何由一组未知量和随机机制生成出来</strong>。</p>
+<hr>
+<h2 id="1-核心模型框架从公式到生成结构">1. 核心模型框架：从公式到生成结构<a hidden class="anchor" aria-hidden="true" href="#1-核心模型框架从公式到生成结构">#</a></h2>
+<h3 id="11-普通线性回归的熟悉写法">1.1 普通线性回归的熟悉写法<a hidden class="anchor" aria-hidden="true" href="#11-普通线性回归的熟悉写法">#</a></h3>
+<p>最常见的线性回归写法是：</p>
+$$
+Y_i=\alpha+\beta x_i+\epsilon_i,\qquad \epsilon_i\sim N(0,\sigma^2)
+$$<p>这里的 $\alpha$ 是 <strong>intercept</strong>，也就是截距；$\beta$ 是 <strong>slope</strong>，也就是斜率；$\epsilon_i$ 是误差项，表示观测值没有被线性结构解释的剩余波动。</p>
+<p>如果换成概率语言，同一个模型可以写成：</p>
+$$
+Y_i\mid \alpha,\beta,\sigma^2 \sim N(\alpha+\beta x_i,\sigma^2)
+$$<p>这一步看似只是换了一种写法，但它改变了理解方向。第一种写法更像是在说“观测值等于一条线加一个误差”。第二种写法更像是在说“给定参数以后，观测值是从一个条件正态分布中生成出来的”。</p>
+<h3 id="12-线性模型的两层结构">1.2 线性模型的两层结构<a hidden class="anchor" aria-hidden="true" href="#12-线性模型的两层结构">#</a></h3>
+<p>把上面的式子进一步拆开，可以得到：</p>
+$$
+\mu_i=\alpha+\beta x_i
+$$$$
+Y_i\mid \mu_i,\sigma^2\sim N(\mu_i,\sigma^2)
+$$<p>这两行分别对应两个层次。</p>
+<p><strong>第一层是系统结构</strong>。$\mu_i$ 是模型给出的条件均值，它由截距、斜率和协变量 $x_i$ 决定。</p>
+<p><strong>第二层是随机观测结构</strong>。真实观测值 $Y_i$ 不一定等于 $\mu_i$，而是在 $\mu_i$ 附近发生随机波动。</p>
+<p>这和时间序列里</p>
+$$
+Y_t=\mu_t+X_t
+$$<p>的思想有相通之处。$\mu_t$ 表示确定性趋势，$X_t$ 表示随机波动。在线性回归的概率图结构里，$\mu_i$ 表示系统规律，$Y_i$ 表示在这个规律周围生成出来的观测值。</p>
+<p><strong>线性回归不只是一条线，而是一种数据生成假设</strong>。</p>
+<hr>
+<h2 id="2-概率图结构节点箭头与条件依赖">2. 概率图结构：节点、箭头与条件依赖<a hidden class="anchor" aria-hidden="true" href="#2-概率图结构节点箭头与条件依赖">#</a></h2>
+<h3 id="21-图里的节点代表什么">2.1 图里的节点代表什么？<a hidden class="anchor" aria-hidden="true" href="#21-图里的节点代表什么">#</a></h3>
+<p>在线性回归的 Bayesian graphical model 中，常见节点包括：</p>
+$$
+\alpha,\quad \beta,\quad \tau,\quad \mu_i,\quad Y_i
+$$<p>其中 $\tau$ 是 <strong>precision</strong>，即精度。它和方差的关系是：</p>
+$$
+\tau=\frac{1}{\sigma^2}
+$$<p>所以 $\tau$ 越大，表示 $\sigma^2$ 越小，观测值围绕均值 $\mu_i$ 越集中；$\tau$ 越小，表示误差方差越大，观测点越分散。</p>
+<h3 id="22-箭头表达条件依赖">2.2 箭头表达条件依赖<a hidden class="anchor" aria-hidden="true" href="#22-箭头表达条件依赖">#</a></h3>
+<p>在图结构中，$\alpha_0$ 和 $\beta$ 指向 $\mu_i$，因为：</p>
+$$
+\mu_i=\alpha_0+\beta(x_i-\bar{x})
+$$<p>其中，$\alpha_0$ 是中心化后的截距，当 $x_i=\bar x$，可以得到均值 $\mu_i=\alpha_0$，相较 $\alpha$ 具有实际意义。</p>
+<p>这说明 $\mu_i$ 由中心化后的截距、斜率和中心化后的协变量决定。</p>
+<p>紧接着，$\mu_i$ 和 $\tau$ 指向 $Y_i$，因为：</p>
+$$
+Y_i\mid \mu_i,\tau\sim N(\mu_i,\tau^{-1})
+$$<p>这说明观测值 $Y_i$ 的条件分布由条件均值 $\mu_i$ 和误差精度 $\tau$ 决定。</p>
+<p>因此，图中的箭头不是装饰，而是在表达 <strong>conditional dependence</strong>。谁指向谁，谁就参与决定谁的条件分布。</p>
+<h3 id="23-联合分布的因子分解">2.3 联合分布的因子分解<a hidden class="anchor" aria-hidden="true" href="#23-联合分布的因子分解">#</a></h3>
+<p>图结构背后真正对应的是一个联合概率分布。线性回归可以写成：</p>
+<h1 id="palphabetatauy_1ldotsy_n">$$
+p(\alpha,\beta,\tau,Y_1,\ldots,Y_n)</h1>
+<p>p(\alpha)p(\beta)p(\tau)\prod_{i=1}^n p(Y_i\mid \alpha,\beta,\tau)
+$$</p>
+<p>这个式子非常关键。它说明复杂的联合分布可以拆成若干个局部条件分布。概率图模型做的事情，就是把这种拆分方式用图画出来。</p>
+<p><strong>概率图模型的核心在于是用图表达联合分布如何因子分解。</strong></p>
+<hr>
+<h2 id="3-plate-notation重复观测如何被表达">3. Plate notation：重复观测如何被表达？<a hidden class="anchor" aria-hidden="true" href="#3-plate-notation重复观测如何被表达">#</a></h2>
+<p>在图模型中，$\mu_i$ 和 $Y_i$ 通常会被放在一个框里，框上写着 $i=1,\ldots,n$。这个框叫 <strong>plate notation</strong>。</p>
+<p>它的含义是：框里的结构会对每一个观测重复一次。</p>
+<p>也就是说，每个样本都有自己的：</p>
+$$
+\mu_i,\quad Y_i
+$$<p>但所有样本共享同一组全局参数：</p>
+$$
+\alpha,\quad \beta,\quad \tau
+$$<p>因此，给定共同参数以后，不同观测之间是条件独立的：</p>
+$$
+Y_i\perp Y_j\mid \alpha,\beta,\tau,\qquad i\neq j
+$$<p>这句话的意思是，第 $i$ 个观测和第 $j$ 个观测的共同性主要来自它们共享同一组参数。一旦这些参数被给定，两个观测之间就没有额外的直接依赖。</p>
+<p>这让我第一次比较清楚地看到，<strong>独立性不是一句孤立的假设，而是由图结构编码出来的条件关系</strong>。</p>
+<hr>
+<h2 id="4-参数作为随机变量最关键的理解转变">4. 参数作为随机变量：最关键的理解转变<a hidden class="anchor" aria-hidden="true" href="#4-参数作为随机变量最关键的理解转变">#</a></h2>
+<h3 id="41-频率学派的参数观">4.1 频率学派的参数观<a hidden class="anchor" aria-hidden="true" href="#41-频率学派的参数观">#</a></h3>
+<p>在频率学派中，$\alpha,\beta,\sigma^2$ 通常被看成未知但固定的常数。它们在真实世界中有一个确定值，只是我们不知道，所以需要用样本去估计。</p>
+<p>因此，频率学派通常报告：</p>
+$$
+\hat{\beta},\quad SE(\hat{\beta}),\quad CI,\quad p\text{-value}
+$$<p>这里的重点是估计一个固定参数，并研究估计量在重复抽样下的性质。</p>
+<h3 id="42-贝叶斯的参数观">4.2 贝叶斯的参数观<a hidden class="anchor" aria-hidden="true" href="#42-贝叶斯的参数观">#</a></h3>
+<p>贝叶斯观点更直接地承认研究者的知识状态：既然我们不知道 $\alpha,\beta,\tau$，那么我们对它们的认识就是不确定的；既然不确定，就可以用概率分布表达。</p>
+<p>因此可以写：</p>
+$$
+\alpha\sim N(0,10^6)
+$$$$
+\beta\sim N(0,10^6)
+$$$$
+\tau\sim Gamma(0.001,0.001)
+$$<p>这里的重点不是说真实世界里的斜率每天随机变化，而是说：<strong>在看到数据之前，研究者对斜率的认识是不确定的，这种不确定性可以用先验分布表示</strong>。</p>
+<p>这种不确定性叫 <strong>epistemic uncertainty</strong>，即认识论不确定性。它来自知识不足，而不是来自现实对象本身的随机跳动。</p>
+<h3 id="43-两类不确定性">4.3 两类不确定性<a hidden class="anchor" aria-hidden="true" href="#43-两类不确定性">#</a></h3>
+<p>贝叶斯线性回归中至少有两类不确定性。</p>
+<p><strong>第一类是观测层面的随机性</strong>，也就是 $Y_i$ 围绕 $\mu_i$ 波动。这对应误差项 $\epsilon_i$，属于数据生成过程中的随机波动。</p>
+<p><strong>第二类是参数层面的不确定性</strong>，也就是我们不知道 $\alpha,\beta,\tau$ 的真实值。这对应先验分布和后验分布，属于认识论层面的不确定性。</p>
+<p>把这两层都放进模型以后，推断才变得完整。</p>
+<hr>
+<h2 id="5-先验似然后验贝叶斯学习机制">5. 先验、似然、后验：贝叶斯学习机制<a hidden class="anchor" aria-hidden="true" href="#5-先验似然后验贝叶斯学习机制">#</a></h2>
+<p>贝叶斯推断的核心公式是：</p>
+$$
+p(\theta\mid Y)=\frac{p(Y\mid \theta)p(\theta)}{p(Y)}
+$$<p>其中 $\theta$ 可以代表 $\alpha,\beta,\tau$。这个式子常常被写成：</p>
+$$
+\textbf{posterior}\propto \textbf{likelihood}\times \textbf{prior}
+$$<p>也就是：</p>
+$$
+\textbf{后验认识}\propto \textbf{数据证据}\times \textbf{先验认识}
+$$<p>这里的 <strong>prior</strong> 表示看数据之前对参数的认识；<strong>likelihood</strong> 表示给定参数时观察到当前数据的可能性；<strong>posterior</strong> 表示看完数据以后更新得到的认识。</p>
+<p>这一步把“学习”这件事数学化了。数据不是直接给出真理，而是在模型结构和先验认识的基础上更新我们对未知量的判断。</p>
+<p>所以，贝叶斯模型并不是主观乱猜。相反，它要求我们把先验假设明确写出来，并允许我们进一步做 sensitivity analysis，检查不同先验对结果的影响。</p>
+<hr>
+<h2 id="6-centering从-ols-几何到贝叶斯后验几何">6. Centering：从 OLS 几何到贝叶斯后验几何<a hidden class="anchor" aria-hidden="true" href="#6-centering从-ols-几何到贝叶斯后验几何">#</a></h2>
+<p>在 linear regression 的图模型代码里，均值常常写成：</p>
+$$
+\mu_i=\alpha_0+\beta(x_i-\bar{x})
+$$<p>而不是：</p>
+$$
+\mu_i=\alpha+\beta x_i
+$$<p>这里的 $x_i-\bar{x}$ 是 <strong>centering</strong>，也就是中心化。</p>
+<h3 id="61-频率学派中的作用">6.1 频率学派中的作用<a hidden class="anchor" aria-hidden="true" href="#61-频率学派中的作用">#</a></h3>
+<p>在 OLS 的几何视角里，中心化可以让常数项和协变量方向更接近正交。对于设计矩阵来说，它会减少截距和斜率之间的耦合，使 $X^TX$ 的结构更容易处理。</p>
+<p>也就是说，中心化有助于实现参数解耦。</p>
+<h3 id="62-贝叶斯计算中的作用">6.2 贝叶斯计算中的作用<a hidden class="anchor" aria-hidden="true" href="#62-贝叶斯计算中的作用">#</a></h3>
+<p>在贝叶斯模型中，中心化还有另一个意义：它可以降低 $\alpha$ 和 $\beta$ 在后验分布中的相关性。</p>
+<p>如果不中心化，斜率稍微变大时，截距可能需要相应变小，才能让拟合线仍然穿过数据云的中心。这会导致后验分布呈现狭长的相关结构，MCMC 采样时移动比较慢，混合也会变差。</p>
+<p>中心化以后，$\alpha$ 的解释变成“当 $x$ 处于平均水平时 $Y$ 的均值”。这通常更自然，也能改善后验几何形状。</p>
+<p>所以，<strong>中心化在频率学派里改善信息矩阵，在贝叶斯里改善后验几何结构</strong>。</p>
+<hr>
+<h2 id="7-从投影视角到概率视角同一个线性模型的两张地图">7. 从投影视角到概率视角：同一个线性模型的两张地图<a hidden class="anchor" aria-hidden="true" href="#7-从投影视角到概率视角同一个线性模型的两张地图">#</a></h2>
+<p>在 OLS 的几何视角里，我们把观测向量 $Y$ 投影到由特征基底张成的子空间中。拟合值 $\hat{Y}$ 是投影，残差 $e=Y-\hat{Y}$ 垂直于模型子空间。</p>
+<p>这个视角强调：</p>
+$$
+Y\longrightarrow \hat{Y}
+$$<p>也就是从观测数据出发，寻找最优拟合。</p>
+<p>而概率图模型强调：</p>
+$$
+\alpha,\beta,\tau\longrightarrow \mu_i\longrightarrow Y_i
+$$<p>也就是从参数和随机机制出发，描述观测数据如何生成。</p>
+<p>这两个视角并不冲突。它们只是看同一个线性模型的两个侧面。</p>
+<p><strong>OLS 的几何视角回答的是：为什么这个估计量是最优投影。</strong></p>
+<p><strong>概率图模型回答的是：数据如何由参数、均值结构和随机误差共同生成。</strong></p>
+<p>于是，线性回归有了两张地图。一张是几何地图，关键词是 <strong>projection, basis, orthogonality, residual</strong>。另一张是概率地图，关键词是 <strong>prior, likelihood, posterior, conditional independence</strong>。</p>
+<hr>
+<h2 id="8-bugsjagsnimble-为什么能自动计算">8. BUGS/JAGS/NIMBLE 为什么能自动计算？<a hidden class="anchor" aria-hidden="true" href="#8-bugsjagsnimble-为什么能自动计算">#</a></h2>
+<p>概率图模型不只是帮助理解，它也直接服务于计算。</p>
+<p>贝叶斯模型真正想得到的是：</p>
+$$
+p(\alpha,\beta,\tau\mid Y)
+$$<p>根据贝叶斯公式，它正比于：</p>
+$$
+p(\alpha)p(\beta)p(\tau)\prod_{i=1}^n p(Y_i\mid \alpha,\beta,\tau)
+$$<p>当模型很简单时，后验分布可能有解析形式。但当模型加入随机效应、空间效应、缺失机制、多结局结构以后，解析求解会变得非常困难。</p>
+<p>MCMC 的作用就是从后验分布中抽样。BUGS、JAGS、NIMBLE 这类系统之所以能工作，是因为概率图模型把联合分布拆成了局部条件分布。系统可以根据图结构找到每个节点的局部依赖关系，然后逐步更新未知量。</p>
+<p>比如更新 $\beta$ 时，系统主要需要知道 $\beta$ 的先验，以及所有通过 $\mu_i$ 与 $\beta$ 相连的观测值 $Y_i$。这就是图结构带来的模块化计算。</p>
+<p>所以，<strong>概率图模型把统计模型变成了计算机可以操作的对象</strong>。</p>
+<hr>
+<h2 id="9-扩展一从线性回归到层级模型">9. 扩展一：从线性回归到层级模型<a hidden class="anchor" aria-hidden="true" href="#9-扩展一从线性回归到层级模型">#</a></h2>
+<p>把参数看成随机变量的思想，在层级模型中会变得更有力量。</p>
+<p>假设我们研究不同地区 PM2.5 对某个健康结局的影响。每个地区都可以有自己的斜率：</p>
+$$
+\beta_j
+$$<p>其中 $j$ 表示地区。</p>
+<p>如果每个地区单独估计，就是 <strong>no pooling</strong>。这种方法允许地区差异，但小样本地区会很不稳定。</p>
+<p>如果所有地区共用一个斜率，就是 <strong>complete pooling</strong>。这种方法很稳定，但会抹掉真实的地区异质性。</p>
+<p>贝叶斯层级模型可以写成：</p>
+$$
+\beta_j\sim N(\beta_0,\sigma_\beta^2)
+$$<p>这表示每个地区有自己的效应，但这些效应来自一个共同的总体分布。这就是 <strong>partial pooling</strong>。</p>
+<p>partial pooling 的好处是：数据多的地区更多依赖自身信息，数据少的地区会向总体平均效应适度收缩。它既保留异质性，又避免小样本估计过度波动。</p>
+<p>这对环境流行病学很重要，因为现实数据中不同地区、不同暴露水平、不同 cluster 的样本量往往并不均衡。</p>
+<hr>
+<h2 id="10-扩展二迁移到-pm25-与健康结局研究">10. 扩展二：迁移到 PM2.5 与健康结局研究<a hidden class="anchor" aria-hidden="true" href="#10-扩展二迁移到-pm25-与健康结局研究">#</a></h2>
+<p>如果研究 PM2.5 与疾病发生，可以写一个 Bayesian logistic regression：</p>
+$$
+Y_i\sim Bernoulli(p_i)
+$$<h1 id="logfracp_i1-p_i">$$
+\log\frac{p_i}{1-p_i}</h1>
+<p>\alpha+\beta PM_{2.5,i}+\gamma^\top Z_i
+$$</p>
+<p>其中 $Y_i$ 表示是否患病，$Z_i$ 表示年龄、性别、教育、城乡、收入等协变量。</p>
+<p>频率学派通常报告：</p>
+$$
+\hat{\beta},\quad SE,\quad CI,\quad p\text{-value}
+$$<p>贝叶斯模型则给出：</p>
+$$
+p(\beta\mid Y,PM_{2.5},Z)
+$$<p>于是我们可以直接问：</p>
+$$
+P(\beta>0\mid data)
+$$<p>如果使用 odds ratio：</p>
+$$
+OR=\exp(\beta)
+$$<p>也可以问：</p>
+$$
+P(OR>1\mid data)
+$$<p>这比单纯判断 $p&lt;0.05$ 更贴近公共卫生问题。因为我们真正关心的是：在当前数据和模型假设下，PM2.5 使疾病风险升高的后验概率有多大，效应大小大概落在哪里，不确定性有多宽。</p>
+<p>更进一步，我们还可以问：</p>
+$$
+P(OR>1.05\mid data)
+$$$$
+P(OR>1.10\mid data)
+$$<p>这类问题更接近实际决策，因为公共卫生中常常关心效应是否超过某个有意义的阈值。</p>
+<hr>
+<h2 id="11-扩展三迁移到空间模型carbym-与-scm">11. 扩展三：迁移到空间模型、CAR、BYM 与 SCM<a hidden class="anchor" aria-hidden="true" href="#11-扩展三迁移到空间模型carbym-与-scm">#</a></h2>
+<p>空间疾病模型也可以被看成概率图模型的扩展版本。</p>
+<p>一个区域疾病模型可以写成：</p>
+$$
+Y_i\sim Poisson(E_i\lambda_i)
+$$$$
+\log\lambda_i=\alpha+\beta x_i+u_i+v_i
+$$<p>这里 $E_i$ 是期望病例数，$\lambda_i$ 是相对风险，$x_i$ 是 PM2.5 或其他暴露，$u_i$ 是空间结构随机效应，$v_i$ 是非结构随机效应。</p>
+<p>在图模型中，$\alpha,\beta,u_i,v_i$ 会指向 $\lambda_i$，$\lambda_i$ 和 $E_i$ 再指向 $Y_i$。这和线性回归的结构完全同源：</p>
+$$
+\textbf{parameters and latent effects}
+\longrightarrow
+\textbf{mean or risk parameter}
+\longrightarrow
+\textbf{observed data}
+$$<p>CAR 模型的关键在于，空间随机效应 $u_i$ 之间并不是彼此独立的。它通常通过邻接关系定义：</p>
+$$
+u_i\mid u_{-i}\sim
+N\left(
+\frac{\sum_{j\sim i}u_j}{n_i},
+\frac{1}{n_i\tau_u}
+\right)
+$$<p>这里 $j\sim i$ 表示地区 $j$ 是地区 $i$ 的邻居，$n_i$ 是地区 $i$ 的邻居数量。这个式子的意思是，一个地区的空间效应会受到邻近地区空间效应的影响。</p>
+<p>所以，空间模型里的“借邻居信息”，在图结构里就是通过随机效应节点之间的依赖关系表达出来的。</p>
+<p>这说明 linear regression 不是一个孤立例子，而是理解 CAR、BYM、SCM 的最小模板。</p>
+<hr>
+<h2 id="12-扩展四迁移到-clara-暴露画像和效应异质性">12. 扩展四：迁移到 CLARA 暴露画像和效应异质性<a hidden class="anchor" aria-hidden="true" href="#12-扩展四迁移到-clara-暴露画像和效应异质性">#</a></h2>
+<p>在 CLARA 暴露画像分析中，我们可能关心不同 exposure profile 下，PM2.5 对健康结局的效应是否不同。</p>
+<p>频率学派可以写成交互项模型：</p>
+$$
+Y_i=\alpha+\beta PM_i+\sum_k\delta_k I(cluster_i=k)
++\sum_k\eta_k PM_iI(cluster_i=k)+\epsilon_i
+$$<p>其中 $\eta_k$ 表示不同 cluster 中 PM2.5 效应的差异。</p>
+<p>贝叶斯层级模型可以更自然地写成：</p>
+$$
+\beta_k\sim N(\beta_0,\sigma_\beta^2)
+$$$$
+Y_i\sim N(\alpha_{cluster_i}+\beta_{cluster_i}PM_i,\sigma^2)
+$$<p>这里每个 cluster 都有自己的暴露效应 $\beta_k$，但这些 $\beta_k$ 来自同一个总体分布。</p>
+<p>这样做的好处是，某个 cluster 样本量少时，它的效应估计不会完全被小样本噪声支配，而会向总体效应适度收缩。与此同时，如果某个 cluster 的数据非常充分，它仍然可以表现出与总体不同的效应。</p>
+<p>这就把 CLARA 从“先聚类、再分组回归”的流程，推进到一个更完整的层级推断框架。</p>
+<p><strong>暴露画像不只是描述性标签，也可以成为效应异质性的层级来源。</strong></p>
+<hr>
+<h2 id="13-和机器学习的连接从-feature-engineering-到-probabilistic-programming">13. 和机器学习的连接：从 feature engineering 到 probabilistic programming<a hidden class="anchor" aria-hidden="true" href="#13-和机器学习的连接从-feature-engineering-到-probabilistic-programming">#</a></h2>
+<p>机器学习通常写成：</p>
+$$
+\hat{y}=f_\theta(x)
+$$<p>它关心的是如何通过参数 $\theta$ 把输入 $x$ 映射到预测值 $\hat{y}$。</p>
+<p>概率图模型会进一步写成：</p>
+$$
+Y\mid \theta,x\sim p(Y\mid f_\theta(x))
+$$<p>也就是说，它不仅给出预测值，还给出预测值周围的不确定性。</p>
+<p>贝叶斯模型再进一步，把 $\theta$ 也看成随机变量：</p>
+$$
+\theta\sim p(\theta)
+$$$$
+\theta\mid data\sim p(\theta\mid data)
+$$<p>于是，模型不仅表达观测噪声，也表达参数不确定性。</p>
+<p>这对医学和环境健康研究尤其重要。因为这些研究不只关心预测结果，还关心效应方向、效应大小、不确定性范围和科学解释。概率图模型给机器学习补上的，正是这种结构化的不确定性表达。</p>
+<hr>
+<h2 id="14-小结如何理解-graphical-linear-regression">14. 小结：如何理解 graphical linear regression？<a hidden class="anchor" aria-hidden="true" href="#14-小结如何理解-graphical-linear-regression">#</a></h2>
+<p>过去我们更多地把线性回归理解为一个估计公式：</p>
+$$
+Y_i=\alpha+\beta x_i+\epsilon_i
+$$<p>现在在贝叶斯视角下，我们可以思考这样一个概率生成系统：</p>
+$$
+\alpha,\beta,\tau
+\longrightarrow
+\mu_i
+\longrightarrow
+Y_i
+$$<p>其中，$\alpha,\beta,\tau$ 是未知参数，$\mu_i$ 是由线性结构决定的条件均值，$Y_i$ 是围绕 $\mu_i$ 生成的观测值。</p>
+<p>所以，graphical models 里的 linear regression 不是普通回归的重复，而是一个入口。它展示了概率图模型的基本语法：</p>
+<p><strong>节点表示变量，箭头表示条件依赖，plate 表示重复观测，先验表示参数不确定性，似然表示数据生成机制，后验表示数据对未知量的更新。</strong></p>
+<hr>
+<h2 id="15-最终理解">15. 最终理解<a hidden class="anchor" aria-hidden="true" href="#15-最终理解">#</a></h2>
+<p>如果说 OLS 的几何视角让我们看到线性回归的投影本质，那么 graphical model 的概率视角则揭示了线性回归的生成本质。</p>
+<p>前者强调：</p>
+$$
+\textbf{projection, basis, orthogonality, residual}
+$$<p>后者强调：</p>
+$$
+\textbf{prior, likelihood, posterior, conditional independence}
+$$<p>这两个视角合在一起，让线性回归不再只是一个孤立公式，而是连接线性代数、概率论、统计推断和计算方法的一座桥。</p>
+<p>这也解释了为什么继续学习 Bayesian network、NIMBLE、空间模型、层级模型和环境健康效应异质性时，linear regression 仍然是最重要的起点。复杂模型看起来形式不同，但底层逻辑是相同的：<strong>把复杂系统拆成局部条件关系，再通过联合概率分布把这些局部关系重新连接起来。</strong></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://wrqkkk.github.io/posts/%E5%BE%AE%E5%88%86%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>微分的前世今生</span>
+  </a>
+  <a class="next" href="https://wrqkkk.github.io/posts/%E6%96%B9%E6%B3%95%E8%AE%BA/">
+    <span class="title">Next »</span>
+    <br>
+    <span>methodology</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://wrqkkk.github.io/">wrqkkk&#39;s Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

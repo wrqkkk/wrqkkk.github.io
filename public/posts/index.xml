@@ -1,3 +1,175 @@
-&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts</title><link>https://wrqkkk.github.io/posts/</link><description>Recent content in Posts on wrqkkk's Notes</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 18 Apr 2026 16:40:00 +0800</lastBuildDate><atom:link href="https://wrqkkk.github.io/posts/" rel="self" type="application/rss+xml"/><item><title>prediction prevails</title><link>https://wrqkkk.github.io/posts/prediction-prevails/</link><pubDate>Sat, 18 Apr 2026 16:40:00 +0800</pubDate><guid>https://wrqkkk.github.io/posts/prediction-prevails/</guid><description><h1 id="when-prediction-prevails">When Prediction Prevails</h1><p>Lately I’ve been circling around a thought that feels increasingly hard to ignore: in much of modern technical practice, what really wins is not<strong>causal understanding</strong>, but<strong>predictive performance</strong>.</p><p>Systems become valuable long before they become intelligible. They work before we can cleanly explain why they work. They extract stable regularities from messy data, turn those regularities into useful outputs, and earn our trust through repeated success. But usefulness and understanding are not the same thing. A model can be effective without revealing the mechanism that makes it effective.</p></description></item><item><title>ml and tsa——new perspective</title><link>https://wrqkkk.github.io/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/</link><pubDate>Mon, 13 Apr 2026 21:20:00 +0800</pubDate><guid>https://wrqkkk.github.io/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/</guid><description><p>起因是有点没听懂</p><p><img alt="alt text" loading="lazy" src="image.png"/><h1 id="tsa-期中复习小记确定性趋势投影与-gls">TSA 期中复习小记：确定性趋势、投影与 GLS</h1><h2 id="1-核心模型框架-the-model-framework">1. 核心模型框架 (The Model Framework)</h2><p>在时间序列分析（TSA）的 Lec 3 中，我们研究观测序列 $Y_t$ 的分解：</p>
-$$Y_t = \mu_t + X_t$$<ul><li><strong>$\mu_t$ (Deterministic Trend)</strong> ：确定性趋势，由非随机的设计矩阵（Design Matrix）定义。</li><li><strong>$X_t$ (Stochastic Error)</strong> ：随机误差项，假设为<strong>平稳过程 (Stationary)</strong>，满足 $E(X_t) = 0$。</li></ul><hr><h2 id="2-场景一确定性线性趋势-linear-trend">2. 场景一：确定性线性趋势 (Linear Trend)</h2><h3 id="21-模型与-ols-推导">2.1 模型与 OLS 推导</h3><p>假设 $\mu_t = \beta_0 + \beta_1 t$。
-利用最小二乘法 (OLS) 最小化损失函数 $Q(\beta) = \sum_{t=1}^n [Y_t - (\beta_0 + \beta_1 t)]^2$。</p></description></item><item><title>great minds shine</title><link>https://wrqkkk.github.io/posts/%E5%A5%BD%E6%96%87%E5%85%B1%E8%AF%BB-list/</link><pubDate>Mon, 06 Apr 2026 23:20:00 +0800</pubDate><guid>https://wrqkkk.github.io/posts/%E5%A5%BD%E6%96%87%E5%85%B1%E8%AF%BB-list/</guid><description><h2 id="catalog">Catalog</h2><ul><li><a href="#catalog">Catalog</a></li><li><a href="#2026-04-06">2026-04-06</a><ul><li><a href="#2320--connection-between-econ-and-machine-learning">23:20 · Connection between econ and machine learning</a></li></ul></li></ul><p><a id="date-2026-04-06"/></p><h2 id="2026-04-06">2026-04-06</h2><p><a id="entry-2026-04-06-001"/></p><h3 id="2320--connection-between-econ-and-machine-learning">23:20 · Connection between econ and machine learning</h3><p><a href="https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html#endnote-notoverfitting">Click here to open the link</a></p><hr/></item><item><title>见贤思齐</title><link>https://wrqkkk.github.io/posts/great-minds/</link><pubDate>Mon, 06 Apr 2026 23:20:00 +0800</pubDate><guid>https://wrqkkk.github.io/posts/great-minds/</guid><description><p>本文致力于 build up 一个能动、主观筛选的关注列表，用于 track 一些我认为值得认真学习的人物，整理 ta 们的博客、访谈与论文等等高质量思考和成果。</p><p>见贤思齐、共同进步。</p></description></item><item><title>我不许可</title><link>https://wrqkkk.github.io/posts/%E6%88%91%E4%B8%8D%E8%AE%B8%E5%8F%AF/</link><pubDate>Sun, 05 Apr 2026 21:20:00 +0800</pubDate><guid>https://wrqkkk.github.io/posts/%E6%88%91%E4%B8%8D%E8%AE%B8%E5%8F%AF/</guid><description><p>如题，我不许可这样的表达作为“女性主义经典电影”和其它优秀的作品相提并论。我阅片不多，表达不准确的地方烦请斧正。</p><p>部分视角 credit to 我的朋友 l，感谢她记住我随口说出的话，累了一天赶回来陪我看电影并和我聊到深夜。</p></description></item><item><title>What to do when waiting for agents working</title><link>https://wrqkkk.github.io/posts/what-to-do-when-waiting-for-agents/</link><pubDate>Mon, 30 Mar 2026 23:26:00 +0800</pubDate><guid>https://wrqkkk.github.io/posts/what-to-do-when-waiting-for-agents/</guid><description><h2 id="organize-project-folders">Organize Project Folders</h2><p>Review the revisions made in previous tasks, reorganize the project folders, refine the README, and try to write out a clear map down.</p><p>Manage to keep the agent’s modifications within the bounds of<strong>my own intentions and judgment</strong>, or we easily lose control.</p><h2 id="review-concepts-and-theorems-used-in-my-courses">Review Concepts and Theorems used in my courses.</h2><p>Concepts in math are tightly woven together: stochastic processes sit at the heart of time series analysis, which also demands a strong command of statistics; real analysis provides much of the rigor needed to make sense of results in stochastic analysis; not to mention how algebra quietly but powerfully runs through nearly every path in mathematics, statistics, and computer science.</p></description></item><item><title>Joel Mokyr 讲座大纲</title><link>https://wrqkkk.github.io/posts/joel-mokyr-summary/</link><pubDate>Sun, 29 Mar 2026 02:01:23 +0800</pubDate><guid>https://wrqkkk.github.io/posts/joel-mokyr-summary/</guid><description><h1 id="joel-mokyr-讲座大纲">Joel Mokyr 讲座大纲</h1><p>ai简单整理。</p><h2 id="主旨">主旨</h2><p>这场讲座并非只是泛泛空谈“思想自由很重要”、“创新驱动发展”等口号，而是通过梳理历史上“思想市场”的发展来告诉我们：一个社会是否能形成高质量的 market for ideas，决定了它能不能持续生产、筛选、信任并应用 useful knowledge，进而影响文化演化、技术创新与长期经济增长。</p></description></item><item><title>The art of 'at most'</title><link>https://wrqkkk.github.io/posts/art-of-at-most/</link><pubDate>Sun, 25 Jan 2026 12:00:00 +0800</pubDate><guid>https://wrqkkk.github.io/posts/art-of-at-most/</guid><description><h1 id="the-art-of-at-most">The art of &lsquo;at most&rsquo;</h1><p>As we all know, to calculate &rsquo;exactly&rsquo; is notoriously difficult. Why? For example, when we write an assignment on paper, a minimum word‑count line is often printed so that readers do not need to count every word to know whether the requirement is met; a single glance tells them whether the text reaches at least that line and gives an approximate conclusion that it passes.</p></description></item><item><title>Hello</title><link>https://wrqkkk.github.io/posts/hello/</link><pubDate>Mon, 19 Jan 2026 15:01:23 +0800</pubDate><guid>https://wrqkkk.github.io/posts/hello/</guid><description><p>看见的人运气+666，御寒+999</p></description></item><item><title/><link>https://wrqkkk.github.io/posts/%E6%96%B9%E6%B3%95%E8%AE%BA/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wrqkkk.github.io/posts/%E6%96%B9%E6%B3%95%E8%AE%BA/</guid><description><h2/><h2 id="proxy">proxy</h2><p>我们实现一个阶段性目标时，首先往往需要拆解为短期的目标，再细分出任务，落实到每一天、每个星期去执行。例如，留学申请，时间顺序来说：决定申请-梳理bg和申请项目-补充bg-整理材料开始申请季-接offer</p><p>首先要规划的是探索，究竟是否适合这条路？每条路意味着什么？这是一个很难量化，也很难决定何时算完成的任务</p><h2 id="框架是什么">框架是什么</h2><p>autoresearch是一套框架。</p><p>框架一般至少有三个要素：边界、结构和规则。</p><p>边界指的是知道什么事情该管、什么事情不该管。那么人是一个没有边界的物种？我们不知道当一件事情像柯西列一样逼近底线的时候，它究竟是否还在界内，似乎人的想法是有随机扰动的，我们会因为一些难以溯源的东西而发生巨大的跳跃，连我们自己也难以想象和归因；</p><p>结构指的是各个部分如何连接</p></description></item></channel></rss>
+&lt;?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts</title>
+    <link>https://wrqkkk.github.io/posts/</link>
+    <description>Recent content in Posts on wrqkkk&#39;s Notes</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <lastBuildDate>Mon, 18 May 2026 13:00:00 &#43;0900</lastBuildDate>
+    
+    <atom:link href="https://wrqkkk.github.io/posts/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>TSA final review notes</title>
+      <link>https://wrqkkk.github.io/posts/tsa_final_review/</link>
+      <pubDate>Mon, 18 May 2026 13:00:00 &#43;0900</pubDate>
+      <guid>https://wrqkkk.github.io/posts/tsa_final_review/</guid>
+      <description><h1 id="lecture-1-basic-objects-of-time-series">Lecture 1: Basic Objects of Time Series</h1>
+<h2 id="part-a-课堂内容还原">Part A. 课堂内容还原</h2>
+<h3 id="def-11-time-series">Def 1.1 Time Series</h3>
+<p>一个 <strong>time series</strong> 是按时间顺序排列的一列随机变量，板书中写成</p>
+\[
+\{X_n:n\in\mathbb Z\},\qquad X_1,X_2,\ldots .
+\]<p>这里每一个 $X_t$ 都是随机变量，而不是一个确定数值。真正观测到的数据只是这个随机过程的一次 realization，例如</p></description>
+    </item>
+    
+    <item>
+      <title>微分的前世今生</title>
+      <link>https://wrqkkk.github.io/posts/%E5%BE%AE%E5%88%86%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/</link>
+      <pubDate>Mon, 18 May 2026 13:00:00 &#43;0900</pubDate>
+      <guid>https://wrqkkk.github.io/posts/%E5%BE%AE%E5%88%86%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/</guid>
+      <description><p>我们首先通过微分，以及极限，定义了导数。</p>
+<p>在可微的基础上，我们有公式:</p>
+$$y(x+\Delta x)-y(x)=A(x+\Delta x-x)+o(\Delta x)$$$$\Delta y=A\Delta x+o(\Delta x)$$<p>(说明待补充)</p>
+<p>但不是所有函数都可微、可导的，什么是可微？可以写成一个微分形式就叫可微，什么叫可导？导数的表达式是一个极限，这个极限存在就是可导，由于极限分为左极限和右极限，我们也存在单侧可导的概念，我们称两侧极限为左导数和右导数。</p></description>
+    </item>
+    
+    <item>
+      <title>graphical models——new perspective on linear regression</title>
+      <link>https://wrqkkk.github.io/posts/graphical_linear_regression/</link>
+      <pubDate>Wed, 06 May 2026 13:00:00 &#43;0900</pubDate>
+      <guid>https://wrqkkk.github.io/posts/graphical_linear_regression/</guid>
+      <description><h1 id="概率图模型学习小记从线性回归到贝叶斯图结构">概率图模型学习小记：从线性回归到贝叶斯图结构</h1>
+<p>当我们看到线性回归，脑子里首先出现的是：</p>
+$$
+Y_i=\alpha+\beta x_i+\epsilon_i
+$$<p>然后就是损失函数、OLS、残差、标准误、置信区间和 $p$-value。但在概率图模型的表达里，线性回归突然变成了一个由节点和箭头组成的生成系统。这个转变让我意识到，<strong>线性回归不只是“拟合一条线”，它其实是在描述数据如何由一组未知量和随机机制生成出来</strong>。</p></description>
+    </item>
+    
+    <item>
+      <title>methodology</title>
+      <link>https://wrqkkk.github.io/posts/%E6%96%B9%E6%B3%95%E8%AE%BA/</link>
+      <pubDate>Sat, 18 Apr 2026 16:40:00 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/%E6%96%B9%E6%B3%95%E8%AE%BA/</guid>
+      <description><h2 id="proxy">proxy</h2>
+<p>我们实现一个阶段性目标时，首先往往需要拆解为短期的目标，再细分出任务，落实到每一天、每个星期去执行。例如，留学申请，时间顺序来说：决定申请-梳理bg和申请项目-补充bg-整理材料开始申请季-接offer</p></description>
+    </item>
+    
+    <item>
+      <title>prediction prevails</title>
+      <link>https://wrqkkk.github.io/posts/prediction-prevails/</link>
+      <pubDate>Sat, 18 Apr 2026 16:40:00 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/prediction-prevails/</guid>
+      <description><h1 id="when-prediction-prevails">When Prediction Prevails</h1>
+<p>Lately I’ve been circling around a thought that feels increasingly hard to ignore: in much of modern technical practice, what really wins is not <strong>causal understanding</strong>, but <strong>predictive performance</strong>.</p>
+<p>Systems become valuable long before they become intelligible. They work before we can cleanly explain why they work. They extract stable regularities from messy data, turn those regularities into useful outputs, and earn our trust through repeated success. But usefulness and understanding are not the same thing. A model can be effective without revealing the mechanism that makes it effective.</p></description>
+    </item>
+    
+    <item>
+      <title>ml and tsa——new perspective</title>
+      <link>https://wrqkkk.github.io/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/</link>
+      <pubDate>Mon, 13 Apr 2026 21:20:00 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/</guid>
+      <description><p>起因是有点没听懂</p>
+<p><img alt="alt text" loading="lazy" src="/imgs/image.png"></p>
+<h1 id="tsa-期中复习小记确定性趋势投影与-gls">TSA 期中复习小记：确定性趋势、投影与 GLS</h1>
+<h2 id="1-核心模型框架-the-model-framework">1. 核心模型框架 (The Model Framework)</h2>
+<p>在时间序列分析（TSA）的 Lec 3 中，我们研究观测序列 $Y_t$ 的分解：
+</p>
+$$Y_t = \mu_t + X_t$$<ul>
+<li><strong>$\mu_t$ (Deterministic Trend)</strong> ：确定性趋势，由非随机的设计矩阵（Design Matrix）定义。</li>
+<li><strong>$X_t$ (Stochastic Error)</strong> ：随机误差项，假设为<strong>平稳过程 (Stationary)</strong>，满足 $E(X_t) = 0$。</li>
+</ul>
+<hr>
+<h2 id="2-场景一确定性线性趋势-linear-trend">2. 场景一：确定性线性趋势 (Linear Trend)</h2>
+<h3 id="21-模型与-ols-推导">2.1 模型与 OLS 推导</h3>
+<p>假设 $\mu_t = \beta_0 + \beta_1 t$。
+利用最小二乘法 (OLS) 最小化损失函数 $Q(\beta) = \sum_{t=1}^n [Y_t - (\beta_0 + \beta_1 t)]^2$。</p></description>
+    </item>
+    
+    <item>
+      <title>great minds shine</title>
+      <link>https://wrqkkk.github.io/posts/%E5%A5%BD%E6%96%87%E5%85%B1%E8%AF%BB-list/</link>
+      <pubDate>Mon, 06 Apr 2026 23:20:00 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/%E5%A5%BD%E6%96%87%E5%85%B1%E8%AF%BB-list/</guid>
+      <description><!-- ARCHIVE_TOC_START -->
+<h2 id="catalog">Catalog</h2>
+<ul>
+<li><a href="#catalog">Catalog</a></li>
+<li><a href="#2026-04-06">2026-04-06</a>
+<ul>
+<li><a href="#2320--connection-between-econ-and-machine-learning">23:20 · Connection between econ and machine learning</a></li>
+</ul>
+</li>
+</ul>
+<!-- ARCHIVE_TOC_END -->
+<p><a id="date-2026-04-06"></a></p>
+<h2 id="2026-04-06">2026-04-06</h2>
+<p><a id="entry-2026-04-06-001"></a></p>
+<h3 id="2320--connection-between-econ-and-machine-learning">23:20 · Connection between econ and machine learning</h3>
+<p><a href="https://sohl-dickstein.github.io/2022/11/06/strong-Goodhart.html#endnote-notoverfitting">Click here to open the link</a></p>
+<hr></description>
+    </item>
+    
+    <item>
+      <title>见贤思齐</title>
+      <link>https://wrqkkk.github.io/posts/great-minds/</link>
+      <pubDate>Mon, 06 Apr 2026 23:20:00 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/great-minds/</guid>
+      <description><p>本文致力于 build up 一个能动、主观筛选的关注列表，用于 track 一些我认为值得认真学习的人物，整理 ta 们的博客、访谈与论文等等高质量思考和成果。</p>
+<p>见贤思齐、共同进步。</p></description>
+    </item>
+    
+    <item>
+      <title>我不许可</title>
+      <link>https://wrqkkk.github.io/posts/%E6%88%91%E4%B8%8D%E8%AE%B8%E5%8F%AF/</link>
+      <pubDate>Sun, 05 Apr 2026 21:20:00 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/%E6%88%91%E4%B8%8D%E8%AE%B8%E5%8F%AF/</guid>
+      <description><p>如题，我不许可这样的表达作为“女性主义经典电影”和其它优秀的作品相提并论。我阅片不多，表达不准确的地方烦请斧正。</p>
+<p>部分视角 credit to 我的朋友 l，感谢她记住我随口说出的话，累了一天赶回来陪我看电影并和我聊到深夜。</p></description>
+    </item>
+    
+    <item>
+      <title>What to do when waiting for agents working</title>
+      <link>https://wrqkkk.github.io/posts/what-to-do-when-waiting-for-agents/</link>
+      <pubDate>Mon, 30 Mar 2026 23:26:00 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/what-to-do-when-waiting-for-agents/</guid>
+      <description><h2 id="organize-project-folders">Organize Project Folders</h2>
+<p>Review the revisions made in previous tasks, reorganize the project folders, refine the README, and try to write out a clear map down.</p>
+<p>Manage to keep the agent’s modifications within the bounds of <strong>my own intentions and judgment</strong>, or we easily lose control.</p>
+<h2 id="review-concepts-and-theorems-used-in-my-courses">Review Concepts and Theorems used in my courses.</h2>
+<p>Concepts in math are tightly woven together: stochastic processes sit at the heart of time series analysis, which also demands a strong command of statistics; real analysis provides much of the rigor needed to make sense of results in stochastic analysis;  not to mention how algebra quietly but powerfully runs through nearly every path in mathematics, statistics, and computer science.</p></description>
+    </item>
+    
+    <item>
+      <title>Joel Mokyr 讲座大纲</title>
+      <link>https://wrqkkk.github.io/posts/joel-mokyr-summary/</link>
+      <pubDate>Sun, 29 Mar 2026 02:01:23 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/joel-mokyr-summary/</guid>
+      <description><h1 id="joel-mokyr-讲座大纲">Joel Mokyr 讲座大纲</h1>
+<p>ai简单整理。</p>
+<h2 id="主旨">主旨</h2>
+<p>这场讲座并非只是泛泛空谈“思想自由很重要”、“创新驱动发展”等口号，而是通过梳理历史上“思想市场”的发展来告诉我们：一个社会是否能形成高质量的 market for ideas，决定了它能不能持续生产、筛选、信任并应用 useful knowledge，进而影响文化演化、技术创新与长期经济增长。</p></description>
+    </item>
+    
+    <item>
+      <title>The art of &#39;at most&#39;</title>
+      <link>https://wrqkkk.github.io/posts/art-of-at-most/</link>
+      <pubDate>Sun, 25 Jan 2026 12:00:00 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/art-of-at-most/</guid>
+      <description><h1 id="the-art-of-at-most">The art of &lsquo;at most&rsquo;</h1>
+<p>As we all know, to calculate &rsquo;exactly&rsquo; is notoriously difficult. Why? For example, when we write an assignment on paper, a minimum word‑count line is often printed so that readers do not need to count every word to know whether the requirement is met; a single glance tells them whether the text reaches at least that line and gives an approximate conclusion that it passes.</p></description>
+    </item>
+    
+    <item>
+      <title>Hello</title>
+      <link>https://wrqkkk.github.io/posts/hello/</link>
+      <pubDate>Mon, 19 Jan 2026 15:01:23 &#43;0800</pubDate>
+      <guid>https://wrqkkk.github.io/posts/hello/</guid>
+      <description><p>看见的人运气+666，御寒+999</p></description>
+    </item>
+    
+  </channel>
+</rss>
