@@ -6267,9 +6267,9 @@ S(\boldsymbol\phi)
 则
 
 \[
-\hat{\boldsymbol\phi}_{OLS}
-= left(\sum_{t=p+1}^n\mathbf x_t\mathbf x_t^T\right)^{-1}
-\left(\sum_{t=p+1}^n\mathbf x_tY_t\right).
+\hat{\boldsymbol\phi}_{OLS} = \left(
+    \sum_{t=p+1}^n\mathbf x_t\mathbf x_t^T\right)^{-1} \left(\sum_{t=p+1}^n\mathbf x_tY_t
+    \right).
 \]
 
 **【原笔记中断】** Lecture 17 后半部分黑板照片中继续推导了 AR(p) 的 OLS 渐近性质，但可辨识信息不足。根据 Lecture 18 和 Lecture 19 的衔接，老师后面会把 AR(p) 的 OLS 与 conditional MLE、moment estimator 联系起来，因此这里暂时保留核心公式，不强行补完整渐近证明。
