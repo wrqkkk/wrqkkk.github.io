@@ -273,6 +273,138 @@ Haar条件！！！！
 
 （默写！！！！看下怎么用！！可能要check！！！）
 
+14:30开始了
+
+
+
+## 积分
+
+
+
+积分不好算，我们参考积分中值定理：
+
+$$\int_a^b f(x)dx=(b-a)f(\xi), \xi \in (a,b)$$
+
+由于这个定理一般并不找出这个specific的积分平均值点，所以我们要用其他方法来近似，比如：
+- **中矩形公式**
+  用中点处的函数来近似：
+
+  ![alt text](../../assets/imgs/numerithon1.png)
+- **梯形公式**
+  用端点函数值的平均值来近似：
+
+  ![alt text](../../assets/imgs/numerithon2.png)
+- **插值型求积公式**
+  用简单函数逼近被积函数 $f(x)$，然后用这个更简单的逼近函数的积分来近似表示 $f(x)$
+
+### 插值型求积公式之**Newton-Cotes**求积公式
+
+首先review Lagrange插值多项式：
+
+$$L_n(x)=\sum_{k=0}^nf(x_k)l_k(x)$$
+
+$$I=\int_a^bf(x)dx\approx\int_a^bL_n(x)dx=\int_a^b\sum_{k=0}^nf(x_k)l_k(x)dx=\sum_{k=0}^n (\int_a^bl_k(x)dx)f(x_k)$$
+
+
+$$A_k=\int_a^bl_k(x)dx$$
+$$I=\int_a^bf(x)dx\approx \sum_{k=0}^n A_k f(x_k)=I_n$$
+
+
+在等距节点的前提下，可以算出来
+$$A_k=\int_a^bl_k(x)dx=(b-a)C_k^{(n)}$$
+
+其中
+
+$$C_k^{(n)}=\frac{(-1)^{(n-k)}}{n\cdot k!(n-k)!}\int_0^n \left( \prod_{\substack{j=0\\j\neq k}}^n (t-j)\right) dt$$
+
+$$C_k^{(n)}=1$$
+
+
+
+然后我们记 n = 1,2,4的三个公式即可，梯形公式、Simpson公式，以及Cotes公式
+
+
+
+
+![alt text](../../assets/imgs/numerithon3.png)
+
+
+### **Newton-Cotes**求积公式的余项
+
+几种公式的余项也要关注一下：
+
+
+![alt text](../../assets/imgs/numerithon4.png)
+
+
+### 代数精度的定义
+
+
+
+
+
+
+
+
+
+
+
+如果某个求积公式对于任何次数不超过n的多项式均成立，而对于m+1的多项式不能准确成立，则称该数值求积公式具有m次代数精度。
+
+
+具体来说，就是把 $1,x,x^2,x^3,\cdots,x^m$ 都代进去一遍，左边是正常求积分，右边是用的求积公式算（求积公式说白了就是几个点的值的线性组合，而且系数的和=1）
+
+
+
+
+现在是16:34啦，中间睡了大概1个小时，净复习时间1个小时
+
+
+
+
+接下来介绍了一个引理，讨论了为什么有的求积公式精度会比别的高一些，这个不考，先跳过
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
