@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>20-hour Numerithon | wrqkkk&#39;s Notes</title>
+<meta name="keywords" content="">
+<meta name="description" content="Inspired by marathon/hackathon.
+实在是没时间了，快速搞定final。
+Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min）
+搞清楚这门课在干什么，讨论的对象是什么，聚焦什么问题，用什么视角切入，提出了哪些解决方法。">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/numerithon/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a29c24210eb31d9ce56f669c66a35c9c51b17376b7764e336a49af7dec914cf0.css" integrity="sha256-opwkIQ6zHZzlb2acZqNcnFGxc3a3dk4zakmvfeyRTPA=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/numerithon/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true}
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+<meta property="og:url" content="http://localhost:1313/posts/numerithon/">
+  <meta property="og:site_name" content="wrqkkk&#39;s Notes">
+  <meta property="og:title" content="20-hour Numerithon">
+  <meta property="og:description" content="Inspired by marathon/hackathon.
+实在是没时间了，快速搞定final。
+Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min） 搞清楚这门课在干什么，讨论的对象是什么，聚焦什么问题，用什么视角切入，提出了哪些解决方法。">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-05-30T20:20:00+08:00">
+    <meta property="article:modified_time" content="2026-05-30T20:20:00+08:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="20-hour Numerithon">
+<meta name="twitter:description" content="Inspired by marathon/hackathon.
+实在是没时间了，快速搞定final。
+Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min）
+搞清楚这门课在干什么，讨论的对象是什么，聚焦什么问题，用什么视角切入，提出了哪些解决方法。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "20-hour Numerithon",
+      "item": "http://localhost:1313/posts/numerithon/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "20-hour Numerithon",
+  "name": "20-hour Numerithon",
+  "description": "Inspired by marathon/hackathon.\n实在是没时间了，快速搞定final。\nStage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min） 搞清楚这门课在干什么，讨论的对象是什么，聚焦什么问题，用什么视角切入，提出了哪些解决方法。\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Inspired by marathon/hackathon.\n实在是没时间了，快速搞定final。\nStage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min） 搞清楚这门课在干什么，讨论的对象是什么，聚焦什么问题，用什么视角切入，提出了哪些解决方法。\n理解五个Keywords：误差、插值、逼近、积分、求根。\n误差 首先是误差，计算数学和数学相比起来，重心上的区别就在于——我们讨论数学可以随便讨论某个值，例如根号二，实数连续统告诉我们，它有一个绝对确定的、唯一的无限不循环小数在表示它，我们只需要使用它而不需要具体算出来它是多少；但在实际应用中，具体到小数点后几位对我们来说很重要，尺子上的刻度本身有宽度，1cm和1cm或许不是同一个1cm；钢笔勾出的线有宽度，我们画出来的图也有误差，砝码会生锈，天平部件会松动……这种理论值和实际值的不同我们称之为误差（error），既然误差难以避免，那么我们的关注点就转向讨论：究竟怎样才是可接受的误差？\n于是我们引入了绝对误差的概念，很多时候理论值我们并不知道，于是有了绝对误差限——还不够——如果是买水果，出入十来克无所谓，可如果是买金子，哪怕1克都会带来几百的损失；造碗和造火箭零件的精度要求更不是一个量级，怎么办？——统一“度量衡”，引入相对误差，先去掉数量级的差异，再根据具体任务的要求确定，要把相对误差控制在什么范围内能接受，同样的，引入相对误差限。\n什么是有效数字？有效数字与相对误差的关系\n数值运算的误差估计方法\n微分运算估计绝对误差、相对误差 泰勒展开估计 避免误差危害构造稳定算法的方法list\n误差传播的微分估计长得和宏观经济学solow模型一直在用的增长率计算技巧一模一样。\n插值 啥是插值？我有n个点（插值节点），要尽可能还原生成这些点的“机制”，也就是原来的函数，我们要利用这n条信息；另外，为了方便让我们“想”出来的函数（即插值函数）经过这n个点，也为了方便计算（预测之后or之中没有出现的的maybe？或者研究这个自变量对因变量的影响？），我们的插值函数一般是比较special的，比如多项式，多项式函数空间有一些非常好的性质（高代内容），或许这是为什么我们用它。\n插值多项式是唯一的（by之前所说的$\\mathscr{P}_n$空间的大好性质），这非常好，虽然不知道为什么好，但数学喜欢存在性和唯一性的讨论，有时间可以进一步研究一下。\n有一些不同的构造多项式插值函数的方法，比如说lagrange插值多项式、newton插值多项式，还有hermite插值多项式，另外还有legendre多项式，不知道这里有没有涉及，在学pde的时候我们有讨论过这个多项式，可以回头看一看。\n进一步地，我们要讨论插值在实际应用中可能会出现的问题——Runge现象，它是什么？什么情况下会产生？如何避免？：\n是什么： 产生原因：等距节点高次插值会产生Runge现象 如何避免：不要高次数，分段低次插值 分段线性插值基函数 分段线性插值多项式以及余项 逼近 （卧槽到这里已经花了1h了，加油吧姐）\n啥是逼近？刚刚我们不是讨论了插值嘛，既然真实的函数我们不知道，找了一个插值函数作为替代品来进行计算，那我们当然要关心这个“替代品”是否足够“好用”，用某种”度量“来衡量理论值和实际值之间的区别——所以我们要讨论什么？一个类似”误差“的东西，这个误差到这里不是一个值了，而是两个 $\\aleph_1$ 的点集之间的差距，一个个算当然是不现实的（不过可以用积分这个工具来做“一个个算并加起来“的工作），就像误差和相对误差有时候并不可得一样，我们会引入一个类似于“限”的东西——函数空间的范数——来讨论我们找的函数相对真实函数的误差。包括：\n一致逼近范数 平方逼近范数 1h10min\n去汇报了\n回来了，大概1点半正式进入状态：\n1h25min 同样的，我们仍然讨论 $\\mathscr{P}_n$ 空间中的多项式函数能不能用来逼近——首先来到了我们最关心的存在唯一性，它存在吗？bernstein证明一致逼近（一致收敛）是存在的（这里说一致逼近和一致收敛有啥区别）。\nBernstein构造的多项式逼近是稳定的（貌似是针对runge现象讨论的，lagrange插值多项式就会出现这样不稳定的问题）\n偏差的定义： 某个多项式$P_n$和f的偏差是它俩在区间上差值的最大值；在多项式空间上取偏差的下确界可以得到f在区间上的最小偏差\n很自然地，类似于取了一个argmin（btw能用min嘛？），满足最小偏差的多项式我们叫最佳一致逼近多项式。\n接下来依旧是存在唯一性定理，包存在的呀，存在性定理略过了，（因为存在，所以argmin顺理成章可以用了？）\n然后是最佳一致逼近多项式的唯一性，这个会涉及到偏差点定义+Chebyshev逼近定理，也是我们要知道的东西。\n偏差点的定义：使得最佳一致逼近多项式Pn和f取到最小偏差的点称为偏差点（参考极值点，其实是自变量的取值的意思），另外还有正负偏差点的定义，多项式大就是正的。另，偏差点肯定存在，因为Pn-f是一个闭区间连续函数。\n另，正负偏差点同时存在，用反证法+多项式函数空间的封闭性可以证明。\n然后来到chebyshev定理了，如果多项式是最佳逼近多项式，那么充分必要地，一定有n+2个“正负”交替的偏差点（具体看一下是咋操作的），充分性用反证法证明，假设Pn满足条件的时候，还不是最佳逼近多项式，搞了一个Qn出来是最佳，最后可以反推出Pn=Qn。\nok啊，我们终于可以讨论最佳（一致）逼近多项式的唯一性了：（展开一下，写一写）\n讲了半天，所以这个最佳（一致）逼近多项式这么千般好，我们能不能知道它长什么样子呢？包的呀，可以可以，我们会发现它就是个Lagrange插值多项式。\n（展开凭什么是Lagrange插值多项式）\n但有个大问题，虽然性质百般好，但在实际中求它是很困难的，所以我们只讨论最佳一次逼近多项式：\n重要！（展开怎么计算）\n这个最佳一次逼近多项式有几何意义。\n在f’‘不变号的前提下！！！这个在考纲里也强调了。\n首先一共有n+2＝3个偏差点，两个偏差点是两个端点a, b（为什么？），中间的偏差点记为x1，那么首先一次函数Pn和两个端点的连线平行，其次它是这个弦三角形的中位线（死去的初中知识出现了）\n（先跳过，有时间推一下）\n权函数的定义：满足两个条件：首先要和x绝对值n次方存在一个内积（相乘的积分）；其次如果权函数和任意非负连续函数g的“内积”为0，那么这个g在区间上恒等于0。\n（这里后续补充一下公式）\n则称$/rho(x)$是区间ab上的权函数\noho马上来了，定义内积空间，这里的内积空间比较特别，加上了权函数，f和g的内积是它俩的乘积还得乘上权函数的积分。\n内积空间有四个性质：交换律，齐次，分配律，正定型f和f的内积如果非负，那么f=0和f自身的内积=0是充要条件。\n欧几里得范数：就是靠这个内积的定义来定义的，f的范数等于它自身内积开平方，这个范数有三个性质： 柯西施瓦茨不等式；三角不等式；平行四边形定律三个性质\n（可以写一下）\n定义完内积，我们可以来正交了！如果内积=0就说正交，太简单了。\n另有一组大小为可列个的函数族，她们两两的内积=0，然后自身内积为常数A_k，称为正交函数族，如果对于所有k，A_k都是1，那就叫标准正交函数族。\n具体来说！要写完整，是1.[a,b]上的；2.带权$\\rho(x)$的；（标准）正交函数族。\ncosnx和sinnx就是很典型的正交函数族，rho=1\n函数的线性无关：如果一组函数可以写为系数只可能全为0的线性表示，那么这组函数就是线性无关的，和向量线性无关有点像。然后假设在线性函数族中，任意有限个函数线性无关，那就叫1.[a,b]上线性无关函数族。\n和向量类似，我们也有Gram矩阵来判断函数族是不是线性无关，gram矩阵的每一个元素就是函数族对应的内积，然后如果这个gram矩阵非奇异（行列式不为0），那他就线性无关\n怎么证明？另外正交函数和线性无关的关系是什么？\n证明：在线性表示两端利用线性性做内积，得到齐次线性方程组，由于线性无关，方程组只有唯一解0解，从而充分必要地，系数行列式≠0。\n我们来到最佳平方逼近问题。\n子空间中最佳平方逼近的充要条件\n子空间？线性内积空间kai中的n+1个线性无关函数张成的子空间Phi\n如果S是子空间Phi中的最佳平方逼近函数，那么S-f和所有phi_j正交！有点像余项已经没办法再用这个子空间中的内容表示的感觉，找了一个投影！！可以对比向量(最丰富的函数f)在平面上的投影(倾尽表示能力得到的函数S*)和顶点到平面这条高，这条高就是S*-f，应该和平面的两个基函数是正交的。这是充要条件！\n证明： 充分性用欧几里得范数的不等式性质证 必要性用反证法 （补充一下！！！）\n法方程组的定义是f和所有“基函数”的内积的向量\n中间有一些复杂的内容可以跳过了。\n如何计算最佳平方逼近多项式：算一下试试看（p45有一个例子）\n正交多项式，和正交函数一样的，在1.[a,b]上的；2.带权$\\rho(x)$的；（标准）正交函数族。\n正交化有两种方法：1.长递推的构造；2.短递推的构造\n（这里要补充！！并浅做几道题！）\n正交多项式gn的性质： 1.首一（why？） 2.正交多项式gn与任意次数小于n的多项式正交，这里仔细看看\n3.两两内积为0 4.gn的n个根都是单重实根（？看一下，单重实根是什么，意味着什么，有什么用），反证是它的根全是偶数重根，发现不行，然后奇数重，进一步推出来单重（这里看一下，没看懂）\n两种常用的正交多项式：Legendre正交多项式（有点复杂）和chebyshev多项式cos(n arccos(x))，本质上是三角函数族，有一个derive方法；\n（看一下怎么derive！！！重点）\nLegendre多项式性质：正交、奇偶、递推（！！！递推重要）。与0的平方误差最小，还有n个不同点。\n（看一下！！！重点）\nChebyshev多项式性质：1.最小偏差性（乘上一个1/2^{n-1}以后，与0的偏差最小）；2.多项式带权正交，权是1/根号(1-x^2)特殊，貌似可以对照三角函数族；3.偶次幂奇次幂；4.Chebyshev点\n然后递推关系： （看下吧！）\n1-3次的两种多项式的表达式怎么算。 （计算做题做题！！！！看下）\n利用两种与0的平方误差/偏差最小来求？？？\n看下！！！！\n近似最佳一致逼近多项式的计算方法之1.截断Chebyshev级数、2.Lagrange插值余项最小化近似逼近\n（看下题目！！！做题做题！）\n用正交函数族做最佳平方逼近\n（看下题目！！！做题做题！）\nTaylor级数项数节约似乎说了不考\n最小二乘：\n要考利用法方程进行最小二乘拟合。\n曲线拟合可以和最小二乘联系起来，因为最小化平方误差的思想其实和ols也很像！\nHaar条件！！！！\n（默写！！！！看下怎么用！！可能要check！！！）\n14:30开始了\n积分 积分不好算，我们参考积分中值定理：\n$$\\int_a^b f(x)dx=(b-a)f(\\xi), \\xi \\in (a,b)$$由于这个定理一般并不找出这个specific的积分平均值点，所以我们要用其他方法来近似，比如：\n中矩形公式 用中点处的函数来近似：\n梯形公式 用端点函数值的平均值来近似：\n插值型求积公式 用简单函数逼近被积函数 $f(x)$，然后用这个更简单的逼近函数的积分来近似表示 $f(x)$\n插值型求积公式之Newton-Cotes求积公式 首先review Lagrange插值多项式：\n$$L_n(x)=\\sum_{k=0}^nf(x_k)l_k(x)$$$$I=\\int_a^bf(x)dx\\approx\\int_a^bL_n(x)dx=\\int_a^b\\sum_{k=0}^nf(x_k)l_k(x)dx=\\sum_{k=0}^n (\\int_a^bl_k(x)dx)f(x_k)$$$$A_k=\\int_a^bl_k(x)dx$$ $$I=\\int_a^bf(x)dx\\approx \\sum_{k=0}^n A_k f(x_k)=I_n$$在等距节点的前提下，可以算出来 $$A_k=\\int_a^bl_k(x)dx=(b-a)C_k^{(n)}$$其中\n$$C_k^{(n)}=\\frac{(-1)^{(n-k)}}{n\\cdot k!(n-k)!}\\int_0^n \\left( \\prod_{\\substack{j=0\\\\j\\neq k}}^n (t-j)\\right) dt$$$$C_k^{(n)}=1$$然后我们记 n = 1,2,4的三个公式即可，梯形公式、Simpson公式，以及Cotes公式\nNewton-Cotes求积公式的余项 几种公式的余项也要关注一下：\n代数精度的定义 如果某个求积公式对于任何次数不超过n的多项式均成立，而对于m+1的多项式不能准确成立，则称该数值求积公式具有m次代数精度。\n具体来说，就是把 $1,x,x^2,x^3,\\cdots,x^m$ 都代进去一遍，左边是正常求积分，右边是用的求积公式算（求积公式说白了就是几个点的值的线性组合，而且系数的和=1）\n现在是16:34啦，中间睡了大概1个小时，净复习时间1个小时\n接下来介绍了一个引理，讨论了为什么有的求积公式精度会比别的高一些，这个不考，先跳过\n求积公式的数值稳定性 由于计算机有舍入误差，我们在算 $f(x_k)$ 的时候又要讨论一下这一块会给我们的计算带来的误差，如果 Cotes 系数 $C_k^{(n)}$ 都是正数无所谓，因为和为1；但如果有正有负，那么这个误差限可能会很大，可以见后的 Cotes 系数表。\n这里舍入误差可以回去看一下浮点数系 $F(10,4,-90,90)$\n复合求积公式 之前再整个区间上用高阶插值不可行已经验证过了，我们要转向对区间进行n等分，在每个小区间上进行插值。三种公式都写一下。\n",
+  "wordCount" : "5153",
+  "inLanguage": "en",
+  "datePublished": "2026-05-30T20:20:00+08:00",
+  "dateModified": "2026-05-30T20:20:00+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/numerithon/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "wrqkkk's Notes",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="wrqkkk&#39;s Notes (Alt + H)">wrqkkk&#39;s Notes</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv/" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      20-hour Numerithon
+    </h1>
+    <div class="post-meta"><span title='2026-05-30 20:20:00 +0800 CST'>May 30, 2026</span>&nbsp;·&nbsp;<span>11 min</span>&nbsp;·&nbsp;<span>5153 words</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#stage1-concept-map%e9%a2%84%e4%bc%b030min%e5%ae%9e%e9%99%85%e7%89%b9%e5%88%ab%e4%b9%85%e5%90%a7%e6%88%91%e4%b9%9f%e4%b8%8d%e8%ae%b0%e5%be%97%e4%ba%86%e5%86%8d%e7%bb%9f%e8%ae%a1%e4%b8%80%e4%b8%8bmin" aria-label="Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min）">Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min）</a><ul>
+                        
+                <li>
+                    <a href="#%e8%af%af%e5%b7%ae" aria-label="误差">误差</a></li>
+                <li>
+                    <a href="#%e6%8f%92%e5%80%bc" aria-label="插值">插值</a></li>
+                <li>
+                    <a href="#%e9%80%bc%e8%bf%91" aria-label="逼近">逼近</a></li>
+                <li>
+                    <a href="#%e7%a7%af%e5%88%86" aria-label="积分">积分</a><ul>
+                        
+                <li>
+                    <a href="#%e6%8f%92%e5%80%bc%e5%9e%8b%e6%b1%82%e7%a7%af%e5%85%ac%e5%bc%8f%e4%b9%8bnewton-cotes%e6%b1%82%e7%a7%af%e5%85%ac%e5%bc%8f" aria-label="插值型求积公式之Newton-Cotes求积公式">插值型求积公式之Newton-Cotes求积公式</a></li>
+                <li>
+                    <a href="#newton-cotes%e6%b1%82%e7%a7%af%e5%85%ac%e5%bc%8f%e7%9a%84%e4%bd%99%e9%a1%b9" aria-label="Newton-Cotes求积公式的余项">Newton-Cotes求积公式的余项</a></li>
+                <li>
+                    <a href="#%e4%bb%a3%e6%95%b0%e7%b2%be%e5%ba%a6%e7%9a%84%e5%ae%9a%e4%b9%89" aria-label="代数精度的定义">代数精度的定义</a></li>
+                <li>
+                    <a href="#%e6%b1%82%e7%a7%af%e5%85%ac%e5%bc%8f%e7%9a%84%e6%95%b0%e5%80%bc%e7%a8%b3%e5%ae%9a%e6%80%a7" aria-label="求积公式的数值稳定性">求积公式的数值稳定性</a></li>
+                <li>
+                    <a href="#%e5%a4%8d%e5%90%88%e6%b1%82%e7%a7%af%e5%85%ac%e5%bc%8f" aria-label="复合求积公式">复合求积公式</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Inspired by marathon/hackathon.</p>
+<p>实在是没时间了，快速搞定final。</p>
+<h1 id="stage1-concept-map预估30min实际特别久吧我也不记得了再统计一下min">Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min）<a hidden class="anchor" aria-hidden="true" href="#stage1-concept-map预估30min实际特别久吧我也不记得了再统计一下min">#</a></h1>
+<p>搞清楚这门课在干什么，讨论的对象是什么，聚焦什么问题，用什么视角切入，提出了哪些解决方法。</p>
+<p>理解五个Keywords：误差、插值、逼近、积分、求根。</p>
+<h2 id="误差">误差<a hidden class="anchor" aria-hidden="true" href="#误差">#</a></h2>
+<p>首先是误差，计算数学和数学相比起来，重心上的区别就在于——我们讨论数学可以随便讨论某个值，例如根号二，实数连续统告诉我们，它有一个绝对确定的、唯一的无限不循环小数在表示它，我们只需要使用它而不需要具体算出来它是多少；但在实际应用中，具体到小数点后几位对我们来说很重要，尺子上的刻度本身有宽度，1cm和1cm或许不是同一个1cm；钢笔勾出的线有宽度，我们画出来的图也有误差，砝码会生锈，天平部件会松动&hellip;&hellip;这种理论值和实际值的不同我们称之为误差（error），既然误差难以避免，那么我们的关注点就转向讨论：究竟怎样才是可接受的误差？</p>
+<p>于是我们引入了绝对误差的概念，很多时候理论值我们并不知道，于是有了绝对误差限——还不够——如果是买水果，出入十来克无所谓，可如果是买金子，哪怕1克都会带来几百的损失；造碗和造火箭零件的精度要求更不是一个量级，怎么办？——统一“度量衡”，引入相对误差，先去掉数量级的差异，再根据具体任务的要求确定，要把相对误差控制在什么范围内能接受，同样的，引入相对误差限。</p>
+<p>什么是有效数字？有效数字与相对误差的关系</p>
+<p>数值运算的误差估计方法</p>
+<ul>
+<li>微分运算估计绝对误差、相对误差</li>
+<li>泰勒展开估计</li>
+</ul>
+<p>避免误差危害构造稳定算法的方法list</p>
+<p>误差传播的微分估计长得和宏观经济学solow模型一直在用的增长率计算技巧一模一样。</p>
+<h2 id="插值">插值<a hidden class="anchor" aria-hidden="true" href="#插值">#</a></h2>
+<p>啥是插值？我有n个点（<strong>插值节点</strong>），要尽可能还原生成这些点的“机制”，也就是原来的函数，我们要利用这n条信息；另外，为了方便让我们“想”出来的函数（即<strong>插值函数</strong>）经过这n个点，也为了方便计算（预测之后or之中没有出现的的maybe？或者研究这个自变量对因变量的影响？），我们的<strong>插值函数</strong>一般是比较special的，比如多项式，多项式函数空间有一些非常好的性质（高代内容），或许这是为什么我们用它。</p>
+<p>插值多项式是唯一的（by之前所说的$\mathscr{P}_n$空间的大好性质），这非常好，虽然不知道为什么好，但数学喜欢存在性和唯一性的讨论，有时间可以进一步研究一下。</p>
+<p>有一些不同的构造多项式插值函数的方法，比如说lagrange插值多项式、newton插值多项式，还有hermite插值多项式，另外还有legendre多项式，不知道这里有没有涉及，在学pde的时候我们有讨论过这个多项式，可以回头看一看。</p>
+<p>进一步地，我们要讨论插值在实际应用中可能会出现的问题——Runge现象，它是什么？什么情况下会产生？如何避免？：</p>
+<ul>
+<li>是什么：</li>
+<li>产生原因：等距节点<strong>高次</strong>插值会产生Runge现象</li>
+<li>如何避免：不要高次数，分段低次插值
+<ul>
+<li>分段线性插值基函数</li>
+</ul>
+</li>
+<li>分段线性插值多项式以及<strong>余项</strong></li>
+</ul>
+<h2 id="逼近">逼近<a hidden class="anchor" aria-hidden="true" href="#逼近">#</a></h2>
+<p>（卧槽到这里已经花了1h了，加油吧姐）</p>
+<p>啥是逼近？刚刚我们不是讨论了插值嘛，既然真实的函数我们不知道，找了一个插值函数作为替代品来进行计算，那我们当然要关心这个“替代品”是否足够“好用”，用某种”度量“来衡量理论值和实际值之间的区别——所以我们要讨论什么？一个类似”误差“的东西，这个误差到这里不是一个值了，而是两个 $\aleph_1$ 的点集之间的差距，一个个算当然是不现实的（不过可以用积分这个工具来做“一个个算并加起来“的工作），就像误差和相对误差有时候并不可得一样，我们会引入一个类似于“限”的东西——函数空间的范数——来讨论我们找的函数相对真实函数的误差。包括：</p>
+<ul>
+<li>一致逼近范数</li>
+<li>平方逼近范数</li>
+</ul>
+<p>1h10min</p>
+<p>去汇报了</p>
+<p>回来了，大概1点半正式进入状态：</p>
+<p>1h25min
+同样的，我们仍然讨论 $\mathscr{P}_n$ 空间中的多项式函数能不能用来逼近——首先来到了我们最关心的存在唯一性，它存在吗？bernstein证明一致逼近（一致收敛）是存在的（这里说一致逼近和一致收敛有啥区别）。</p>
+<p>Bernstein构造的多项式逼近是稳定的（貌似是针对runge现象讨论的，lagrange插值多项式就会出现这样不稳定的问题）</p>
+<p>偏差的定义：
+某个多项式$P_n$和f的偏差是它俩在区间上差值的最大值；在多项式空间上取偏差的下确界可以得到f在区间上的最小偏差</p>
+<p>很自然地，类似于取了一个argmin（btw能用min嘛？），满足最小偏差的多项式我们叫最佳一致逼近多项式。</p>
+<p>接下来依旧是存在唯一性定理，包存在的呀，存在性定理略过了，（因为存在，所以argmin顺理成章可以用了？）</p>
+<p>然后是最佳一致逼近多项式的唯一性，这个会涉及到偏差点定义+Chebyshev逼近定理，也是我们要知道的东西。</p>
+<p>偏差点的定义：使得最佳一致逼近多项式Pn和f取到最小偏差的点称为偏差点（参考极值点，其实是自变量的取值的意思），另外还有正负偏差点的定义，多项式大就是正的。另，偏差点肯定存在，因为Pn-f是一个闭区间连续函数。</p>
+<p>另，正负偏差点同时存在，用反证法+多项式函数空间的封闭性可以证明。</p>
+<p>然后来到chebyshev定理了，如果多项式是最佳逼近多项式，那么充分必要地，一定有n+2个“正负”交替的偏差点（具体看一下是咋操作的），充分性用反证法证明，假设Pn满足条件的时候，还不是最佳逼近多项式，搞了一个Qn出来是最佳，最后可以反推出Pn=Qn。</p>
+<p>ok啊，我们终于可以讨论最佳（一致）逼近多项式的唯一性了：（展开一下，写一写）</p>
+<p>讲了半天，所以这个最佳（一致）逼近多项式这么千般好，我们能不能知道它长什么样子呢？包的呀，可以可以，我们会发现它就是个Lagrange插值多项式。</p>
+<p>（展开凭什么是Lagrange插值多项式）</p>
+<p>但有个大问题，虽然性质百般好，但在实际中求它是很困难的，所以我们只讨论最佳一次逼近多项式：</p>
+<p>重要！（展开怎么计算）</p>
+<p>这个最佳一次逼近多项式有几何意义。</p>
+<p>在f&rsquo;&lsquo;不变号的前提下！！！这个在考纲里也强调了。</p>
+<p>首先一共有n+2＝3个偏差点，两个偏差点是两个端点a, b（为什么？），中间的偏差点记为x1，那么首先一次函数Pn和两个端点的连线平行，其次它是这个弦三角形的中位线（死去的初中知识出现了）</p>
+<p>（先跳过，有时间推一下）</p>
+<p>权函数的定义：满足两个条件：首先要和x绝对值n次方存在一个内积（相乘的积分）；其次如果权函数和任意非负连续函数g的“内积”为0，那么这个g在区间上恒等于0。</p>
+<p>（这里后续补充一下公式）</p>
+<p>则称$/rho(x)$是区间ab上的权函数</p>
+<p>oho马上来了，定义内积空间，这里的内积空间比较特别，加上了权函数，f和g的内积是它俩的乘积还得乘上权函数的积分。</p>
+<p>内积空间有四个性质：交换律，齐次，分配律，正定型f和f的内积如果非负，那么f=0和f自身的内积=0是充要条件。</p>
+<p>欧几里得范数：就是靠这个内积的定义来定义的，f的范数等于它自身内积开平方，这个范数有三个性质：
+柯西施瓦茨不等式；三角不等式；平行四边形定律三个性质</p>
+<p>（可以写一下）</p>
+<p>定义完内积，我们可以来正交了！如果内积=0就说正交，太简单了。</p>
+<p>另有一组大小为可列个的函数族，她们两两的内积=0，然后自身内积为常数A_k，称为正交函数族，如果对于所有k，A_k都是1，那就叫标准正交函数族。</p>
+<p>具体来说！要写完整，是1.[a,b]上的；2.带权$\rho(x)$的；（标准）正交函数族。</p>
+<p>cosnx和sinnx就是很典型的正交函数族，rho=1</p>
+<p>函数的线性无关：如果一组函数可以写为系数只可能全为0的线性表示，那么这组函数就是线性无关的，和向量线性无关有点像。然后假设在线性函数族中，任意有限个函数线性无关，那就叫1.[a,b]上线性无关函数族。</p>
+<p>和向量类似，我们也有Gram矩阵来判断函数族是不是线性无关，gram矩阵的每一个元素就是函数族对应的内积，然后如果这个gram矩阵非奇异（行列式不为0），那他就线性无关</p>
+<p>怎么证明？另外正交函数和线性无关的关系是什么？</p>
+<p>证明：在线性表示两端利用线性性做内积，得到齐次线性方程组，由于线性无关，方程组只有唯一解0解，从而充分必要地，系数行列式≠0。</p>
+<p>我们来到最佳平方逼近问题。</p>
+<p>子空间中最佳平方逼近的充要条件</p>
+<p>子空间？线性内积空间kai中的n+1个线性无关函数张成的子空间Phi</p>
+<p>如果S<em>是子空间Phi中的最佳平方逼近函数，那么S</em>-f和所有phi_j正交！有点像余项已经没办法再用这个子空间中的内容表示的感觉，找了一个投影！！可以对比向量(最丰富的函数f)在平面上的投影(倾尽表示能力得到的函数S*)和顶点到平面这条高，这条高就是S*-f，应该和平面的两个基函数是正交的。这是充要条件！</p>
+<p>证明：
+充分性用欧几里得范数的不等式性质证
+必要性用反证法
+（补充一下！！！）</p>
+<p>法方程组的定义是f和所有“基函数”的内积的向量</p>
+<p>中间有一些复杂的内容可以跳过了。</p>
+<p>如何计算最佳平方逼近多项式：算一下试试看（p45有一个例子）</p>
+<p>正交多项式，和正交函数一样的，在1.[a,b]上的；2.带权$\rho(x)$的；（标准）正交函数族。</p>
+<p>正交化有两种方法：1.长递推的构造；2.短递推的构造</p>
+<p>（这里要补充！！并浅做几道题！）</p>
+<p>正交多项式gn的性质：
+1.首一（why？）
+2.正交多项式gn与任意次数小于n的多项式正交，这里仔细看看</p>
+<p>3.两两内积为0
+4.gn的n个根都是单重实根（？看一下，单重实根是什么，意味着什么，有什么用），反证是它的根全是偶数重根，发现不行，然后奇数重，进一步推出来单重（这里看一下，没看懂）</p>
+<p>两种常用的正交多项式：Legendre正交多项式（有点复杂）和chebyshev多项式cos(n arccos(x))，本质上是三角函数族，有一个derive方法；</p>
+<p>（看一下怎么derive！！！重点）</p>
+<p>Legendre多项式性质：正交、奇偶、递推（！！！递推重要）。与0的平方误差最小，还有n个不同点。</p>
+<p>（看一下！！！重点）</p>
+<p>Chebyshev多项式性质：1.最小偏差性（乘上一个1/2^{n-1}以后，与0的偏差最小）；2.多项式带权正交，权是1/根号(1-x^2)特殊，貌似可以对照三角函数族；3.偶次幂奇次幂；4.Chebyshev点</p>
+<p>然后递推关系：
+（看下吧！）</p>
+<p>1-3次的两种多项式的表达式怎么算。
+（计算做题做题！！！！看下）</p>
+<p>利用两种与0的平方误差/偏差最小来求？？？</p>
+<p>看下！！！！</p>
+<p>近似最佳一致逼近多项式的计算方法之1.截断Chebyshev级数、2.Lagrange插值余项最小化近似逼近</p>
+<p>（看下题目！！！做题做题！）</p>
+<p>用正交函数族做最佳平方逼近</p>
+<p>（看下题目！！！做题做题！）</p>
+<p>Taylor级数项数节约似乎说了不考</p>
+<p>最小二乘：</p>
+<p>要考利用法方程进行最小二乘拟合。</p>
+<p>曲线拟合可以和最小二乘联系起来，因为最小化平方误差的思想其实和ols也很像！</p>
+<p>Haar条件！！！！</p>
+<p>（默写！！！！看下怎么用！！可能要check！！！）</p>
+<p>14:30开始了</p>
+<h2 id="积分">积分<a hidden class="anchor" aria-hidden="true" href="#积分">#</a></h2>
+<p>积分不好算，我们参考积分中值定理：</p>
+$$\int_a^b f(x)dx=(b-a)f(\xi), \xi \in (a,b)$$<p>由于这个定理一般并不找出这个specific的积分平均值点，所以我们要用其他方法来近似，比如：</p>
+<ul>
+<li>
+<p><strong>中矩形公式</strong>
+用中点处的函数来近似：</p>
+<p><img alt="alt text" loading="lazy" src="/imgs/numerithon1.png"></p>
+</li>
+<li>
+<p><strong>梯形公式</strong>
+用端点函数值的平均值来近似：</p>
+<p><img alt="alt text" loading="lazy" src="/imgs/numerithon2.png"></p>
+</li>
+<li>
+<p><strong>插值型求积公式</strong>
+用简单函数逼近被积函数 $f(x)$，然后用这个更简单的逼近函数的积分来近似表示 $f(x)$</p>
+</li>
+</ul>
+<h3 id="插值型求积公式之newton-cotes求积公式">插值型求积公式之<strong>Newton-Cotes</strong>求积公式<a hidden class="anchor" aria-hidden="true" href="#插值型求积公式之newton-cotes求积公式">#</a></h3>
+<p>首先review Lagrange插值多项式：</p>
+$$L_n(x)=\sum_{k=0}^nf(x_k)l_k(x)$$$$I=\int_a^bf(x)dx\approx\int_a^bL_n(x)dx=\int_a^b\sum_{k=0}^nf(x_k)l_k(x)dx=\sum_{k=0}^n (\int_a^bl_k(x)dx)f(x_k)$$$$A_k=\int_a^bl_k(x)dx$$<p>
+</p>
+$$I=\int_a^bf(x)dx\approx \sum_{k=0}^n A_k f(x_k)=I_n$$<p>在等距节点的前提下，可以算出来
+</p>
+$$A_k=\int_a^bl_k(x)dx=(b-a)C_k^{(n)}$$<p>其中</p>
+$$C_k^{(n)}=\frac{(-1)^{(n-k)}}{n\cdot k!(n-k)!}\int_0^n \left( \prod_{\substack{j=0\\j\neq k}}^n (t-j)\right) dt$$$$C_k^{(n)}=1$$<p>然后我们记 n = 1,2,4的三个公式即可，梯形公式、Simpson公式，以及Cotes公式</p>
+<p><img alt="alt text" loading="lazy" src="/imgs/numerithon3.png"></p>
+<h3 id="newton-cotes求积公式的余项"><strong>Newton-Cotes</strong>求积公式的余项<a hidden class="anchor" aria-hidden="true" href="#newton-cotes求积公式的余项">#</a></h3>
+<p>几种公式的余项也要关注一下：</p>
+<p><img alt="alt text" loading="lazy" src="/imgs/numerithon4.png"></p>
+<h3 id="代数精度的定义">代数精度的定义<a hidden class="anchor" aria-hidden="true" href="#代数精度的定义">#</a></h3>
+<p>如果某个求积公式对于任何次数不超过n的多项式均成立，而对于m+1的多项式不能准确成立，则称该数值求积公式具有m次代数精度。</p>
+<p>具体来说，就是把 $1,x,x^2,x^3,\cdots,x^m$ 都代进去一遍，左边是正常求积分，右边是用的求积公式算（求积公式说白了就是几个点的值的线性组合，而且系数的和=1）</p>
+<p>现在是16:34啦，中间睡了大概1个小时，净复习时间1个小时</p>
+<p>接下来介绍了一个引理，讨论了为什么有的求积公式精度会比别的高一些，这个不考，先跳过</p>
+<h3 id="求积公式的数值稳定性">求积公式的数值稳定性<a hidden class="anchor" aria-hidden="true" href="#求积公式的数值稳定性">#</a></h3>
+<p>由于计算机有舍入误差，我们在算 $f(x_k)$ 的时候又要讨论一下这一块会给我们的计算带来的误差，如果 Cotes 系数 $C_k^{(n)}$ 都是正数无所谓，因为和为1；但如果有正有负，那么这个误差限可能会很大，可以见后的 Cotes 系数表。</p>
+<p><img alt="alt text" loading="lazy" src="/imgs/numerithon5.png"></p>
+<p><img alt="alt text" loading="lazy" src="/imgs/numerithon6.png"></p>
+<p>这里舍入误差可以回去看一下浮点数系 $F(10,4,-90,90)$</p>
+<h3 id="复合求积公式">复合求积公式<a hidden class="anchor" aria-hidden="true" href="#复合求积公式">#</a></h3>
+<p>之前再整个区间上用高阶插值不可行已经验证过了，我们要转向对区间进行n等分，在每个小区间上进行插值。三种公式都写一下。</p>
+<p><img alt="alt text" loading="lazy" src="/imgs/numerithon7.png"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/stat154/">
+    <span class="title">Next »</span>
+    <br>
+    <span>STAT154——what really becomes &#34;my thing&#34;</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">wrqkkk&#39;s Notes</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

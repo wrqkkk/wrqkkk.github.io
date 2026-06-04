@@ -7,9 +7,61 @@
     <generator>Hugo</generator>
     <language>zh-cn</language>
     
-    <lastBuildDate>Mon, 18 May 2026 13:00:00 &#43;0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 20:20:00 &#43;0800</lastBuildDate>
     
     <atom:link href="http://localhost:1313/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>*STAT154——what really becomes &#34;my thing&#34;</title>
+      <link>http://localhost:1313/posts/stat154/</link>
+      <pubDate>Sat, 30 May 2026 20:20:00 &#43;0800</pubDate>
+      <guid>http://localhost:1313/posts/stat154/</guid>
+      <description><p>When asked about what courses do I like most in Berkeley, I definitely answered STAT154, Statistical Machine Learning, without second thought.</p>
+<p>It forms me a fundamental perspective on statistics, since it&rsquo;s also the first time I stepped into the world of statistics.</p>
+<p>What kind of perspective?</p>
+<p>Statisticians think really different from mathematicians and computer scientists.</p>
+<p>Why?</p>
+<ul>
+<li>We math talks about exact things all the time, there seems always to be some &ldquo;truth&rdquo;, function A can control the increases in function B hence integrability of A ensures integrability of B. However, we talked about real world things in statistics: there&rsquo;s no such thing as &ldquo;real function $y=f(x)$&rdquo;, all we can do is to choose an acceptable one——in what sense? How to tradeoff between two metrics? How to get lower cost plus better performance?</li>
+</ul></description>
+    </item>
+    
+    <item>
+      <title>20-hour Numerithon</title>
+      <link>http://localhost:1313/posts/numerithon/</link>
+      <pubDate>Sat, 30 May 2026 20:20:00 &#43;0800</pubDate>
+      <guid>http://localhost:1313/posts/numerithon/</guid>
+      <description><p>Inspired by marathon/hackathon.</p>
+<p>实在是没时间了，快速搞定final。</p>
+<h1 id="stage1-concept-map预估30min实际特别久吧我也不记得了再统计一下min">Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min）</h1>
+<p>搞清楚这门课在干什么，讨论的对象是什么，聚焦什么问题，用什么视角切入，提出了哪些解决方法。</p></description>
+    </item>
+    
+    <item>
+      <title>Stochastic Analysis Final Review</title>
+      <link>http://localhost:1313/posts/stochastic-analysis-final-review/</link>
+      <pubDate>Sat, 30 May 2026 20:20:00 &#43;0800</pubDate>
+      <guid>http://localhost:1313/posts/stochastic-analysis-final-review/</guid>
+      <description><p>+++
+date = &lsquo;2026-05-30T20:20:00+08:00&rsquo;
+draft = false
+title = &lsquo;Stochastic Analysis Final Review&rsquo;
+isCJKLanguage = true
+math = true
++++</p>
+<h1 id="金融随机分析课堂笔记整理讲义lecture-15">金融随机分析课堂笔记整理讲义：Lecture 1–5</h1>
+<blockquote>
+<p>本版按照 PDF 页序和 lecture 原始顺序整理。由于原件为手写扫描与课堂照片，文中保留了若干 <strong>【原笔记留白】</strong>、<strong>【推导中断】</strong>、<strong>【条件缺失】</strong>、<strong>【板书无法识别】</strong> 与 <strong>【根据前后文补充】</strong> 标记。</p></description>
+    </item>
+    
+    <item>
+      <title>Reading Plan</title>
+      <link>http://localhost:1313/posts/reading-plan/</link>
+      <pubDate>Fri, 29 May 2026 13:00:00 &#43;0900</pubDate>
+      <guid>http://localhost:1313/posts/reading-plan/</guid>
+      <description><p>有一种说法，讲人对时间的感知是具有对数特征的，18岁是人生的中点。</p>
+<p>其实很是感慨，人生的前18年里，人就好比整齐贴在画板上的一张4开素描纸，认识世界的过程像绘画，先描摹出整体结构，然后深入细节，一点点勾勒出边和明暗面，变得立体而丰富。然而纸上内容越多，修改的空间越是局限，4H打轮廓，2B拉边界，4B5B上阴影&hellip;手已经在纸上擦得黑乎乎甚至发起银亮的时候，橡皮一擦，露出冷白色的素描纸，好似把之前的努力全部颠覆，擦除过的地方也和邻近界限分明，再怎样排线，都难以维持原先的和谐。</p></description>
+    </item>
     
     <item>
       <title>TSA final review notes</title>

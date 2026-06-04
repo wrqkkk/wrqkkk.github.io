@@ -15,7 +15,7 @@ Inspired by marathon/hackathon.
 
 
 
-# Stage1 Concept Map（预估30min，实际40min）
+# Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min）
 
 
 搞清楚这门课在干什么，讨论的对象是什么，聚焦什么问题，用什么视角切入，提出了哪些解决方法。
