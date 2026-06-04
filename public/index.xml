@@ -7,9 +7,19 @@
     <generator>Hugo</generator>
     <language>zh-cn</language>
     
-    <lastBuildDate>Sat, 30 May 2026 20:20:00 &#43;0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2026 21:00:00 &#43;0800</lastBuildDate>
     
     <atom:link href="http://localhost:1313/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Stochastic Analysis Final Review</title>
+      <link>http://localhost:1313/posts/stochastic-analysis-final-review/</link>
+      <pubDate>Thu, 04 Jun 2026 21:00:00 &#43;0800</pubDate>
+      <guid>http://localhost:1313/posts/stochastic-analysis-final-review/</guid>
+      <description><h1 id="金融随机分析课堂笔记整理讲义lecture-15">金融随机分析课堂笔记整理讲义：Lecture 1–5</h1>
+<blockquote>
+<p>本版按照 PDF 页序和 lecture 原始顺序整理。由于原件为手写扫描与课堂照片，文中保留了若干 <strong>【原笔记留白】</strong>、<strong>【推导中断】</strong>、<strong>【条件缺失】</strong>、<strong>【板书无法识别】</strong> 与 <strong>【根据前后文补充】</strong> 标记。</p></description>
+    </item>
     
     <item>
       <title>*STAT154——what really becomes &#34;my thing&#34;</title>
@@ -220,16 +230,6 @@ $$Y_t = \mu_t + X_t$$<ul>
       <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
       <guid>http://localhost:1313/search/</guid>
       <description>search</description>
-    </item>
-    
-    <item>
-      <title>Stochastic Analysis Final Review</title>
-      <link>http://localhost:1313/posts/stochastic-analysis-final-review/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-      <guid>http://localhost:1313/posts/stochastic-analysis-final-review/</guid>
-      <description><h1 id="金融随机分析课堂笔记整理讲义lecture-15">金融随机分析课堂笔记整理讲义：Lecture 1–5</h1>
-<blockquote>
-<p>本版按照 PDF 页序和 lecture 原始顺序整理。由于原件为手写扫描与课堂照片，文中保留了若干 <strong>【原笔记留白】</strong>、<strong>【推导中断】</strong>、<strong>【条件缺失】</strong>、<strong>【板书无法识别】</strong> 与 <strong>【根据前后文补充】</strong> 标记。</p></description>
     </item>
     
   </channel>

@@ -1,5 +1,5 @@
 +++
-date = '2026-06-4T21:00:00+08:00'
+date = '2026-06-04T21:00:00+08:00'
 draft = false
 title = 'Stochastic Analysis Final Review'
 isCJKLanguage = true
