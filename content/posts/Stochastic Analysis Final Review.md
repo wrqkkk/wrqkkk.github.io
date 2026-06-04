@@ -1,18 +1,11 @@
 +++
-date = '2026-05-30T20:20:00+08:00'
+date = '2026-06-4T21:00:00+08:00'
 draft = false
 title = 'Stochastic Analysis Final Review'
 isCJKLanguage = true
 math = true
 +++
 
-+++
-date = '2026-05-30T20:20:00+08:00'
-draft = false
-title = 'Stochastic Analysis Final Review'
-isCJKLanguage = true
-math = true
-+++
 
 # 金融随机分析课堂笔记整理讲义：Lecture 1–5
 
