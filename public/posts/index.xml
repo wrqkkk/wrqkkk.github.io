@@ -7,18 +7,30 @@
     <generator>Hugo</generator>
     <language>zh-cn</language>
     
-    <lastBuildDate>Thu, 04 Jun 2026 21:00:00 &#43;0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 14:00:00 &#43;0800</lastBuildDate>
     
     <atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>the mysterious notion of measurability</title>
+      <link>http://localhost:1313/posts/%E7%A5%9E%E7%A7%98%E7%9A%84%E5%8F%AF%E6%B5%8B%E6%80%A7/</link>
+      <pubDate>Fri, 05 Jun 2026 14:00:00 &#43;0800</pubDate>
+      <guid>http://localhost:1313/posts/%E7%A5%9E%E7%A7%98%E7%9A%84%E5%8F%AF%E6%B5%8B%E6%80%A7/</guid>
+      <description><h1 id="引言">引言</h1>
+<p>在实变函数中，我们曾经一窥测度论的皮毛（参考《实变函数与泛函分析（程其襄）》），我们首先定义了外测度，进一步地，用 Carathéodory 条件定义了可测集，可测集的外测度等于它的测度，再然后是可测函数，可测让我们可以讨论新的积分—Lebesgue积分（一定是为了积分吗？还有待学习）。那么这一思路在概率论中如何体现呢？本文将对实变函数的概念进行回顾，并探讨概率空间、概率测度等特殊应用。</p></description>
+    </item>
     
     <item>
       <title>Stochastic Analysis Final Review</title>
       <link>http://localhost:1313/posts/stochastic-analysis-final-review/</link>
       <pubDate>Thu, 04 Jun 2026 21:00:00 &#43;0800</pubDate>
       <guid>http://localhost:1313/posts/stochastic-analysis-final-review/</guid>
-      <description><h1 id="金融随机分析课堂笔记整理讲义lecture-15">金融随机分析课堂笔记整理讲义：Lecture 1–5</h1>
-<blockquote>
-<p>本版按照 PDF 页序和 lecture 原始顺序整理。由于原件为手写扫描与课堂照片，文中保留了若干 <strong>【原笔记留白】</strong>、<strong>【推导中断】</strong>、<strong>【条件缺失】</strong>、<strong>【板书无法识别】</strong> 与 <strong>【根据前后文补充】</strong> 标记。</p></description>
+      <description><h1 id="金融随机分析期末复习">金融随机分析期末复习</h1>
+<h1 id="lecture-1-概率空间随机变量σ-代数流与随机过程">Lecture 1. 概率空间、随机变量、σ-代数流与随机过程</h1>
+<h2 id="part-a-课堂内容还原">Part A. 课堂内容还原</h2>
+<h3 id="rmk-11-概率空间的基本结构回顾">Rmk 1.1 概率空间的基本结构回顾</h3>
+<p>本讲从 <strong>probability space</strong> 的复习开始。一个概率空间写作 $(\Omega,\mathcal F,\mathbb P)$.</p>
+<p>这里 <strong>$\Omega$</strong> 是样本空间，表示所有可能结果的集合；<strong>$\mathcal F$</strong> 是定义在 $\Omega$ 上的 <strong>σ-代数</strong>，表示我们允许讨论其概率的事件集合；<strong>$\mathbb P$</strong> 是概率测度，把事件映到实数概率值。板书中特别强调了一个映射关系：概率不是直接定义在所有 $\Omega$ 的子集上，而是定义在 $\mathcal F$ 上，即 $\mathbb P:\mathcal F\to \mathbb R$.</p></description>
     </item>
     
     <item>
@@ -32,7 +44,7 @@
 <p>Statisticians think really different from mathematicians and computer scientists.</p>
 <p>Why?</p>
 <ul>
-<li>We math talks about exact things all the time, there seems always to be some &ldquo;truth&rdquo;, function A can control the increases in function B hence integrability of A ensures integrability of B. However, we talked about real world things in statistics: there&rsquo;s no such thing as &ldquo;real function $y=f(x)$&rdquo;, all we can do is to choose an acceptable one——in what sense? How to tradeoff between two metrics? How to get lower cost plus better performance?</li>
+<li>We math talks about exact things all the time, there seems always to be some &ldquo;truth&rdquo;, function A can control the increases in function B hence integrability of A ensures integrability of B. However, we talked about real world things in statistics: there&rsquo;s no such thing as &ldquo;a real function $y=f(x)$&rdquo;, all we can do is to choose an acceptable one——in what sense? How to tradeoff between two metrics? How to get lower cost plus better performance?</li>
 </ul></description>
     </item>
     

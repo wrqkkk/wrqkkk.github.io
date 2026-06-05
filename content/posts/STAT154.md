@@ -19,7 +19,7 @@ Statisticians think really different from mathematicians and computer scientists
 
 Why?
 
-- We math talks about exact things all the time, there seems always to be some "truth", function A can control the increases in function B hence integrability of A ensures integrability of B. However, we talked about real world things in statistics: there's no such thing as "real function $y=f(x)$", all we can do is to choose an acceptable one——in what sense? How to tradeoff between two metrics? How to get lower cost plus better performance?
+- We math talks about exact things all the time, there seems always to be some "truth", function A can control the increases in function B hence integrability of A ensures integrability of B. However, we talked about real world things in statistics: there's no such thing as "a real function $y=f(x)$", all we can do is to choose an acceptable one——in what sense? How to tradeoff between two metrics? How to get lower cost plus better performance?
 
 
 

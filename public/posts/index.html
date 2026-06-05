@@ -172,14 +172,28 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">the mysterious notion of measurability
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>引言 在实变函数中，我们曾经一窥测度论的皮毛（参考《实变函数与泛函分析（程其襄）》），我们首先定义了外测度，进一步地，用 Carathéodory 条件定义了可测集，可测集的外测度等于它的测度，再然后是可测函数，可测让我们可以讨论新的积分—Lebesgue积分（一定是为了积分吗？还有待学习）。那么这一思路在概率论中如何体现呢？本文将对实变函数的概念进行回顾，并探讨概率空间、概率测度等特殊应用。
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-06-05 14:00:00 +0800 CST'>June 5, 2026</span>&nbsp;·&nbsp;<span>6 min</span>&nbsp;·&nbsp;<span>2577 words</span></footer>
+  <a class="entry-link" aria-label="post link to the mysterious notion of measurability" href="http://localhost:1313/posts/%E7%A5%9E%E7%A7%98%E7%9A%84%E5%8F%AF%E6%B5%8B%E6%80%A7/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Stochastic Analysis Final Review
     </h2>
   </header>
   <div class="entry-content">
-    <p>金融随机分析课堂笔记整理讲义：Lecture 1–5 本版按照 PDF 页序和 lecture 原始顺序整理。由于原件为手写扫描与课堂照片，文中保留了若干 【原笔记留白】、【推导中断】、【条件缺失】、【板书无法识别】 与 【根据前后文补充】 标记。
+    <p>金融随机分析期末复习 Lecture 1. 概率空间、随机变量、σ-代数流与随机过程 Part A. 课堂内容还原 Rmk 1.1 概率空间的基本结构回顾 本讲从 probability space 的复习开始。一个概率空间写作 $(\Omega,\mathcal F,\mathbb P)$.
+这里 $\Omega$ 是样本空间，表示所有可能结果的集合；$\mathcal F$ 是定义在 $\Omega$ 上的 σ-代数，表示我们允许讨论其概率的事件集合；$\mathbb P$ 是概率测度，把事件映到实数概率值。板书中特别强调了一个映射关系：概率不是直接定义在所有 $\Omega$ 的子集上，而是定义在 $\mathcal F$ 上，即 $\mathbb P:\mathcal F\to \mathbb R$.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-06-04 21:00:00 +0800 CST'>June 4, 2026</span>&nbsp;·&nbsp;<span>28 min</span>&nbsp;·&nbsp;<span>13897 words</span></footer>
+  <footer class="entry-footer"><span title='2026-06-04 21:00:00 +0800 CST'>June 4, 2026</span>&nbsp;·&nbsp;<span>27 min</span>&nbsp;·&nbsp;<span>13510 words</span></footer>
   <a class="entry-link" aria-label="post link to Stochastic Analysis Final Review" href="http://localhost:1313/posts/stochastic-analysis-final-review/"></a>
 </article>
 
@@ -194,9 +208,9 @@ It forms me a fundamental perspective on statistics, since it’s also the first
 What kind of perspective?
 Statisticians think really different from mathematicians and computer scientists.
 Why?
-We math talks about exact things all the time, there seems always to be some “truth”, function A can control the increases in function B hence integrability of A ensures integrability of B. However, we talked about real world things in statistics: there’s no such thing as “real function $y=f(x)$”, all we can do is to choose an acceptable one——in what sense? How to tradeoff between two metrics? How to get lower cost plus better performance? </p>
+We math talks about exact things all the time, there seems always to be some “truth”, function A can control the increases in function B hence integrability of A ensures integrability of B. However, we talked about real world things in statistics: there’s no such thing as “a real function $y=f(x)$”, all we can do is to choose an acceptable one——in what sense? How to tradeoff between two metrics? How to get lower cost plus better performance? </p>
   </div>
-  <footer class="entry-footer"><span title='2026-05-30 20:20:00 +0800 CST'>May 30, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>138 words</span></footer>
+  <footer class="entry-footer"><span title='2026-05-30 20:20:00 +0800 CST'>May 30, 2026</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>139 words</span></footer>
   <a class="entry-link" aria-label="post link to *STAT154——what really becomes &#34;my thing&#34;" href="http://localhost:1313/posts/stat154/"></a>
 </article>
 
@@ -298,20 +312,6 @@ Systems become valuable long before they become intelligible. They work before w
   </div>
   <footer class="entry-footer"><span title='2026-04-18 16:40:00 +0800 CST'>April 18, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>1494 words</span></footer>
   <a class="entry-link" aria-label="post link to prediction prevails" href="http://localhost:1313/posts/prediction-prevails/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">ml and tsa——new perspective
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>起因是有点没听懂
-TSA 期中复习小记：确定性趋势、投影与 GLS 1. 核心模型框架 (The Model Framework) 在时间序列分析（TSA）的 Lec 3 中，我们研究观测序列 $Y_t$ 的分解： $$Y_t = \mu_t &#43; X_t$$ $\mu_t$ (Deterministic Trend) ：确定性趋势，由非随机的设计矩阵（Design Matrix）定义。 $X_t$ (Stochastic Error) ：随机误差项，假设为平稳过程 (Stationary)，满足 $E(X_t) = 0$。 2. 场景一：确定性线性趋势 (Linear Trend) 2.1 模型与 OLS 推导 假设 $\mu_t = \beta_0 &#43; \beta_1 t$。 利用最小二乘法 (OLS) 最小化损失函数 $Q(\beta) = \sum_{t=1}^n [Y_t - (\beta_0 &#43; \beta_1 t)]^2$。
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2026-04-13 21:20:00 +0800 CST'>April 13, 2026</span>&nbsp;·&nbsp;<span>8 min</span>&nbsp;·&nbsp;<span>3636 words</span></footer>
-  <a class="entry-link" aria-label="post link to ml and tsa——new perspective" href="http://localhost:1313/posts/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
