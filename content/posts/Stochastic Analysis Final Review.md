@@ -12,6 +12,9 @@ math = true
 
 标记（*）表示本讲内容暂未完成校对和补充，是由本人课堂笔记，用gpt5.5 thinking——under some proper prompts and rules——转latex后的原资料。
 
+
+
+
 # 更新计划
 - **6/5/26** 
   完成 lec1-10 的校对与 lec11-16 的更新
