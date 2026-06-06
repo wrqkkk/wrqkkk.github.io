@@ -38,21 +38,34 @@ math = true
 
 本讲从 **probability space** 的复习开始。一个概率空间写作 $(\Omega,\mathcal F,\mathbb P)$.
 
-这里 **$\Omega$** 是样本空间，表示所有可能结果的集合；**$\mathcal F$** 是定义在 $\Omega$ 上的 **σ-代数**，表示我们允许讨论其概率的事件集合；**$\mathbb P$** 是概率测度，把事件映到实数概率值。板书中特别强调了一个映射关系：概率不是直接定义在所有 $\Omega$ 的子集上，而是定义在 $\mathcal F$ 上，即 $\mathbb P:\mathcal F\to \mathbb R$.
+其中：
 
-这一步非常关键。后面定义随机变量、随机过程、适应过程时，所有“可测”条件本质上都在问：某个集合是不是属于对应的 σ-代数，因此能不能被当前信息系统识别为事件。
+ **$\Omega$** 是样本空间，表示所有可能结果的集合；
+
+**$\mathcal F$** 是定义在 $\Omega$ 上的 **σ-代数**，表示我们“感兴趣”的事件（event）的集合，其中，事件是某些样本点组成的集合，σ-代数中的这些事件（event）是特别的，我们通过定义概率测度，允许讨论集合的“大小”，也就是讨论我们所说的事件发生的“概率”；
+
+**$\mathbb P$** 是概率测度，把事件映射到实数空间。
+
+> **【Details】**
+> 
+> 特别注意：概率不是直接定义在 $\Omega$ 的所有子集上，而是定义在一部分子集构成的 σ-代数 $\mathcal F$ 上，即 $\mathbb P:\mathcal F\to \mathbb R$.
+>
+> 核心在于**不是每个集合都天然是事件，只有落在 $\mathcal F$ 中的集合才是事件**。
+
+
+这一步非常关键。后面定义随机变量、随机过程、适应过程时，所有“可测”条件本质上都在问：某个集合是不是属于对应的 σ-代数，进而能不能被当前信息系统识别为事件。
 
 ### Def 1.2 σ-代数
 
-设 $\Omega$ 是样本空间。若 $\mathcal F$ 是 $\Omega$ 的若干子集构成的集合，并且满足以下性质，则称 $\mathcal F$ 是 $\Omega$ 上的一个 **σ-代数**：$\Omega\in \mathcal F$.
+设 $\Omega$ 是样本空间。若 $\mathcal F$ 是 $\Omega$ 的若干子集构成的集合，并且满足以下性质，则称 $\mathcal F$ 是 $\Omega$ 上的一个 **σ-代数**：
+- $\Omega\in \mathcal F$；
 
-若 $A\in\mathcal F$，则 $A^c\in\mathcal F$.
+- 若 $A\in\mathcal F$，则 $A^c\in\mathcal F$；
 
-若 $A_1,A_2,\dots,A_n,\dots\in\mathcal F$，则
-
-\[
-\bigcup_{i=1}^{\infty}A_i\in\mathcal F.
-\]
+- 若 $A_1,A_2,\dots,A_n,\dots\in\mathcal F$，则
+  \[
+  \bigcup_{i=1}^{\infty}A_i\in\mathcal F.
+  \]
 
 第三个条件是 **可列并封闭性**。由补集封闭和可列并封闭可以推出可列交封闭，因为
 
@@ -61,13 +74,12 @@ math = true
 = \left(\bigcup_{i=1}^{\infty}A_i^c\right)^c.
 \]
 
-在概率论中，$A\in\mathcal F$ 表示 $A$ 是一个可以被讨论概率的随机事件。板书写到“$A\in\mathcal F$ 是随机事件，是 $\Omega$ 的子集”，核心含义是：**不是每个集合都天然是事件，只有落在 $\mathcal F$ 中的集合才是事件**。
-
 ### Def 1.3 概率测度
 
-设 $\mathcal F$ 是 $\Omega$ 上的 σ-代数。映射 $\mathbb P:\mathcal F\to \mathbb R$称为概率测度，如果它满足：$\mathbb P(\Omega)=1$,对任意 $A\in\mathcal F$，有 $\mathbb P(A)\ge 0$,
-
-若 $A_1,A_2,\dots\in\mathcal F$ 两两不交，则
+设 $\mathcal F$ 是 $\Omega$ 上的 σ-代数。映射 $\mathbb P:\mathcal F\to \mathbb R$称为概率测度，如果它满足：
+- $\mathbb P(\Omega)=1$；
+- 对任意 $A\in\mathcal F$，有 $\mathbb P(A)\ge 0$,
+- 若 $A_1,A_2,\dots\in\mathcal F$ 两两不交，则
 
 \[
 \mathbb P\left(\bigcup_{i=1}^{\infty}A_i\right)
@@ -78,29 +90,34 @@ math = true
 
 ### Ex 1.4 有限样本空间上的 σ-代数
 
-课堂中取 $\Omega=\{1,2,\dots,6\}$.
+考虑掷骰子问题： $\Omega=\{1,2,\dots,6\}$.
 
-最小的 σ-代数是 $\mathcal F_0=\{\Omega,\varnothing\}$.
+最小的 σ-代数是 \(\mathcal F_0=\{ \Omega,\varnothing \} \).
 
 最大的 σ-代数是幂集 $\mathcal F_1=2^\Omega$,
 
 也就是 $\Omega$ 的所有子集构成的集合。若 $|\Omega|=6$，则 $|2^\Omega|=2^6$.
 
-板书中还写了一个中间例子，类似于 $\mathcal F_2=\{\{1\},\{2,3,4,5,6\},\Omega,\varnothing\}$.
+板书中还写了一个中间例子，类似于 \( \mathcal F_2=\{\{1\},\{2,3,4,5,6\},\Omega,\varnothing\} \).
 
-这个例子表达的是：一个 σ-代数可以比最小 σ-代数更细，但不一定达到幂集那么细。它把 $\Omega$ 分成一些“信息块”，例如知道结果是否为 $1$，但不能区分 $2,3,4,5,6$ 之间的差异。
+这个例子表达的是：一个 σ-代数可以比最小 σ-代数更详细（能够讨论更多事件），但不一定达到最大 σ-代数（幂集）那么细。它把 $\Omega$ 分成一些“信息块”，例如知道结果是否为 $1$，但不能区分 $2,3,4,5,6$ 之间的差异。
 
-板书中提出了一个思考题：“若 $|\Omega|=n$，最多构成多少个 σ-代数？”这里没有继续展开。这个问题本质上和有限集合的 **partition** 有关：有限样本空间上的每个 σ-代数都由一个划分生成。需要回看老师是否要求掌握计数公式，还是只要求理解“σ-代数对应信息粗细”。
 
-后续补上
+思考题：“若 $|\Omega|=n$，最多构成多少个 σ-代数？”
 
-### Def 1.5 生成的 σ-代数
+思路：这个问题本质上和有限集合的 **partition** 有关：有限样本空间上的每个 σ-代数都由一个划分生成。
+
+解答：【待补充】
+
+### Def 1.5 包含 $\mathcal R$ 的最小 σ-代数（集合生成 σ-代数）
 
 设 $\mathcal R$ 是 $\Omega$ 的某些子集构成的集合。称包含 $\mathcal R$ 的最小 σ-代数为由 $\mathcal R$ 生成的 σ-代数，记作 $\sigma(\mathcal R)$.
 
-也就是说，$\sigma(\mathcal R)$ 是所有包含 $\mathcal R$ 的 σ-代数中最小的一个。它至少包含 $\mathcal R$，并且为了满足 σ-代数的封闭性，还必须包含 $\mathcal R$ 中集合的补集、可列并、可列交，以及反复进行这些操作之后得到的集合。
+也就是说，$\sigma(\mathcal R)$ 是所有包含 $\mathcal R$ 的 σ-代数中最小的一个。它至少包含 $\mathcal R$，并且为了满足 σ-代数的封闭性，还必须包含 $\mathcal R$ 中集合的补集、可列并、可列交，以及反复进行这些操作之后得到的集合，我们在写一些例子的时候可以参考这个思路，列举 σ-代数中可能出现的所有集合。
 
-数学上，**生成 σ-代数**解决的问题是：从一批最基本的可观测事件出发，自动补全所有由这些事件逻辑推出的事件。金融上，它对应“由某些可观测变量产生的信息”。例如只观察到股票价格 $S_t$，那么由 $S_t$ 生成的 σ-代数就是“仅凭 $S_t$ 当前值能够判断的全部事件”。
+> 数学上，**生成 σ-代数**解决的问题是：从一批最基本的可观测事件出发，自动补全所有由这些事件逻辑推出的事件。
+> 
+> 金融上，它对应“由某些可观测变量产生的信息”。例如只观察到股票价格 $S_t$，那么由 $S_t$ 生成的 σ-代数就是“仅凭 $S_t$ 当前值能够判断的全部事件”。
 
 ### Def 1.6 Borel σ-代数
 
@@ -109,58 +126,67 @@ math = true
 但在实数轴上通常不直接使用 $2^{\mathbb R}$，而是使用 **Borel σ-代数**。课堂中先列出了实数轴上的常见区间：
 
 \[
-(-\infty,\infty),\quad (a,\infty),\quad (-\infty,b),\quad (a,b),
-\] $[a,b],\quad (a,b],\quad [a,b)$.
+(-\infty,\infty),\quad (a,\infty),\quad (-\infty,b),\quad (a,b),\quad 
+[a,b],\quad (a,b],\quad [a,b)
+\].
 
 令 $\mathcal G$ 表示实数轴上所有区间构成的集合。区间集合 $\mathcal G$ 本身不是 σ-代数，因为它对可列并等操作不封闭。包含 $\mathcal G$ 的最小 σ-代数称为 $\mathbb R$ 上的 **Borel σ-代数**，记为 $\mathcal B(\mathbb R)$.
 
-这里的核心是：**Borel 集是从区间出发，通过补集、可列并、可列交等操作生成出来的集合**。后面随机变量的定义会要求 $X^{-1}(A)\in\mathcal F,\qquad A\in\mathcal B(\mathbb R)$,所以 Borel σ-代数是随机变量可测性的目标 σ-代数。
+> 区间集合 $\mathcal G$ 本身不是 σ-代数的反例很简单，\( (0,1) \bigcup (2,3) \) 便不再是一个区间。
+
+这里的核心在于：**Borel 集是从区间出发，通过补集、可列并、可列交等操作生成出来的集合**。后面随机变量的定义会要求 $X^{-1}(A)\in\mathcal F,\qquad A\in\mathcal B(\mathbb R)$,所以 Borel σ-代数是随机变量可测性的目标 σ-代数。
 
 ### Prop 1.7 Borel σ-代数的若干性质
 
-课堂中给出以下性质。对任意 $x\in\mathbb R$，单点集 $\{x\}\in\mathcal B(\mathbb R)$.
+- 对任意 $x\in\mathbb R$，单点集 $\{x\}\in\mathcal B(\mathbb R)$.
+
+  证明思路是
+
+  \[
+  \{x\}=\bigcap_{n=1}^{\infty}\left(x-\frac1n,x+\frac1n\right),
+  \]
+
+  右侧是 Borel 集的可列交，因此 $\{x\}$ 是 Borel 集。
+
+- 任意有理数集属于 $\mathcal B(\mathbb R)$。更准确地说，由于 $\mathbb Q$ 是可数集，且每个单点集 $\{q\}$ 都是 Borel 集，所以
+
+  \[
+  \mathbb Q=\bigcup_{q\in\mathbb Q}\{q\}\in\mathcal B(\mathbb R).
+  \]
+
+- 同理，任意可数子集都是 Borel 集。
 
 
-证明思路是
-
-\[
-\{x\}=\bigcap_{n=1}^{\infty}\left(x-\frac1n,x+\frac1n\right),
-\]
-
-右侧是 Borel 集的可列交，因此 $\{x\}$ 是 Borel 集。
-
-任意有理数集属于 $\mathcal B(\mathbb R)$。更准确地说，由于 $\mathbb Q$ 是可数集，且每个单点集 $\{q\}$ 都是 Borel 集，所以
-
-\[
-\mathbb Q=\bigcup_{q\in\mathbb Q}\{q\}\in\mathcal B(\mathbb R).
-\]
-
-同理，任意可数子集都是 Borel 集。板书中特别提醒：“任一无理数集属于 $\mathcal B(\mathbb R)$”这个说法是错的。但是，某个区间中的无理数点集是 Borel 集。例如 $(a,b)\cap \mathbb Q^c = (a,b)\setminus \mathbb Q$.
+特别提醒：“任一无理数集属于 $\mathcal B(\mathbb R)$” 这个说法是错的，因为无理数集不可数，无法直接用单无理数点的可列并导出结论。但是，某个区间中的无理数点集是 Borel 集。例如 $(a,b)\cap \mathbb Q^c = (a,b)\setminus \mathbb Q$.
 
 因为 $(a,b)\in\mathcal B(\mathbb R)$，$\mathbb Q\in\mathcal B(\mathbb R)$，所以该集合也是 Borel 集。
 
 ### Thm 1.8 Borel σ-代数的一个生成方式
 
-课堂中给出的定理是
+课堂中给出的方法是
 
 \[
 \mathcal B(\mathbb R)
 = \sigma\left(\{(-\infty,x]\mid x\in\mathbb R\}\right).
 \]
 
-这说明，虽然 Borel σ-代数可以由所有区间生成，但实际上只用半无限区间 $(-\infty,x]$也可以生成整个 $\mathcal B(\mathbb R)$。
+可以只用半无限区间 $(-\infty,x]$生成整个 $\mathcal B(\mathbb R)$，其他区间也可以,除了 $(-\infty,\infty)$。
 
-补一个标准证明思路：先证明每个 $(-\infty,x]$ 是 Borel 集，因此右边包含于 $\mathcal B(\mathbb R)$；再证明开区间 $(a,b)$ 可以由这些半无限区间通过补集和可列并交构造出来，例如 $(a,b] = (-\infty,b]\cap(-\infty,a]^c$,进一步用可列并得到开区间，从而生成所有开集，再生成 Borel σ-代数。
+证明思路：先证明每个 $(-\infty,x]$ 是 Borel 集，因此右边包含于 $\mathcal B(\mathbb R)$；再证明开区间 $(a,b)$ 可以由这些半无限区间通过补集和可列并交构造出来，例如 $(a,b] = (-\infty,b]\cap(-\infty,a]^c$，进一步用可列并进行逼近，得到开区间，从而生成所有开集(包括两个不相交的开区间的并，这里比所有区间构成的集合要更进一步了），再生成 Borel σ-代数。
 
 ### Def 1.9 随机变量
 
 设 $(\Omega,\mathcal F,\mathbb P)$是概率空间。映射 $X:\Omega\to\mathbb R$
 
-若满足对任意 $x\in\mathbb R$，都有 $X^{-1}((-\infty,x])\in\mathcal F$,则称 $X$ 为随机变量。等价地， $\{X\le x\} = \{\omega\in\Omega:X(\omega)\le x\} \in\mathcal F$.
+若满足对任意 $x\in\mathbb R$，都有 \[X^{-1}( (-\infty,x])\in\mathcal F \]
+则称 $X$ 为随机变量。
 
-这句话的意思是：对每个阈值 $x$，事件“随机变量 $X$ 的取值不超过 $x$”必须是一个可测事件。这样才能定义分布函数 $F_X(x)=\mathbb P(X\le x)$.
+等价地， \[ \{X\le x\} = \{\omega\in\Omega:X(\omega)\le x\} \in\mathcal F \]
 
-数学上，随机变量不是“随机变化的数”，而是一个从样本空间到实数轴的 **可测映射**。金融上，股票收益、资产价格、期权收益、终端财富都要先满足这个可测性条件，才能谈它们的分布、期望、条件期望和风险度量。
+> 理解：对每个阈值 $x$，事件“随机变量 $X$ 的取值不超过 $x$”必须是一个可测事件。这样才能定义分布函数 $F_X(x)=\mathbb P(X\le x)$.也就是说，Borel σ-代数（其中元素可以等价地以 \((-\infty,x]\) 表示）是随机变量可测性的目标 σ-代数，可以写为：
+> \[X:(\Omega,\mathcal F)\to(\mathbb R,\mathcal B(\mathbb R))\]
+
+数学上，随机变量不是“随机变化的数”，而是一个从样本空间到实数轴的 **可测映射**；金融上，股票收益、资产价格、期权收益、终端财富都要先满足这个可测性条件，才能谈它们的分布、期望、条件期望和风险度量。
 
 ### Def 1.10 随机变量生成的 σ-代数
 
@@ -209,22 +235,31 @@ X^{-1}((-\infty,x])
 
 ### Def 1.13 σ-代数流与通常条件
 
-设 $\{\mathcal F_t,t\ge 0\}$是 $\mathcal F$ 的一族子 σ-代数。如果它满足以下条件，则称其为一个满足通常条件的 **σ-代数流**，也称 **filtration**。
+设 $\{\mathcal F_t,t\ge 0\}$是 $\mathcal F$ 的一族子 σ-代数。如果它满足以下条件，则称其为一个满足通常条件的 **σ-代数流**。
+- 若 $s\le t$，则 $\mathcal F_s\subseteq \mathcal F_t$；（Filtration本身的要求）
+- $\mathcal F_0$ 包含 $\mathcal F$ 中所有 $\mathbb P$-零集；（这些零集是常常会出问题的异常集）
+- \[
+  \mathcal F_t=\bigcap_{s>t}\mathcal F_s,
+  \qquad t\ge 0.
+  \]
 
-首先是单调性。若 $s\le t$，则 $\mathcal F_s\subseteq \mathcal F_t$.
+首先是单调性，表示信息随时间增加，时间越晚，知道的信息不能比过去更少；其次是完备性，所有零概率异常事件从一开始就被纳入信息系统；再次是右连续性。
 
-这表示信息随时间增加。时间越晚，知道的信息不能比过去更少。
+注意这里右连续性的讨论很有意思，这里的连续性是从“右侧”通过交集进行逼近来讨论的。
 
-其次是完备性。课堂板书写作“$\mathcal F_0$ 包含 $\mathcal F$ 中所有 $\mathbb P$-零集”。也就是说，所有零概率异常事件从一开始就被纳入信息系统。
+我们得到的这个交集，首先我们会发现它不是一个可列交，这和之前的直觉可能不太一样，需要明确的是，虽然σ-代数不一定对不可列个事件的交封闭，但任意多个 σ-代数本身的交集仍然是 σ-代数，这一点可以利用 σ-代数的定义进行证明；
 
-再次是右连续性。
+然后左右两个集合的相等可以通过证明它们都是对方的子集进行证明，其中一个方向很显然，另一个方向需要用讨论有理点逼近无理点的技巧进行证明，先固定 $s$，后移动 $t+\frac{1}{n}$。
 
-\[
-\mathcal F_t=\bigcap_{s>t}\mathcal F_s,
-\qquad t\ge 0.
-\]
 
-这里需要回看老师是否采用这一标准定义。右连续性在后面讨论停时、可选停止、鞅正则化时会很重要。
+![alt text](../../assets/imgs/continuity.jpg)
+
+
+
+> Intuition:为什么要加上通常性条件？
+> - 完备性保证零概率异常集合不会破坏可测性；
+> - 右连续性保证停时附近的信息结构行为良好。
+> 有点难理解，具体展开见随机过程的intuition。
 
 ### Def 1.14 带滤的概率空间
 
@@ -234,19 +269,37 @@ X^{-1}((-\infty,x])
 
 ### Def 1.15 随机过程
 
-设 $T\subseteq\mathbb R$。若对任意 $t\in T$，$X_t$ 都是概率空间 $(\Omega,\mathcal F,\mathbb P)$ 上的随机变量，则称 $\{X_t,t\in T\}$为一个随机过程。
+设 $T\subseteq\mathbb R$。若对任意 $t\in T$，$X_t$ 都是概率空间 $(\Omega,\mathcal F,\mathbb P)$ 上的随机变量，则称 \(\{X_t,t\in T\}\) 为一个随机过程。
 
 如果 $T$ 是一个区间，则称它为 **连续时间随机过程**。如果 $T$ 至多可数，则称它为 **离散时间随机过程**。
 
-随机过程可以看成一个二元映射 $X:\Omega\times T\to\mathbb R$.
-
-固定 $t\in T$ 时， $X_t(\omega)$是关于 $\omega$ 的随机变量。固定 $\omega_0\in\Omega$ 时， $t\mapsto X_t(\omega_0)$是关于时间 $t$ 的函数，称为一条样本路径。
 
 ### Rmk 1.16 随机变量视角与路径视角
 
-课堂中特别强调了随机过程的两个观察角度。固定时间 $t$ 时， $X_t:\Omega\to\mathbb R$是一个随机变量。固定样本点 $\omega_0$ 时， $X_t(\omega_0):T\to\mathbb R$是一条关于时间的函数，也就是路径。
+随机过程\(\{X_t,t\in T\}\)可以看成一个二元映射
+\[
+X:T\times \Omega\to \mathbb R,
+\qquad
+(t,\omega)\mapsto X_t(\omega).
+\]
 
-这两个视角必须同时掌握。概率论更常从固定 $t$ 的随机变量视角出发，而随机分析和金融数学经常需要研究整条路径，例如连续性、跳跃、变差、二次变差等。
+它有两个输入：一个是时间 \(t\)，一个是随机样本点 \(\omega\)。
+
+- 如果**固定时间 \(t\)**，那么
+  \[
+  \omega\mapsto X_t(\omega)
+  \]
+  是一个随机变量。它描述了在时间 \(t\) 的截面上，随机结果是怎么分布的。
+
+- 如果**固定样本点 \(\omega_0\)**，那么
+
+  \[
+  t\mapsto X_t(\omega_0)
+  \]
+
+  就是一条路径，也叫 **sample path** 或 **trajectory**。它描述了某一次随机实验结果已经确定之后，整个过程随时间是怎么变化的。
+
+概率论更常从固定 $t$ 的随机变量视角出发，而随机分析和金融数学经常需要研究整条路径，例如连续性、跳跃、变差、二次变差等。
 
 ### Def 1.17 路径
 
@@ -254,23 +307,99 @@ X^{-1}((-\infty,x])
 
 固定 $\omega_0\in\Omega$ 后得到的函数 $t\mapsto X_t(\omega_0)$称为该随机过程在样本点 $\omega_0$ 下的一条路径。
 
-课堂中画了路径示意，并区分了连续时间下的不同路径类型，例如连续路径和带跳路径。
+连续时间下有不同路径类型，例如连续路径和带跳路径。
 
-这里没有给出严格的“连续路径”“带跳路径”定义。后面如果进入 Brownian motion，需要重点补上：Brownian motion 要求样本路径几乎处处连续；而 Poisson process 或跳过程则允许路径出现跳跃。这是后面区分 Itô calculus 与 jump process 的基础。
+
+
+> - **连续路径：**  如果对某个固定的 \(\omega\)，函数
+  \[
+  t\mapsto X_t(\omega)
+  \]
+  是连续函数，那么就说该样本点下的路径是连续的。
+> \(i.e.\) 对任意 \(t_0\in T\)，都有
+  \[
+  \lim_{t\to t_0}X_t(\omega)=X_{t_0}(\omega).
+  \]
+  如果存在一个概率为 \(1\) 的集合 \(\Omega_0\subseteq\Omega\)，使得对所有 \(\omega\in\Omega_0\)，路径
+  \[
+  t\mapsto X_t(\omega)
+  \]
+  都是连续的，那么我们说随机过程 \(X\) 有 **almost surely continuous paths**，即**几乎必然连续路径**。
+
+  Brownian motion 的连续性就是几乎必然的——除了一个概率为 \(0\) 的异常样本集合以外（样本路径不连续的样本集合为零测集），每一条 Brownian path 都是关于时间 \(t\) 的连续函数。
+
+  所以要注意这里的说法：**Brownian motion 的样本路径几乎必然连续**，这里的“几乎”说的是一小部分样本点\(\omega\)会有问题，其他样本点下的样本路径都是连续的，而不是说一小部分时间 \(t\) 有问题。
+
+  
+
+> almost surely ( a.s. ) = almost everywhere ( a.e. ) with respect to a probability measure.
+
+也
+
+> - **带跳路径**
+> 如果对某个 \(\omega\)，存在时间 \(t_0\)，使得
+  \[
+  \lim_{t\to t_0}X_t(\omega)\neq X_{t_0}(\omega),
+  \]
+> 那么这条路径在 \(t_0\) 处不连续。若这种不连续表现为左极限和右极限存在，但函数值突然变化，我们通常说这里发生了一个 **jump**。
+
+  在随机过程里常见的跳过程通常具有 **càdlàg paths**，即右连续且左极限存在：
+
+  \[
+  \lim_{s\downarrow t}X_s(\omega)=X_t(\omega),
+  \]
+
+  并且
+
+  \[
+  X_{t-}(\omega):=\lim_{s\uparrow t}X_s(\omega)
+  \]
+
+  存在。
+
+  此时 \(t\) 处的跳跃大小定义为
+
+  \[
+  \Delta X_t(\omega)
+  = X_t(\omega)-X_{t-}(\omega).
+  \]
+
+  如果
+
+  \[
+  \Delta X_t(\omega)\neq 0,
+  \]
+
+  就说过程在时间 \(t\) 处发生跳跃。
+
+  所以“带跳路径”更严格地说通常是：**路径允许存在某些 \(t\)，使得 \(\Delta X_t\neq 0\)**。
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Def 1.18 适应过程
 
-设 $(\Omega,\mathcal F,\mathbb P)$ 是概率空间，$\{X_t,t\ge 0\}$ 是随机过程，$\{\mathcal F_t,t\ge 0\}$ 是其上的 σ-代数流。若对任意 $t\ge 0$，随机变量 $X_t$ 关于 $\mathcal F_t$ 可测，则称 $\{X_t,t\ge 0\}$是关于 $\{\mathcal F_t,t\ge 0\}$的 **适应过程**，也称 **adapted process**。也就是说，对任意 $x\in\mathbb R$，有 $\{X_t\le x\}\in\mathcal F_t$.
+设 $(\Omega,\mathcal F,\mathbb P)$ 是概率空间，$\{X_t,t\ge 0\}$ 是随机过程，\(\{\mathcal F_t,t\ge 0\}\) 是其上的 σ-代数流。
 
-适应性表达的是：在时刻 $t$，$X_t$ 的值不能依赖未来信息。金融上，这一点对应交易策略的非预见性。一个交易策略在 $t$ 时刻只能使用 $\mathcal F_t$ 中的信息，不能提前知道未来价格。后面定义自融资策略、Itô integral 和无套利定价时，适应性会反复出现。
+若对任意 $t\ge 0$，随机变量 $X_t$ 关于 $\mathcal F_t$ 可测，则称 \(\{X_t,t\ge 0\}\)是关于 \(\{\mathcal F_t,t\ge 0\}\) 的 **适应过程**，也称 **adapted process**。也就是说，对任意 $x\in\mathbb R$，有 \(\{X_t\le x\}\in\mathcal F_t\) .
 
-原笔记最后一行停在“i.e. $\forall x\in\cdots$”附近，公式没有抄完整。这里按标准定义补全为 $\{X_t\le x\}\in\mathcal F_t$。
+> 适应性表达的是：在时刻 $t$，$X_t$ 的值不能依赖未来信息。金融上，这一点对应交易策略的非预见性。一个交易策略在 $t$ 时刻只能使用 $\mathcal F_t$ 中的信息，不能提前知道未来价格。后面定义自融资策略、Itô integral 和无套利定价时，适应性会反复出现。
+
 
 ## Part B. 复习视角
 
 Lecture 1 的主线是从 **事件的可测性** 过渡到 **随机对象的信息结构**。前半部分复习概率空间 $(\Omega,\mathcal F,\mathbb P)$，重点不是重新学概率公理，而是重新理解 $\mathcal F$ 的作用：$\mathcal F$ 决定哪些集合是事件，哪些事件能被赋予概率。紧接着，老师引入 Borel σ-代数 $\mathcal B(\mathbb R)$，目的是为随机变量的定义准备目标空间上的可测结构。最后，随机变量、随机变量生成的 σ-代数、filtration、随机过程和适应过程连在一起，形成连续时间随机分析的语言框架。
 
-本讲最核心的关键词是 **σ-代数**、**Borel σ-代数**、**measurable random variable**、**generated σ-algebra**、**filtration**、**filtered probability space**、**stochastic process** 和 **adapted process**。其中 Def 1.9 的随机变量定义非常基础，因为后面所有 $X_t$、$S_t$、$W_t$ 都必须先是随机变量。Def 1.10 的 $\sigma(X)$ 是理解信息的第一步，因为它表示“由 $X$ 产生的信息”。Def 1.13 的 filtration 是把信息放进时间轴，Def 1.18 的 adapted process 则规定随机过程不能提前使用未来信息。
+本讲最核心的关键词是 **σ-代数**、**Borel σ-代数**、**measurable random variable**、**generated σ-algebra**、**σ-代数流（滤过filtration）**、**带滤的概率空间（filtered probability space)**、**stochastic process** 和 **适应过程（adapted process）**。其中 Def 1.9 的随机变量定义非常基础，因为后面所有 $X_t$、$S_t$、$W_t$ 都必须先是随机变量。Def 1.10 的 $\sigma(X)$ 是理解信息的第一步，因为它表示“由 $X$ 产生的信息”。Def 1.13 的 filtration 是把信息放进时间轴，Def 1.18 的 adapted process 则规定随机过程不能提前使用未来信息。
 
 本讲的公式链可以整理成这样：先有概率空间 $(\Omega,\mathcal F,\mathbb P)$,
 
@@ -287,17 +416,17 @@ X:\Omega\to\mathbb R,
 \sigma(X)=\sigma\left(\{X^{-1}((-\infty,x])\mid x\in\mathbb R\}\right).
 \]
 
-把信息放进时间轴，得到 filtration $\mathcal F_s\subseteq\mathcal F_t, \qquad s\le t$.
-
-随机过程是时间参数化的一族随机变量 $\{X_t,t\in T\}$.
+把信息放进时间轴，得到 filtration \(\{X_t,t\in T\}\), 满足：
+\[
+\mathcal F_s\subseteq\mathcal F_t, \qquad s\le t.
+\]
+随机过程是时间参数化的一族随机变量 \(\{X_t,t\in T\}\) .
 
 若每个 $X_t$ 都只使用当前信息 $\mathcal F_t$，则 $X_t\text{ is }\mathcal F_t\text{-measurable}$,
 
 于是 $X$ 是适应过程。
 
 这一讲和后面内容的关系非常直接。Lecture 2 会继续讨论随机过程的更强可测性，例如 **measurable process** 和 **progressively measurable process**。Lecture 3 会进入 **conditional expectation**，而条件期望必须相对于某个子 σ-代数定义。Lecture 4 的 **martingale** 需要同时使用 filtration、adaptedness 和 conditional expectation。也就是说，Lecture 1 不是普通预备知识，而是在搭建 martingale theory 的语法系统。
-
-本讲明显需要补的地方有三处。第一处是 Ex 1.4 后面的有限样本空间 σ-代数计数问题，原笔记只写了问题，没有写答案。第二处是 Def 1.13 中通常条件的右连续性，原笔记明确写了“要抄”，这里属于高优先级缺口，因为右连续性后面会影响停时和鞅的技术条件。第三处是 Def 1.17 路径部分，连续路径和带跳路径只画了示意，没有给严格定义。这个缺口在进入 Brownian motion 时会变得重要，因为 Brownian motion 的连续路径性质是 Itô calculus 的基础。
 
 ---
 
