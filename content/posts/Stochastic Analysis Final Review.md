@@ -36,7 +36,7 @@ math = true
 
 ### Rmk 1.1 概率空间的基本结构回顾
 
-本讲从 **probability space** 的复习开始。一个概率空间写作 $(\Omega,\mathcal F,\mathbb P)$.
+本讲从 **probability space** 的复习开始。一个概率空间写作 \((\Omega,\mathcal F,\mathbb P)\).
 
 其中：
 
@@ -7407,10 +7407,6 @@ N\text{ is }P\text{-continuous local martingale}
 
 
 
-
-# 金融随机分析课堂笔记整理讲义：Lecture 18--20
-
----
 
 # Lecture 18. Girsanov 定理回到股价模型、鞅表示定理与 SDE 的引入
 
