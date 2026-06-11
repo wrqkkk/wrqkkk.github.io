@@ -83,5 +83,10 @@ math = true
 
 
 
+# Paper/Blog/Slides List
+
+- Interpretations of Probability
+- link：https://plato.stanford.edu/entries/probability-interpret/?ref=jcreinhold.com
+
 
 
