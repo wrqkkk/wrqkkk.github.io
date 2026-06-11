@@ -10,6 +10,21 @@ math = true
 
 ---
 
+# 省流：日常模板
+
+对你的 GitHub Pages / Hugo 笔记仓库，我建议以后每次都这样走：
+
+```powershell
+cd D:\githubmyprojects\wrqkkk.github.io
+git diff --stat
+git add .
+git status --short
+git commit -m "..."
+git push
+```
+
+
+
 # Step 0 Check
 
 进入仓库目录后，先看三个东西：**当前在哪个仓库、远端连到哪里、现在有哪些改动**。
@@ -41,6 +56,7 @@ git status --ignored -s
 ```
 
 说明 `public/` 没有被 ignore，**这时候不要 `git add .`**，否则 Hugo build 产物会被提交进去，这里的产物比较大，无法git，会报错。
+
 
 ---
 
@@ -269,8 +285,9 @@ git branch -M main
 设置使用者，如果你已经全局设置过，可以跳过：
 
 ```powershell
-git config user.name "wrqkkk"
-git config user.email "你的GitHub邮箱@example.com"
+
+git config user.name "username"
+git config user.email "github email"
 ```
 
 创建 `.gitignore`。如果是 Hugo / GitHub Pages 源码仓库，建议一开始就写好：
@@ -745,32 +762,3 @@ git diff
 
 这几个命令特别适合防止你再次把 `public/`、大 JSON、build 产物、临时文件误提交。
 
----
-
-# 你以后最稳的日常模板
-
-对你的 GitHub Pages / Hugo 笔记仓库，我建议以后每次都这样走：
-
-```powershell
-cd D:\githubmyprojects\wrqkkk.github.io
-
-git status --ignored -s
-git check-ignore -v public/index.json
-
-git diff --stat
-git add .
-git status --short
-git diff --cached --stat
-
-git commit -m "Update stochastic analysis notes"
-git push
-```
-
-如果 `git status --short` 或 `git diff --cached --stat` 里出现了 `public/`，立刻停下：
-
-```powershell
-git restore --staged public
-git status --ignored -s
-```
-
-确认 `public/` 是 `!! public/` 以后再继续。
