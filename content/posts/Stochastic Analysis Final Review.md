@@ -13,6 +13,12 @@ math = true
 标记（*）表示本讲内容暂未完成校对和补充，是由本人课堂笔记，用gpt5.5 thinking——under some proper prompts and rules——转latex后的原资料。
 
 
+- Ch1-10
+- Ch11-13
+- *Ch14-15
+- *Ch16-20
+- *Ch21-23
+
 
 
 # 更新计划
@@ -25,7 +31,7 @@ math = true
 - **6/8/26**
   完成 lec21-23的校对，plus 题库 17-20 的手写更新
 - **6/9/26**
-  notation/概念理解的注意事项更新
+  notation or 概念理解的注意事项更新
 
 复习顺利！
 
@@ -2742,8 +2748,7 @@ u_{k+1}^{[a,b]}(Y)-u_k^{[a,b]}(Y)
 \right] \\
 &= \mathbb E\left[
 \sum_{k=0}^{n}(Y_k-a)u_{k+1}^{[a,b]}(Y)
--
-\sum_{k=0}^{n}(Y_k-a)u_k^{[a,b]}(Y)
+- \sum_{k=0}^{n}(Y_k-a)u_k^{[a,b]}(Y)
 \right].
 \end{aligned}\]
 
@@ -2752,14 +2757,10 @@ u_{k+1}^{[a,b]}(Y)-u_k^{[a,b]}(Y)
 \[
 \begin{aligned}
 &\mathbb E\left[
-\sum_{k=1}^{n}(Y_k-a)u_{k+1}^{[a,b]}(Y)
--
-\sum_{k=1}^{n}(Y_{k-1}-a)u_k^{[a,b]}(Y)
+\sum_{k=1}^{n}(Y_k-a)u_{k+1}^{[a,b]}(Y) - \sum_{k=1}^{n}(Y_{k-1}-a)u_k^{[a,b]}(Y)
 \right] \\
 &= \mathbb E\left[
-(Y_n-a)u_{n+1}^{[a,b]}(Y)
--
-(Y_0-a)u_1^{[a,b]}(Y)
+(Y_n-a)u_{n+1}^{[a,b]}(Y) - (Y_0-a)u_1^{[a,b]}(Y)
 \right].
 \end{aligned}\]
 
