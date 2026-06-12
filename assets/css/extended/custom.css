@@ -1,0 +1,14 @@
+/* Keep wide Markdown tables inside the article area instead of stretching the page. */
+.post-content {
+  overflow-x: auto;
+}
+
+.post-content table {
+  width: 100%;
+  max-width: 100%;
+}
+
+.post-content th,
+.post-content td {
+  overflow-wrap: anywhere;
+}
