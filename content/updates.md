@@ -16,10 +16,10 @@ This page records what I am currently updating, what I plan to work on next, and
 
 | Article | Created | Progress | Expected completion |
 |---|---:|---|---:|
-| [Financial Stochastic Analysis Final Review]({{< relref "posts/Stochastic Analysis Final Review.md" >}}) | 2026-06-07 | Formula cleanup completed; review structure in progress | 2026-06 |
-| [随机过程的 intuition]({{< relref "posts/随机过程的intuition.md" >}}) | 2026-06 | Conceptual review note; cross-linking pending | 2026-07 |
-| Research project notes | 2026-06 | Project summaries in progress | 2026-07 |
-| Application preparation notes | 2026-06 | CV / research statement fragments being organized | 2026-08 |
+| [Stochastic Analysis Final Review]({{< relref "posts/Stochastic Analysis Final Review.md" >}}) | 6/4/26 | Formula cleanup completed; review structure in progress | 6/26 |
+| [随机过程的 intuition]({{< relref "posts/随机过程的intuition.md" >}}) | 6/6/26 | Conceptual review note; cross-linking pending | 7/26 |
+| Research project notes | 6/26 | Project summaries in progress | 7/26 |
+| Application preparation notes | 6/26 | CV / research statement fragments being organized | 8/26 |
 
 ---
 
@@ -37,8 +37,8 @@ This page records what I am currently updating, what I plan to work on next, and
 
 | Date | Completed article / page | What changed |
 |---:|---|---|
-| 2026-06-07 | Financial Stochastic Analysis Lecture 21--22 |  |
-| 2026-06-07 | Financial Stochastic Analysis Lecture 18--20 |  |
-| 2026-06-07 | Financial Stochastic Analysis Lecture 14--15 |  |
-| 2026-06-07 | Financial Stochastic Analysis Lecture 12--13 |  |
-| 2026-06-07 | Financial Stochastic Analysis Lecture 11 |  |
+| 6/7/26 | Financial Stochastic Analysis Lecture 21--22 |  |
+| 6/7/26 | Financial Stochastic Analysis Lecture 18--20 |  |
+| 6/7/26 | Financial Stochastic Analysis Lecture 14--15 |  |
+| 6/7/26 | Financial Stochastic Analysis Lecture 12--13 |  |
+| 6/7/26 | Financial Stochastic Analysis Lecture 11 |  |
