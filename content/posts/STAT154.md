@@ -4,6 +4,7 @@ draft = false
 title = '*STAT154——what really becomes "my thing"'
 isCJKLanguage = true
 math = true
+categories = ['Course Notes']
 +++
 
 

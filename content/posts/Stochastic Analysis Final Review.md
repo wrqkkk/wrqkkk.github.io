@@ -4,6 +4,7 @@ draft = false
 title = 'Stochastic Analysis Final Review'
 isCJKLanguage = true
 math = true
+categories = ['Course Notes']
 +++
 
 金融随机分析期末复习

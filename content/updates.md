@@ -16,20 +16,21 @@ This page records what I am currently updating, what I plan to work on next, and
 
 | Article | Created | Progress | Expected completion |
 |---|---:|---|---:|
-| [Stochastic Analysis Final Review]({{< relref "posts/Stochastic Analysis Final Review.md" >}}) | 6/4/26 | Formula cleanup completed; review structure in progress | 6/26 |
-| [随机过程的 intuition]({{< relref "posts/随机过程的intuition.md" >}}) | 6/6/26 | Conceptual review note; cross-linking pending | 7/26 |
-| Research project notes | 6/26 | Project summaries in progress | 7/26 |
-| Application preparation notes | 6/26 | CV / research statement fragments being organized | 8/26 |
+| [Stochastic Analysis Final Review]({{< relref "posts/Stochastic Analysis Final Review.md" >}}) | 26/6/4 | Formula cleanup completed; review structure in progress | 26/6/20 |
+| [随机过程的 intuition]({{< relref "posts/随机过程的intuition.md" >}}) | 26/6/6 | Conceptual review note; cross-linking pending | 26/7/1 |
+| Research project notes | 26/6/12 | Project summaries in progress | 26/8/31 |
+| Application preparation notes | 26/6/12 | timeline and tables | 26/8/31|
 
 ---
 
 ## Plan
 
-| Topic / area | Type | Planned output | Priority | Next step |
+| Topic | Type | Planned output | Priority | Next step |
 |---|---|---|---|---|
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
+| RG's thought | academic idol | reading notes | 6/10 | 梳理框架 |
+| 运动解剖 | self-interest | 专题文章 | stable updates per two weeks | 整理训练计划 |
+| Marxism | self-interest | 专题文章 |  stable updates per two weeks | 《资本论》 |
+| STAT154 | lecture notes | lecture notes | 3/10 | 整理资料 |
 
 ---
 

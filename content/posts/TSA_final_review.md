@@ -4,6 +4,7 @@ draft = false
 title = 'TSA final review notes'
 isCJKLanguage = true
 math = true
+categories = ['Course Notes']
 +++
 
 
