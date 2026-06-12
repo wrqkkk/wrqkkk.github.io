@@ -77,6 +77,11 @@ buildExpired = false
   weight = 10
 
 [[menu.main]]
+  name = "Updates"
+  url = "/updates/"
+  weight = 15
+
+[[menu.main]]
   name = "Search"
   url = "/search/"
   weight = 20
