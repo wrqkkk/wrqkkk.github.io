@@ -7,6 +7,14 @@ math = true
 categories = ['Course Notes']
 +++
 
+# 更新计划
+
+- 6.19-20 review Lec1-3
+- 6.21-22 review Lec4-8
+- 6.23-25 review Lec9-12
+- 6.26-30 review Lec13-15
+- 7.1-10 review Lec15-18
+- 7.10-7.20 review Lec19-23
 
 # Lecture 1: Basic Objects of Time Series
 

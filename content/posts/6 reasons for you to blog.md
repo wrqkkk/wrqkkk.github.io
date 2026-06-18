@@ -23,7 +23,13 @@ Typing word by word is becoming more and more scarce in this modern era. It seem
 
 
 
+## Stay enthusiastic
 
+Daily checking and taking notes could remind you of what you've been doing and where you've been. 
+
+## 量变引起质变
+
+Repeat could make a difference. Even if you only type the same understanding down each time, some time later, things change in your deeper mind and your understanding would be refreshed. Might be because the combination of information leads to some chemical interactions.
 
 
 
