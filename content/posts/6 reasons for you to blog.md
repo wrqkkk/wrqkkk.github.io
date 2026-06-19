@@ -1,7 +1,7 @@
 +++
 date = '2026-06-12T16:00:00+08:00'
 draft = false
-title = '6 reasons for you to blog.md'
+title = '6 reasons for you to blog'
 isCJKLanguage = true
 math = true
 +++
@@ -29,7 +29,7 @@ Daily checking and taking notes could remind you of what you've been doing and w
 
 ## 量变引起质变
 
-Repeat could make a difference. Even if you only type the same understanding down each time, some time later, things change in your deeper mind and your understanding would be refreshed. Might be because the combination of information leads to some chemical interactions.
+Repeat could make a difference. Even if you only type the same understanding down each time, some time later, things change in your deeper mind and your understanding would be refreshed. Might be because the combination of information leads to some chemical interactions deep in our head.
 
 
 
