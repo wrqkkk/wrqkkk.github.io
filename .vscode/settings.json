@@ -1,5 +1,5 @@
 {
     "markdown.copyFiles.destination": {
-        "content/posts/**/*": "${workspaceRoot}/assets/imgs/${fileName}"
+        "content/posts/**/*": "${workspaceRoot}/static/imgs/${documentBaseName}-${fileName}"
     }
 }
