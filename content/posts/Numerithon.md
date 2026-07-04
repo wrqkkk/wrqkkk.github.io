@@ -292,11 +292,11 @@ $$\int_a^b f(x)dx=(b-a)f(\xi), \xi \in (a,b)$$
 - **中矩形公式**
   用中点处的函数来近似：
 
-  ![alt text](../../assets/imgs/numerithon1.png)
+  ![alt text](/imgs/numerithon1.png)
 - **梯形公式**
   用端点函数值的平均值来近似：
 
-  ![alt text](../../assets/imgs/numerithon2.png)
+  ![alt text](/imgs/numerithon2.png)
 - **插值型求积公式**
   用简单函数逼近被积函数 $f(x)$，然后用这个更简单的逼近函数的积分来近似表示 $f(x)$
 
@@ -329,7 +329,7 @@ $$C_k^{(n)}=1$$
 
 
 
-![alt text](../../assets/imgs/numerithon3.png)
+![alt text](/hon3.png)
 
 
 ### **Newton-Cotes**求积公式的余项
@@ -337,7 +337,7 @@ $$C_k^{(n)}=1$$
 几种公式的余项也要关注一下：
 
 
-![alt text](../../assets/imgs/numerithon4.png)
+![alt text](/imgs/numerithon4.png)
 
 
 ### 代数精度的定义
@@ -374,9 +374,9 @@ $$C_k^{(n)}=1$$
 
 由于计算机有舍入误差，我们在算 $f(x_k)$ 的时候又要讨论一下这一块会给我们的计算带来的误差，如果 Cotes 系数 $C_k^{(n)}$ 都是正数无所谓，因为和为1；但如果有正有负，那么这个误差限可能会很大，可以见后的 Cotes 系数表。
 
-![alt text](../../assets/imgs/numerithon5.png)
+![alt text](/imgs/numerithon5.png)
 
-![alt text](../../assets/imgs/numerithon6.png)
+![alt text](/imgs/numerithon6.png)
 
 
 这里舍入误差可以回去看一下浮点数系 $F(10,4,-90,90)$
@@ -397,7 +397,7 @@ $$C_k^{(n)}=1$$
 
 
 
-![alt text](../../assets/imgs/numerithon7.png)
+![alt text](/imgs/numerithon7.png)
 
 
 

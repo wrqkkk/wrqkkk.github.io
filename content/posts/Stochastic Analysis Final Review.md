@@ -259,7 +259,7 @@ X^{-1}((-\infty,x])
 然后左右两个集合的相等可以通过证明它们都是对方的子集进行证明，其中一个方向很显然，另一个方向需要用讨论有理点逼近无理点的技巧进行证明，先固定 $s$，后移动 $t+\frac{1}{n}$。
 
 
-![alt text](../../assets/imgs/continuity.jpg)
+![alt text](/imgs/continuity.jpg)
 
 
 

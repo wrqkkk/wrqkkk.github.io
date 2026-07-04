@@ -10,7 +10,6 @@ buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-# 让 Markdown 更像“写笔记”
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -53,14 +52,23 @@ buildExpired = false
   hideSummary = false
 
   # 首页模式：个人主页风格（你也可以换成纯列表）
+  # [params.profileMode]
+  #  enabled = true
+  #  title = "wrqkkk"
+  #  subtitle = "Math / Stats / ML notes"
+  #  imageUrl = ""
+  #  imageTitle = ""
+  #  imageWidth = 120
+  #  imageHeight = 120
+
   [params.profileMode]
     enabled = true
-    title = "wrqkkk"
-    subtitle = "Math / Stats / ML notes"
-    imageUrl = ""
-    imageTitle = ""
-    imageWidth = 120
-    imageHeight = 120
+    title = "Rockkie Wang"
+    subtitle = "Undergraduate student in Applied Mathematics at SUFE."
+    imageUrl = "/images/avatar.jpg"
+    imageTitle = "Rockkie Wang"
+    imageWidth = 140
+    imageHeight = 160
 
   [[params.socialIcons]]
     name = "github"
