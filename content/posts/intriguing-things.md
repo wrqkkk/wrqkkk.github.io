@@ -18,12 +18,4 @@ math = true
 
 ![alt text](/imgs/Intriguing Things-image.png)
 
-
-
 也就是说这种衡量“收敛”，是在衡量离散程度的
-
-
-
-
-
-## 
