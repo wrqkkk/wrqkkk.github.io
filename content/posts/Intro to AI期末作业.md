@@ -1,7 +1,7 @@
 +++
 date = '2026-07-04T00:20:00+08:00'
 draft = false
-title = 'AI时代的学习范式'
+title = 'Intro to AI期末作业'
 isCJKLanguage = true
 math = true
 +++
@@ -10,8 +10,6 @@ math = true
 
 
 # Ideas
-
-
 ## 维护工作/思考框架
 我们应该维护自己的框架，也就是说，稳定工作、生活的流程，当我们需要看一篇论文的时候，也许方式是多样、多变的，但评价标准是具有某种粘性的，尤其是针对高难度、多阶段的复杂任务，这些任务或许AI能完成、能完成得不错（相对原来人工质量的60/80/100/200分），但不代表我们要完全让出“思考的权利”，放弃“思考的义务”，正相反，我们需要思考的事情更多了，除了原来需要完成的任务以外，我们还要思考，人类在其中扮演的角色是什么？还要思考：
 
@@ -35,6 +33,31 @@ math = true
 > - [The effects of over-reliance on AI dialogue systems on students’ cognitive abilities: a systematic review](https://www.semanticscholar.org/paper/The-effects-of-over-reliance-on-AI-dialogue-systems-Zhai-Wibowo/81e8666325b02b1287d4fdcf33232c74e7144f9a)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 机械化趋同： Mechanised Convergence: The Homogenising Effect of AI on Intention
+
+这种 convergence 是可以 mathematically 被定义并证明的吗？
+![alt text](<static/imgs/Intro to AI期末作业-image.png>)
+
+
+
+
+
+
+
 ## 如何让AI产出稳定的结果
 
 
@@ -45,6 +68,62 @@ math = true
 
 
 ## Neural Network和人类大脑的相似性，CNN的尝试，Transformer的尝试。
+
+
+
+
+
+
+
+
+
+
+
+# 正文
+
+
+## 目录
+
+- 本文档的思路总结，大概是心路历程的一段前言
+- 学术探索，关于Transformer
+- Agent 探索，以及产出的笔记等等成果
+- 关于AI时代的思考
+
+
+
+
+## 前言
+
+上大学之后会发现，原来世界上不止语数英物化生史地政这9个学科，每个领域用他们的语言在讲述着这个世界，人与人之间的联系，物与物之间的联系，很有意思的是，我对“语言”这一概念的内涵和外延的理解在不断变得丰富。
+
+
+### 人与人之间的语言
+
+关于其他外语：小学在外国语学校，先是浅尝了一点点法语——只是囫囵吞枣，姑且记得 bonjour 和一首小曲《Je m'appelle Hélène》，还有r读起来像嗓子里有东西要咯出来，至于语言的美，那是一点也没感受到的，再后来懵懵懂懂地在“韩流”席卷的时候喜欢了一段时间的kpop，又记了零星几个字眼的韩语；初中曹老师给我们分享她特别喜欢的德语词——zugluft，穿堂风，并告诉我们德语的语法特别复杂，阴性阳性难以分辨，这些时至今日我仍然记得——后来23年在家里实在无聊，想起哲学典籍多用德语撰写这一事，又心血来潮打卡了一个月的 duolingo 德语课程。好像就此结束了，其实在大学还有二外的学分，可以选很多外语课程，但架不住主业的工作量实在庞大，而英语的优势又难以放弃，难免兴致缺缺了。
+
+陪伴我最久的还是英语。高中时，在Shel的点拨和指引下，我开始真正把英语当作一门语言来品味和欣赏，去学习另外一个文化表达情感，描绘世界的方式——这非常有意思！在品尝另一门语言韵味的同时，我也一遍遍在领悟中文的美。分享许渊冲先生的译作：
+
+
+> “寻寻觅觅，冷冷清清，凄凄惨惨戚戚”
+> 
+> “I look for what I miss, I know not what it is”
+
+我们在语文课堂上认识了这句诗，听了肖老师给我们放的古汉语版本的音频；又在英语课堂上认识了许渊冲，从英语的视角，品味这句在诗顿挫中传递出的情感与美。那一刻，时空好像真的可以折叠，原文、译文和我们，处在了宇宙中的同一个位置。
+
+
+### 人与机器之间的语言
+
+上了大学，我们开始学习“编程语言”，以前我从未思考过：
+- “语言”这个概念的边界是什么
+- 为什么“编程语言”可以被称之为语言
+  
+我读到了关于编程（Programing）的一个很有意思的定义，来自Blackwell：
+
+> any activity exhibiting the property “that the user is not directly manipulating observable things, but specifying behaviour to occur at some future time” 
+> （Blackwell, A. F. (2002). What is programming? In PPIG (Vol. 14, pp. 204–218).
+>
+
+
 
 
 
