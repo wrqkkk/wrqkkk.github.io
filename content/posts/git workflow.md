@@ -354,6 +354,139 @@ git pull origin main --rebase
 git push -u origin main
 ```
 
+
+---
+
+# Scenario 3.5：新项目先用开发分支，稳定后再 PR 合并到 main
+
+这个流程适合代码还没完全确定的新项目。以 `wrqkkk/werewolf-assistant` 为例，分支可以这样固定：
+
+```text
+main = 稳定版本 / 最终交作业版本
+init-werewolf-v1 = 第一版开发分支
+````
+
+## 情况 A：远端已经有开发分支
+
+先克隆仓库或进入本地仓库：
+
+```powershell
+cd D:\githubmyprojects
+git clone git@github.com:wrqkkk/werewolf-assistant.git
+cd werewolf-assistant
+```
+
+拉取远端分支信息：
+
+```powershell
+git fetch origin
+```
+
+切到开发分支：
+
+```powershell
+git switch init-werewolf-v1
+```
+
+确认当前分支：
+
+```powershell
+git branch --show-current
+```
+
+如果输出是：
+
+```text
+init-werewolf-v1
+```
+
+说明你已经在正确的开发分支上。
+
+之后所有 v1 开发都在这个分支上完成：
+
+```powershell
+git status
+git add .
+git commit -m "Update werewolf assistant v1"
+git push
+```
+
+## 情况 B：远端还没有开发分支
+
+先确保本地 main 是最新的：
+
+```powershell
+git switch main
+git pull origin main --rebase
+```
+
+创建开发分支：
+
+```powershell
+git switch -c init-werewolf-v1
+```
+
+第一次推送并建立追踪关系：
+
+```powershell
+git push -u origin init-werewolf-v1
+```
+
+之后就可以直接：
+
+```powershell
+git push
+```
+
+## 情况 C：在 GitHub 上开 PR
+
+当开发分支已经能运行、README 和代码基本对齐后，在 GitHub 页面开 Pull Request：
+
+```text
+base: main
+compare: init-werewolf-v1
+```
+
+PR 标题可以写：
+
+```text
+Initialize Werewolf Knowledge Representation Assistant v1
+```
+
+PR 描述可以写清楚：
+
+```text
+- Add static HTML/CSS/JS demo.
+- Add fact model and rule base.
+- Add forward chaining inference engine.
+- Add default case for Seer conflict.
+- Add README and rulebase design notes.
+```
+
+## 情况 D：PR 合并后本地同步
+
+PR merge 到 `main` 后，本地回到 main 并拉取最新版本：
+
+```powershell
+git switch main
+git pull origin main
+```
+
+如果开发分支已经不需要，可以删除本地分支：
+
+```powershell
+git branch -d init-werewolf-v1
+```
+
+如果远端开发分支也不需要了，可以删除远端分支：
+
+```powershell
+git push origin --delete init-werewolf-v1
+```
+
+对于还要继续迭代的项目，也可以保留开发分支，后续继续从它或从最新 main 新建 `v2` 分支。
+
+
 ---
 
 # Scenario 4：push 不成功或 Actions / Pages 出问题，怎么排查
