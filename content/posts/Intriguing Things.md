@@ -17,7 +17,6 @@ math = true
 
 
 ![alt text](/imgs/Intriguing Things-image.png)
-![alt text](/imgs/image.png)
 
 
 
