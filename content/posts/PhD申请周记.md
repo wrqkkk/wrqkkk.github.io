@@ -25,3 +25,21 @@ math = true
 
 tag: reading
 Intention is all you need,昨天开了个头,今天继续看.
+
+
+
+
+## 0713
+
+tag: report
+
+一晃就是一周，好快。。。这两天希望整理一下自己做的实验到github，梳理清楚代码传过去。
+
+
+准备明天和后天的report中，对于自己的项目要有主人公意识。
+
+
+明天report要和潘老师讨论cv的事情。
+
+
+

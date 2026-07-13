@@ -1,7 +1,7 @@
 +++
 date = '2026-04-18T16:40:00+08:00'
 draft = false
-title = 'prediction prevails'
+title = 'Prediction prevails'
 isCJKLanguage = true
 math = true
 +++

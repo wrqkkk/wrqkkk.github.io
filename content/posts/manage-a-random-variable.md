@@ -435,6 +435,288 @@ N_{i,t}(x) = \beta_P M_i\Delta P_{i,t}(x) + \beta_D D_{i,t}(x) + \beta_S S_{i,t}
 
 ---
 
+## 3. Design Properties
+
+### Anti-stagnation property
+
+对于项目 \(i\)，定义允许的最大连续未激活时间为
+
+\[
+g_i^{\max}.
+\]
+
+设
+
+\[
+p_{i,t}
+\]
+
+表示项目 \(i\) 在时刻 \(t\) 的优先级，而
+
+\[
+p_0
+\]
+
+表示需要受到反停滞保护的最低优先级阈值。
+
+进一步定义项目显式暂停状态：
+
+\[
+Z_{i,t}^{\mathrm{pause}}
+\in
+\{0,1\},
+\]
+
+其中
+
+\[
+Z_{i,t}^{\mathrm{pause}} = \begin{cases}
+1, & \text{项目 } i \text{ 在时刻 } t \text{ 被显式暂停},\\
+0, & \text{否则}.
+\end{cases}
+\]
+
+则反停滞设计性质可以写为：
+
+\[
+p_{i,t}\geq p_0
+\quad\land\quad
+Z_{i,t}^{\mathrm{pause}}=0
+\quad\Longrightarrow\quad
+g_{i,t}\leq g_i^{\max}.
+\]
+
+该条件目前应理解为 design property，而不是已经得到数学证明的 theorem。
+
+---
+
+### Time-budget constraint
+
+设
+
+\[
+B_t^T
+\]
+
+为时刻 \(t\) 可用于项目执行的时间预算。
+
+则系统应满足
+
+\[
+\sum_{i\in\mathcal I}
+T_{i,t}(x_{i,t})
+\leq
+B_t^T.
+\]
+
+---
+
+### Attention-budget constraint
+
+设
+
+\[
+B_t^A
+\]
+
+为时刻 \(t\) 可用于项目执行的注意力预算。
+
+则系统可以考虑满足
+
+\[
+\sum_{i\in\mathcal I}
+A_{i,t}(x_{i,t})
+\leq
+B_t^A.
+\]
+
+该约束目前属于操作性模型设定，不应直接解释为大脑具有严格固定、可精确加总的注意力资源。
+
+---
+
+### High-attention-task constraint
+
+设
+
+\[
+a^\star
+\]
+
+为高注意力任务阈值。
+
+定义
+
+\[
+h_{i,t}(x) = \mathbf 1
+\left\{
+A_{i,t}(x)\geq a^\star
+\right\}.
+\]
+
+进一步设
+
+\[
+H_t
+\]
+
+为时刻 \(t\) 最多能够承担的高注意力任务数量。
+
+则可以施加约束
+
+\[
+\sum_{i\in\mathcal I}
+h_{i,t}(x_{i,t})z_{i,t}
+\leq
+H_t.
+\]
+
+该设计性质对应一个现实观察：某些高投入任务不仅消耗时间，还要求长时间维持较高水平的注意力，因此一天之内能够真正承担的此类任务数量可能有限。
+
+---
+
+## 4. Propositions, Theorems, and Testable Conjectures
+
+### Continuity-decay hypothesis
+
+第一版可以考虑以下候选模型：
+
+\[
+\kappa_{i,t} = e^{-\lambda_i g_{i,t}},
+\]
+
+其中
+
+\[
+\lambda_i>0.
+\]
+
+该模型表示项目执行连续性随着连续未激活时间增加而衰减。
+
+这是一个候选数学模型，不是已经验证的经验事实。
+
+---
+
+### Restart-cost growth hypothesis
+
+可以提出以下经验假说：
+
+\[
+K_i(g) = K_{i,0} + \alpha_i g^{q_i},
+\]
+
+其中
+
+\[
+\alpha_i>0,
+\qquad
+q_i>1.
+\]
+
+该假说表示随着连续未激活时间 \(g\) 增加，项目启动成本凸增长。
+
+该关系必须通过真实数据检验。
+
+---
+
+### Proposition: restart cost as a function of execution continuity
+
+在假设
+
+\[
+\kappa_i = e^{-\lambda_i g}
+\]
+
+与
+
+\[
+K_i(g) = K_{i,0} + \alpha_i g^{q_i}
+\]
+
+同时成立时，有
+
+\[
+g = -\frac{\ln\kappa_i}{\lambda_i}.
+\]
+
+因此，
+
+\[
+K_i(\kappa_i) = K_{i,0} + \alpha_i
+\left(
+-\frac{\ln\kappa_i}{\lambda_i}
+\right)^{q_i}.
+\]
+
+由此可以得到，在当前模型假设成立时，
+
+\[
+\frac{dK_i(\kappa_i)}{d\kappa_i}<0.
+\]
+
+因此，较低的执行连续性对应较高的启动成本。
+
+需要强调的是，这一结论是条件命题。它依赖于前述连续性衰减模型和启动成本增长模型成立。
+
+---
+
+### Critical continuity threshold
+
+设
+
+\[
+K_i^{\max}
+\]
+
+为项目 \(i\) 可接受的最大启动成本。
+
+定义临界连续性阈值
+
+\[
+\kappa_i^\star
+\]
+
+使得
+
+\[
+K_i(\kappa_i^\star) = K_i^{\max}.
+\]
+
+代入前述模型，有
+
+\[
+\kappa_i^\star
+= \exp
+\left[
+-\lambda_i
+\left(
+\frac{K_i^{\max}-K_{i,0}}
+{\alpha_i}
+\right)^{1/q_i}
+\right].
+\]
+
+因此，在上述模型假设成立的条件下，
+
+\[
+\kappa_{i,t}<\kappa_i^\star
+\]
+
+意味着项目 \(i\) 的预期启动成本超过可接受阈值
+
+\[
+K_i^{\max}.
+\]
+
+这一结果给出了一个形式化版本的问题：
+
+当执行连续性下降到什么程度时，项目启动成本会超过某个可接受水平？
+
+然而，\(\lambda_i\)、\(\alpha_i\)、\(q_i\)、\(K_{i,0}\) 与 \(K_i^{\max}\) 的具体数值仍需要通过个人长期数据和 N-of-1 实验进一步估计。
+---
+
+
+
+
 ---
 
 ## 附录 现实问题对应理论模型：
