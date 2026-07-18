@@ -12,7 +12,7 @@ Inspired by marathon/hackathon.
 
 实在是没时间了，快速搞定final。
 
-
+有点失败，考得差强人意，只能说没有不及格吧。
 
 
 # Stage1 Concept Map（预估30min，实际特别久吧我也不记得了再统计一下min）
