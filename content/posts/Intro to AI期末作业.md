@@ -1,6 +1,6 @@
 +++
 date = '2026-07-04T00:20:00+08:00'
-draft = false
+draft = true
 title = 'Intro to AI期末作业'
 isCJKLanguage = true
 math = true
