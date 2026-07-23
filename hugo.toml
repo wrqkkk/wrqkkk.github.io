@@ -26,14 +26,19 @@ buildExpired = false
     guessSyntax = true
     lineNos = true
 
-# 站点输出：HTML + RSS + 搜索索引 JSON（PaperMod search 会用到）
+# Keep public post URLs stable when source files move between lifecycle folders.
+[permalinks]
+  [permalinks.page]
+    posts = '/posts/:slugorcontentbasename/'
+
+# Site outputs: HTML + RSS + the JSON index used by PaperMod search.
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
 [params]
   env = "production"
   description = "Notes on math / stats / ML"
-  defaultTheme = "auto"     # auto / light / dark
+  defaultTheme = "auto"
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
@@ -44,22 +49,11 @@ buildExpired = false
   ShowToc = true
   TocOpen = true
 
-  # PaperMod 常用功能
   disableSpecial1stPost = false
   disableScrollToTop = false
   comments = false
   hidemeta = false
   hideSummary = false
-
-  # 首页模式：个人主页风格（你也可以换成纯列表）
-  # [params.profileMode]
-  #  enabled = true
-  #  title = "wrqkkk"
-  #  subtitle = "Math / Stats / ML notes"
-  #  imageUrl = ""
-  #  imageTitle = ""
-  #  imageWidth = 120
-  #  imageHeight = 120
 
   [params.profileMode]
     enabled = true
@@ -78,7 +72,6 @@ buildExpired = false
     name = "rss"
     url = "/index.xml"
 
-# 顶部菜单
 [[menu.main]]
   name = "Posts"
   url = "/posts/"
