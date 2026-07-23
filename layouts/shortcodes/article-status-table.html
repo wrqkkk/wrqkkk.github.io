@@ -27,8 +27,9 @@
 </div>
 
 {{- range $groups -}}
-  {{- $pages := sort ($scratch.Get .key) "Title" -}}
-  <h2 id="{{ .key }}">{{ .label }}</h2>
+  {{- $group := . -}}
+  {{- $pages := sort ($scratch.Get $group.key) "Title" -}}
+  <h2 id="{{ $group.key }}">{{ $group.label }}</h2>
   {{- if $pages -}}
     <div class="article-status-table">
       <table>
@@ -45,7 +46,7 @@
           {{- range $pages -}}
             <tr>
               <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-              <td>{{ index (dict "updating" "Updating" "paused" "Paused" "finished" "Finished") $.key }}</td>
+              <td>{{ $group.label }}</td>
               <td>{{ with .Params.categories }}{{ delimit . ", " }}{{ else }}—{{ end }}</td>
               <td>{{ with .Params.update_note }}{{ . }}{{ else }}—{{ end }}</td>
               <td>{{ with .Params.next_step }}{{ . }}{{ else }}—{{ end }}</td>
