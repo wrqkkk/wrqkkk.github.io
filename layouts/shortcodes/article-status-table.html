@@ -1,0 +1,60 @@
+{{- $groups := slice
+  (dict "key" "updating" "label" "Updating")
+  (dict "key" "paused" "label" "Paused")
+  (dict "key" "finished" "label" "Finished")
+-}}
+{{- $scratch := newScratch -}}
+{{- range $groups -}}
+  {{- $scratch.Set .key (slice) -}}
+{{- end -}}
+
+{{- range where .Site.RegularPages "Section" "posts" -}}
+  {{- $dir := replace .File.Dir "\\" "/" -}}
+  {{- if in $dir "posts/updating/" -}}
+    {{- $scratch.Add "updating" (slice .) -}}
+  {{- else if in $dir "posts/paused/" -}}
+    {{- $scratch.Add "paused" (slice .) -}}
+  {{- else if in $dir "posts/finished/" -}}
+    {{- $scratch.Add "finished" (slice .) -}}
+  {{- end -}}
+{{- end -}}
+
+<div class="article-status-summary">
+  {{- range $groups -}}
+    {{- $pages := $scratch.Get .key -}}
+    <span><strong>{{ .label }}:</strong> {{ len $pages }}</span>
+  {{- end -}}
+</div>
+
+{{- range $groups -}}
+  {{- $pages := sort ($scratch.Get .key) "Title" -}}
+  <h2 id="{{ .key }}">{{ .label }}</h2>
+  {{- if $pages -}}
+    <div class="article-status-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Article</th>
+            <th>Status</th>
+            <th>Category</th>
+            <th>My note</th>
+            <th>Next step</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{- range $pages -}}
+            <tr>
+              <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+              <td>{{ index (dict "updating" "Updating" "paused" "Paused" "finished" "Finished") $.key }}</td>
+              <td>{{ with .Params.categories }}{{ delimit . ", " }}{{ else }}—{{ end }}</td>
+              <td>{{ with .Params.update_note }}{{ . }}{{ else }}—{{ end }}</td>
+              <td>{{ with .Params.next_step }}{{ . }}{{ else }}—{{ end }}</td>
+            </tr>
+          {{- end -}}
+        </tbody>
+      </table>
+    </div>
+  {{- else -}}
+    <p><em>No articles in this state.</em></p>
+  {{- end -}}
+{{- end -}}
