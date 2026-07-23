@@ -8,18 +8,13 @@ math = true
 
 # Updates
 
-This page records what I am currently updating, what I plan to work on next, and what has recently been completed on this site.
+This page records the current lifecycle of the articles on this site, what I plan to work on next, and what has recently changed.
 
----
+## Article Dashboard
 
-## Now
+Article status is determined by the source folder. Move a Markdown file between `updating`, `paused`, and `finished` to change its status.
 
-| Article | Created | Progress | Expected completion |
-|---|---:|---|---:|
-| [Stochastic Analysis Final Review]({{< relref "posts/Stochastic Analysis Final Review.md" >}}) | 26/6/4 | Formula cleanup completed; review structure in progress | 26/7/25 |
-| [随机过程的 intuition]({{< relref "posts/随机过程的intuition.md" >}}) | 26/6/6 | Conceptual review note; cross-linking pending | 26/7/1 |
-| Research project notes | 26/6/12 | Project summaries in progress | 26/8/31 |
-| Application preparation notes | 26/6/12 | timeline and tables | 26/8/31|
+{{< article-status-table >}}
 
 ---
 
@@ -32,7 +27,7 @@ This page records what I am currently updating, what I plan to work on next, and
 | Nan Chen's articles | academic reading | reading notes | 8/10 | 整理学习笔记 |
 | Ryan Giordano's articles | academic reading | reading notes | 6/10 | 梳理框架 |
 | 运动解剖 | self-interest | 专题文章 | stable updates per two weeks | 整理训练计划 |
-| Marxism | self-interest | 专题文章 |  stable updates per two weeks | 《资本论》 |
+| Marxism | self-interest | 专题文章 | stable updates per two weeks | 《资本论》 |
 | STAT154 | lecture notes | lecture notes | 3/10 | 整理资料 |
 | Information Theory | academic reading | reading notes | 7/10 | 整理学习笔记 |
 | Online Learning | academic reading | reading notes | 5/10 | 整理学习笔记 |
