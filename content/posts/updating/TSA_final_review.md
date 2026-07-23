@@ -7,9 +7,11 @@ math = true
 categories = ['Course Notes']
 +++
 
-# 更新计划
+# 更新计划（暂停）
 
-- 6.19-20 review Lec1-3
+0722更新：复习线性代数，之后再回来看。
+
+- 6.19-20 review Lec1-3（done）
 - 6.21-22 review Lec4-8
 - 6.23-25 review Lec9-12
 - 6.26-30 review Lec13-15
