@@ -1,15 +1,13 @@
 {{- $u := urls.Parse .Destination -}}
 {{- $src := $u.String -}}
 {{- if not $u.IsAbs -}}
-  {{- $path := strings.TrimPrefix "./" $u.Path }}
+  {{- $path := strings.TrimPrefix "./" $u.Path -}}
+  {{- $path = replaceRE `^(?:\.\./)+` "" $path -}}
+  {{- $path = strings.TrimPrefix "/" $path -}}
   {{- $staticPath := "" -}}
 
-  {{- /* 兼容 VS Code / Trae 粘贴图片到 static 目录后生成的本地相对路径 */ -}}
-  {{- if strings.HasPrefix $path "../../static/" -}}
-    {{- $staticPath = strings.TrimPrefix "../../static/" $path -}}
-  {{- else if strings.HasPrefix $path "/static/" -}}
-    {{- $staticPath = strings.TrimPrefix "/static/" $path -}}
-  {{- else if strings.HasPrefix $path "static/" -}}
+  {{- /* Support pasted images from any nested content directory. */ -}}
+  {{- if strings.HasPrefix $path "static/" -}}
     {{- $staticPath = strings.TrimPrefix "static/" $path -}}
   {{- end -}}
 
@@ -22,12 +20,8 @@
       {{- $src = printf "%s#%s" $src . -}}
     {{- end -}}
   {{- else -}}
-    {{- /* 兼容旧版 assets/imgs 工作流：../../assets/imgs/foo.png -> assets 资源管线 */ -}}
-    {{- if strings.HasPrefix $path "../../assets/" -}}
-      {{- $path = strings.TrimPrefix "../../assets/" $path -}}
-    {{- else if strings.HasPrefix $path "/assets/" -}}
-      {{- $path = strings.TrimPrefix "/assets/" $path -}}
-    {{- else if strings.HasPrefix $path "assets/" -}}
+    {{- /* Preserve the legacy assets/imgs resource-pipeline workflow. */ -}}
+    {{- if strings.HasPrefix $path "assets/" -}}
       {{- $path = strings.TrimPrefix "assets/" $path -}}
     {{- end -}}
 
