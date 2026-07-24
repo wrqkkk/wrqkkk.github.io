@@ -38,8 +38,8 @@ git mv "content/posts/updating/article-name.md" \
 ```
 
 ```bash
-git mv "content/posts/paused/article-name.md" \
-  "content/posts/updating/article-name.md"
+git mv "\content/posts/updating/What-to-do-when-waiting-for-agents.md" \
+  "content/posts/paused/What-to-do-when-waiting-for-agents.md"
 ```
 
 Public post URLs remain stable because Hugo permalinks ignore the lifecycle folder.
