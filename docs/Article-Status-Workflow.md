@@ -28,18 +28,15 @@ New articles are drafts by default.
 Use `git mv` so Git can track the rename.
 
 ```bash
-git mv "content/posts/updating/article-name.md" \
-  "content/posts/finished/article-name.md"
+git mv "content/posts/updating/article-name.md" "content/posts/finished/article-name.md"
 ```
 
 ```bash
-git mv "content/posts/updating/article-name.md" \
-  "content/posts/paused/article-name.md"
+git mv "content/posts/updating/article-name.md" "content/posts/paused/article-name.md"
 ```
 
 ```bash
-git mv "\content/posts/updating/What-to-do-when-waiting-for-agents.md" \
-  "content/posts/paused/What-to-do-when-waiting-for-agents.md"
+git mv "content/posts/updating/What-to-do-when-waiting-for-agents.md" "content/posts/paused/What-to-do-when-waiting-for-agents.md"
 ```
 
 Public post URLs remain stable because Hugo permalinks ignore the lifecycle folder.

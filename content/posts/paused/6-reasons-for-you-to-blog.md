@@ -1,7 +1,7 @@
 +++
 date = '2026-06-12T16:00:00+08:00'
 draft = false
-title = '6 reasons for you to blog'
+title = '6 reasons for you to blog（4/6）'
 isCJKLanguage = true
 math = true
 +++
