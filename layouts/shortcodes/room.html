@@ -1,0 +1,7 @@
+{{- $source := readFile "assets/room/room-source.html" -}}
+{{- $parts := split $source "+++" -}}
+{{- if ge (len $parts) 3 -}}
+  {{- index $parts 2 | safeHTML -}}
+{{- else -}}
+  {{- errorf "The interactive room source is missing its expected TOML front matter boundary." -}}
+{{- end -}}
