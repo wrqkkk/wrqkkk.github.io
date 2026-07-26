@@ -31,7 +31,6 @@ buildExpired = false
   [permalinks.page]
     posts = '/posts/:slugorcontentbasename/'
 
-# Site outputs: HTML + RSS + the JSON index used by PaperMod search.
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
@@ -81,6 +80,11 @@ buildExpired = false
   name = "Updates"
   url = "/updates/"
   weight = 15
+
+[[menu.main]]
+  name = "Room"
+  url = "/room/"
+  weight = 17
 
 [[menu.main]]
   name = "Search"
