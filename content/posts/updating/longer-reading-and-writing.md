@@ -7,13 +7,20 @@ math = true
 +++
 
 
-#  Motivation
+#  Motivations
 
 
-AI can give us a bunch of words and paragraphs, but to decide what are the core ideas beneath those bulletpoints and how to use them is still unavoidable.
+AI can give us a bunch of words, sentenses and paragraphs, but some steps are still unavoidable for meaningful production -- to decide what core ideas we are taking beyond those discrete bulletpoints, where to collect grounded evidence to support them and hence to make responsible decisions based on them.
 
-I bought a decent plan of tokens, with usage pressure only comes before report deadlines coming.
+I bought a decent plan of tokens, with usage pressure only comes before report deadlines coming -- and I felt it so urgent to make sure that I go through my own reasoning before I gave any prompt to the agent. If you have no idea what you're doing and where you're heading to, how could you expect an optimizing model to find the exact destination for you? Not to mention AI hallucination and sycophancy.
 
+It's easy to say that we should stay alert before using and trusting AI-generated results. But it's unexpectedly harder to follow through on it. Because to spot problems when using the results in a familiar field is easy. But what if we don't even have any idea how to evaluate the outputs in the first place? It is totally absurd to expect us to detect the subtle deviations away from our actual goals in the seemingly reasonable outputs.
+
+ We know that we don't know. We know that we know. We don't know that we know, and we don't know that we don't know... How to clarify where an idea should be placed? How to decide the boundaries where we should stop exploring and the promising directions which worth further pursuing?
+
+![alt text](../../../static/imgs/longer-reading-and-writing-image-1.png)
+
+These challenges are why I'm starting this column. I want to manually read more and write more, which is the most effective approach to protect our work and our mind from being subtly undermined by AI without any awareness.
 
 
 # 10/27/2026
@@ -22,18 +29,18 @@ I bought a decent plan of tokens, with usage pressure only comes before report d
 
 > There is no way to write a six-page, narratively structured memo and not have clear thinking.
 
-什么是亚马逊的写作文化？在senior team开会的时候，汇报者不被允许用ppt或者bulletpoint来呈现自己的汇报内容，因为Bezos认为虽然ppt对于制作者而言是更容易组织的（why？），但是对于recipients来说，比起一份well-written document，听取一场ppt演讲会让听众更加容易错过重要的ideas和信息。因此，在一场1小时会议中，演讲者会带上打印稿分发给大家，前半个小时所有人阅读这份memo，在打印稿上作标注；后半个小时等到大家都掌握了足够的信息后，会议才针对议题展开讨论。
+什么是亚马逊的写作文化？在senior team开会的时候，汇报者不被允许用ppt或者bulletpoint来呈现自己的汇报内容，因为Bezos认为虽然ppt对于制作者而言是更容易组织的（why？因为华丽的包装和数据、图表比起靠谱的文字更加容易产出和说服audience？），但是对于recipients来说，比起听取一场ppt演讲，一份well-written document能让它们更容易抓住重要的ideas和信息（因为过滤掉了浮华的装饰只剩下最核心的idea？）。因此，在一场1小时会议中，演讲者会带上打印稿分发给大家，前半个小时所有人阅读这份memo，在打印稿上作标注；后半个小时等到大家都掌握了足够的信息后，会议才针对议题展开讨论。
 
 > A senior engineer in my community told me that he has started tagging documents as “AI;DR.” AI; didn’t read. In his view, “If a model wrote it, a model can summarize it.” He had better things to do with his time.
 >
 
-idea是他虽然用AI来总结，“如果AI可以写出这些 '6-pagers'，那么它也可以阅读和总结它们。”但是他还是会给AI总结的文档打上 "AI;Didn't Read" 的字眼。所以说在脑子里对于文件有管理很重要。
+idea是他虽然用AI来总结，“如果AI可以写出这些 '6-pagers'，那么它也可以阅读和总结它们。”但是他还是会给AI总结的文档打上 "AI;Didn't Read" 的字眼。所以说在脑子里对于文件有着清晰的管理原则是很重要，有tag这一流程后，文件的可靠性是可以进一步追溯的——究竟哪些是经过认真阅读和确认的资料，哪些是需要再次确认的内容？
 
 
 
 > But the deeper cost is the trust between colleagues. A document used to be proof of thought. If you handed me six pages, I knew that you had spent significant time with the problem. Therefore, I knew that it would be worthwhile spending my time to understand your thoughts.
 
-然而开弓没有回头箭，问题并不在于回到过去，在于怎样真正让批判性思考回到工作中来：
+然而开弓没有回头箭，问题并不在于我们如何回到过去，而是在于最本质的真问题——在这样的工作生态已经形成了的前提下，怎样真正地让批判性思考回到工作中来：
 
 > These aren’t arguments for going back to a pre-AI era. That ship has sailed. AI is fundamentally changing the workplace, and for better or worse, you cannot simply prohibit its use. No company is going to ban it completely.
 
@@ -43,7 +50,7 @@ idea是他虽然用AI来总结，“如果AI可以写出这些 '6-pagers'，那�
 
 那么该怎么做呢？关于单向门和双向门。
 
-一个决策能否被轻易地回滚，它的犯错成本是不是轻微的，这将决定一件事情能否高度自动化。
+一个决策能否被轻易地回滚，它的犯错成本是不是轻微的，这将决定一件事情能否高度自动化，如果这个决策的成本是轻微的，而且可以被end-to-end地发现和纠正，回滚到正确的方向，那么这个事情就属于一个“双向门”，two-way doors。
 
 更深层次上的理解是，每一个自动化的决策背后都有过深思熟虑的设计。
 
