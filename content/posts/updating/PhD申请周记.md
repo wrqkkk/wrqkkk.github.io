@@ -1,6 +1,6 @@
 +++
 date = '2026-07-04T20:38:00+08:00'
-draft = false
+draft = true
 title = 'PhD申请周记'
 isCJKLanguage = true
 math = true

@@ -1,6 +1,6 @@
 +++
 date = '2026-05-30T20:20:00+08:00'
-draft = false
+draft = true
 title = '20-hour Numerithon'
 isCJKLanguage = true
 math = true
