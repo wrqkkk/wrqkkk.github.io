@@ -10,13 +10,13 @@ math = true
 #  Motivations
 
 
-AI can give us a bunch of words, sentenses and paragraphs, but some steps are still unavoidable for meaningful production -- to decide what core ideas we are taking beyond those discrete bulletpoints, where to collect grounded evidence to support them and hence to make responsible decisions based on them.
+AI can give us a bunch of words, sentenses and paragraphs, but some steps are still unavoidable for meaningful production -- to decide what core ideas we are taking beyond those isolated bullet points, where to collect grounded evidence to support them and hence to make responsible decisions based on them.
 
-I bought a decent plan of tokens, with usage pressure only comes before report deadlines coming -- and I felt it so urgent to make sure that I go through my own reasoning before I gave any prompt to the agent. If you have no idea what you're doing and where you're heading to, how could you expect an optimizing model to find the exact destination for you? Not to mention AI hallucination and sycophancy.
+I bought a moderate usage plan which might not be enough for my projects. But I've found that I rarely  continuously hit the 5-hour usage limit and I only feel pressured by it when report deadlines are approaching -- After a few attempts, I came to realize that I should work through my own reasoning before giving any prompts to the agent. Only then can I make real progress, instead of just letting AI generate piles of unread, useless documents. The real bottleneck is that I'm not taking on enough of the workload myself. -- If we have no idea what we're doing and where we're heading, how could we expect an optimizing model to find the exact destination for us? Not to mention AI hallucination and sycophancy still remain to be considered.
 
 It's easy to say that we should stay alert before using and trusting AI-generated results. But it's unexpectedly harder to follow through on it. Because to spot problems when using the results in a familiar field is easy. But what if we don't even have any idea how to evaluate the outputs in the first place? It is totally absurd to expect us to detect the subtle deviations away from our actual goals in the seemingly reasonable outputs.
 
- We know that we don't know. We know that we know. We don't know that we know, and we don't know that we don't know... How to clarify where an idea should be placed? How to decide the boundaries where we should stop exploring and the promising directions which worth further pursuing?
+ We know that we don't know. We know that we know. We don't know that we know, and we don't know that we don't know... How to clarify where an idea should be placed? How to decide the boundaries where we should stop exploring and the promising directions which are worth further pursuing?
 
 ![alt text](../../../static/imgs/longer-reading-and-writing-image-1.png)
 
