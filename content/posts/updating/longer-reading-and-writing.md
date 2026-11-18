@@ -178,8 +178,6 @@ https://www.aboutamazon.com/news/company-news/amazons-original-1997-letter-to-sh
 
 ## PART A -- Notes structurized in a cheatsheet standard.
 
-
-
 Demand:
 Complete: Like a personal dictionary, arrange concepts and narrations in a comfortable order.
 
